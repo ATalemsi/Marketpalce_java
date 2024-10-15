@@ -1,5 +1,8 @@
 package com.market.marketplace;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -11,6 +14,8 @@ public class Main {
 
     public static void main(String[] args) {
         // JDBC connection details
+        final Logger logger = LoggerFactory.getLogger(Main.class);
+        logger.info("logger test 1");
         String url = "jdbc:postgresql://localhost:5432/marketPlace";
         String user = "postgres";
         String password = "password";
@@ -26,6 +31,7 @@ public class Main {
 
         // Initialize EntityManagerFactory
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("marketPlace");
+        logger.info("entityManagerFactory created");
         EntityManager entityManager = null;
 
         try {

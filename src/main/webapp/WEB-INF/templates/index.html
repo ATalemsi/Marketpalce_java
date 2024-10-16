@@ -13,8 +13,10 @@
 <div th:replace="fragments/header :: header">Header</div>
 <div layout:fragment="content">
 
-    <h1>Welcome to MarketWiz</h1>
-
+    <form action="#" th:action="@{/products/details}" method="post">
+        <input type="hidden" name="productId" value="1" /> <!-- Remplacez 1 par l'ID du projet -->
+        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">View Project Details</button>
+    </form>
 </div>
 </body>
 </html>

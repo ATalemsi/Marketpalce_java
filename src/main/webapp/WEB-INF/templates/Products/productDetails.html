@@ -1,5 +1,17 @@
-<div th:replace="layout/layout :: layout (content='this :: content')">
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
 
+<head>
+  <meta charset="UTF-8">
+  <title>MarketWiz</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body>
+<div th:replace="fragments/header :: header">Header</div>
+<div layout:fragment="content">
   <main  id="content" th:fragment="content" class="container mx-auto px-12 py-8">
     <div class="flex flex-col md:flex-row gap-8">
       <!-- Left column with images -->
@@ -24,12 +36,13 @@
 
       <!-- Right column with product details -->
       <div class="w-full md:w-1/2">
-        <h2 class="text-2xl font-bold mb-2">Havic HV G-92 Gamepad</h2>
+        <h2 class="text-2xl font-bold mb-2" th:text="${product.name}">Product Name</h2>
         <div class="flex items-center gap-4 mb-4">
-          <p class="text-2xl font-bold">$192.00</p>
-          <p class="text-red-500 text-sm">In Stock</p>
+          <p class="text-2xl font-bold" th:text="${product.price}" >$192.00</p>
+          <p class="text-red-500 text-sm" th:if="${product.stock > 0}" >In Stock</p>
+          <p th:unless="${product.stock > 0}" class="text-gray-500 text-sm">Out of Stock</p>
         </div>
-        <p class="mb-6 text-sm">PlayStation 5 Controller skin High quality vinyl with air channel adhesive for easy
+        <p class="mb-6 text-sm" th:text="${product.description}" >PlayStation 5 Controller skin High quality vinyl with air channel adhesive for easy
           bubble free install & mess free removal Pressure sensitive.</p>
 
         <div class="flex items-center justify-between mb-6">
@@ -119,4 +132,7 @@
   </main>
 
 </div>
+</body>
+</html>
+
 

@@ -55,6 +55,9 @@ public class Product {
         this.admin = admin;
     }
 
+    public Product(int productId, String test_product, double v) {
+    }
+
     // Getters and Setters
     public int getId() {
         return id;

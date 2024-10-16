@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>MarketWiz</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body>
+<div th:replace="fragments/header :: header">Header</div>
+
+<div layout:fragment="content">
+    <h1>Welcome to MarketWiz</h1>
+
+</div>
+</body>
+</html>

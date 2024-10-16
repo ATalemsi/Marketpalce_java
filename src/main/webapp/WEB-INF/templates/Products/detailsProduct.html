@@ -1,0 +1,122 @@
+<div th:replace="layout/layout :: layout (content='this :: content')">
+
+  <main  id="content" th:fragment="content" class="container mx-auto px-12 py-8">
+    <div class="flex flex-col md:flex-row gap-8">
+      <!-- Left column with images -->
+      <div class="w-full md:w-1/2">
+        <div class="flex gap-4">
+          <!-- Thumbnails column -->
+          <div class="flex flex-col gap-4">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_v0H8hE4SC9TyB1jn8dj3Tam-B8jOPjX1Ow&s"
+                 alt="Thumbnail 1" class="w-20 h-20 object-cover">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_v0H8hE4SC9TyB1jn8dj3Tam-B8jOPjX1Ow&s"
+                 alt="Thumbnail 2" class="w-20 h-20 object-cover">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_v0H8hE4SC9TyB1jn8dj3Tam-B8jOPjX1Ow&s"
+                 alt="Thumbnail 3" class="w-20 h-20 object-cover">
+          </div>
+          <!-- Main image -->
+          <div class="flex-grow">
+            <img src="https://mediacash.ma/thumbnail-400-450/02-e199951.jpg" alt="Havic HV G-92 Gamepad"
+                 class="w-full h-auto">
+          </div>
+        </div>
+      </div>
+
+      <!-- Right column with product details -->
+      <div class="w-full md:w-1/2">
+        <h2 class="text-2xl font-bold mb-2">Havic HV G-92 Gamepad</h2>
+        <div class="flex items-center gap-4 mb-4">
+          <p class="text-2xl font-bold">$192.00</p>
+          <p class="text-red-500 text-sm">In Stock</p>
+        </div>
+        <p class="mb-6 text-sm">PlayStation 5 Controller skin High quality vinyl with air channel adhesive for easy
+          bubble free install & mess free removal Pressure sensitive.</p>
+
+        <div class="flex items-center justify-between mb-6">
+          <div class="flex items-center  rounded">
+            <button class="px-4 py-2 bg-gray-100 text-gray-600 border border-2">-</button>
+            <p class="px-4 py-2 bg-gray-100 text-gray-600 border-x border-2 ">2</p>
+            <button class="px-4 py-2 bg-red-500 text-white border border-2">+</button>
+          </div>
+          <button class="bg-red-500 text-white px-8 py-2 rounded">Buy Now</button>
+        </div>
+
+        <div class="flex justify-center">
+          <div class="space-y-4 w-full max-w-md mx-auto">
+            <div class="border border-2 bg-white rounded p-4 flex items-center gap-4">
+              <svg class="w-6 h-6" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="#000000">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier">
+                  <g id="Layer_2" data-name="Layer 2">
+                    <g id="invisible_box" data-name="invisible box">
+                      <rect width="48" height="48" fill="none"></rect>
+                    </g>
+                    <g id="Health_Icons" data-name="Health Icons">
+                      <g>
+                        <path d="M37.7,11.1A3,3,0,0,0,35.4,10H34.2l.3-1.7A3.1,3.1,0,0,0,33.9,6a3.2,3.2,0,0,0-2.2-1H7.8a2,2,0,0,0,0,4H30.3l-4,22.9a6.8,6.8,0,0,0-1,2.1H20.7A7,7,0,0,0,7.3,34H6.2l.5-2.9a2,2,0,0,0-1.6-2.3,2,2,0,0,0-2.3,1.6L2,34.7A2.8,2.8,0,0,0,2.7,37a2.8,2.8,0,0,0,2.1,1H7.3a7,7,0,0,0,13.4,0h4.6a7,7,0,0,0,13.4,0h2a3.2,3.2,0,0,0,3.1-2.7L46,22.5ZM14,39a3,3,0,0,1-3-3,3,3,0,0,1,6,0A3,3,0,0,1,14,39ZM33.5,14h1.3l5.9,8H32.1ZM32,39a3,3,0,0,1-3-3,3,3,0,0,1,6,0A3,3,0,0,1,32,39Zm8-5H38.7A7,7,0,0,0,32,29H30.9l.5-3.1h9.9Z"></path>
+                        <path d="M4,15H14a2,2,0,0,0,0-4H4a2,2,0,0,0,0,4Z"></path>
+                        <path d="M15,19a2,2,0,0,0-2-2H5a2,2,0,0,0,0,4h8A2,2,0,0,0,15,19Z"></path>
+                        <path d="M6,23a2,2,0,0,0,0,4h6a2,2,0,0,0,0-4Z"></path>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </svg>
+              <div>
+                <h3 class="font-semibold">Free Delivery</h3>
+                <p class="text-sm text-gray-600">Enter your postal code for Delivery Availability</p>
+              </div>
+            </div>
+            <div class="border border-2 bg-white rounded p-4 flex items-center gap-4">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                   xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+              </svg>
+              <div>
+                <h3 class="font-semibold">Return Delivery</h3>
+                <p class="text-sm text-gray-600">Free 30 Days Delivery Returns. Details</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mt-12">
+      <h3 class="text-2xl font-bold mb-4">Related Items</h3>
+      <div class="flex flex-wrap -mx-4">
+        <div class="w-full sm:w-1/2 md:w-1/4 px-4 mb-8">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRIyHulFQXYZ2mKDe83ggEAJ3Sujr7GWmHVg&s"
+               alt="ASUS FHD Gaming Laptop" class="w-full mb-4">
+          <h4 class="font-bold">ASUS FHD Gaming Laptop</h4>
+          <p class="text-red-600">$960 <span class="line-through text-gray-500">$1160</span></p>
+          <button class="bg-black text-white px-4 py-2 rounded mt-2 w-full">Add to Cart</button>
+        </div>
+        <div class="w-full sm:w-1/2 md:w-1/4 px-4 mb-8">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRIyHulFQXYZ2mKDe83ggEAJ3Sujr7GWmHVg&s"
+               alt="IPS LCD Gaming Monitor" class="w-full mb-4">
+          <h4 class="font-bold">IPS LCD Gaming Monitor</h4>
+          <p class="text-red-600">$1160</p>
+          <button class="bg-black text-white px-4 py-2 rounded mt-2 w-full">Add to Cart</button>
+        </div>
+        <div class="w-full sm:w-1/2 md:w-1/4 px-4 mb-8">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRIyHulFQXYZ2mKDe83ggEAJ3Sujr7GWmHVg&s"
+               alt="HAVIT HV-G92 Gamepad" class="w-full mb-4">
+          <h4 class="font-bold">HAVIT HV-G92 Gamepad</h4>
+          <p class="text-red-600">$560</p>
+          <button class="bg-black text-white px-4 py-2 rounded mt-2 w-full">Add to Cart</button>
+        </div>
+        <div class="w-full sm:w-1/2 md:w-1/4 px-4 mb-8">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRIyHulFQXYZ2mKDe83ggEAJ3Sujr7GWmHVg&s"
+               alt="AK-900 Wired Keyboard" class="w-full mb-4">
+          <h4 class="font-bold">AK-900 Wired Keyboard</h4>
+          <p class="text-red-600">$200</p>
+          <button class="bg-black text-white px-4 py-2 rounded mt-2 w-full">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+</div>
+

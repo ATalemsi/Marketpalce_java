@@ -1,10 +1,7 @@
-package com.market.marketplace.servlet.card;
+package com.market.marketplace.servlet.Cart;
 
-import com.market.marketplace.Main;
 import com.market.marketplace.dao.CommandProductDAO;
-import com.market.marketplace.dao.ProductDao;
 import com.market.marketplace.dao.daoImpl.CommandProductDAOImpl;
-import com.market.marketplace.dao.daoImpl.ProductDaoImpl;
 import com.market.marketplace.service.CommandProductService;
 
 import javax.persistence.EntityManager;
@@ -16,8 +13,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import com.market.marketplace.service.ProductService;
-import com.market.marketplace.service.serviceImpl.ProductServiceImpl;
 import org.json.JSONObject;
 import com.market.marketplace.service.serviceImpl.CommandProductServiceImpl;
 import org.slf4j.Logger;
@@ -25,13 +20,13 @@ import org.slf4j.LoggerFactory;
 
 import java.io.BufferedReader;
 
-public class addProductCardServlet extends HttpServlet {
-    final Logger logger = LoggerFactory.getLogger(addProductCardServlet.class);
+public class addProductCartServlet extends HttpServlet {
+    final Logger logger = LoggerFactory.getLogger(addProductCartServlet.class);
 
     private CommandProductService commandProductService;
     private EntityManagerFactory emf;
 
-    public addProductCardServlet() {
+    public addProductCartServlet() {
         super();
     }
 

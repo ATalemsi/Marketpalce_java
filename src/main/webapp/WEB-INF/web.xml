@@ -22,11 +22,23 @@
 
     <servlet>
         <servlet-name>CommandProductServlet</servlet-name>
-        <servlet-class>com.market.marketplace.servlet.card.addProductCardServlet</servlet-class>
+        <servlet-class>com.market.marketplace.servlet.Cart.addProductCartServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
         <servlet-name>CommandProductServlet</servlet-name>
         <url-pattern>/command-product</url-pattern>
     </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>ShowCartServlet</servlet-name>
+        <servlet-class>com.market.marketplace.servlet.Cart.ShowCartServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ShowCartServlet</servlet-name>
+        <url-pattern>/cart</url-pattern>
+    </servlet-mapping>
+
 </web-app>

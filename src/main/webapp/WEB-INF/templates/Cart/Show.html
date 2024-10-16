@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>MarketWiz</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body>
+<div th:replace="fragments/header :: header">Header</div>
+
+
+<div layout:fragment="content">
+    <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-md p-6">
+        <table class="w-full mb-6">
+            <thead>
+            <tr class="border-b">
+                <th class="text-left py-2">Product</th>
+                <th class="text-left py-2">Price</th>
+                <th class="text-left py-2">Quantity</th>
+                <th class="text-right py-2">Subtotal</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="border-b">
+                <td class="py-4 flex items-center">
+                    <button class="mr-2 text-red-500">&times;</button>
+                    <img src="/api/placeholder/80/80" alt="LCD Monitor" class="w-16 h-16 object-cover mr-4">
+                    <span>LCD Monitor</span>
+                </td>
+                <td>$650</td>
+                <td>
+                    <div class="flex items-center border rounded w-24">
+                        <button class="px-2 py-1 bg-gray-100">-</button>
+                        <input type="text" value="01" class="w-full text-center border-x"/>
+                        <button class="px-2 py-1 bg-gray-100">+</button>
+                    </div>
+                </td>
+                <td class="text-right">$650</td>
+            </tr>
+            <tr class="border-b">
+                <td class="py-4 flex items-center">
+                    <button class="mr-2 text-red-500">&times;</button>
+                    <img src="/api/placeholder/80/80" alt="H1 Gamepad" class="w-16 h-16 object-cover mr-4">
+                    <span>H1 Gamepad</span>
+                </td>
+                <td>$550</td>
+                <td>
+                    <div class="flex items-center border rounded w-24">
+                        <button class="px-2 py-1 bg-gray-100">-</button>
+                        <input type="text" value="02" class="w-full text-center border-x"/>
+                        <button class="px-2 py-1 bg-gray-100">+</button>
+                    </div>
+                </td>
+                <td class="text-right">$1100</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div class="flex justify-between mb-6">
+            <button class="px-4 py-2 border rounded hover:bg-gray-100">Return To Shop</button>
+            <button class="px-4 py-2 border rounded hover:bg-gray-100">Update Cart</button>
+        </div>
+
+        <div class="w-full md:w-1/2 ml-auto">
+            <div class="border rounded p-4">
+                <h2 class="text-lg font-bold mb-4">Cart Total</h2>
+                <div class="flex justify-between mb-2">
+                    <span>Subtotal:</span>
+                    <span>$1750</span>
+                </div>
+                <div class="flex justify-between mb-2 pb-2 border-b">
+                    <span>Shipping:</span>
+                    <span>Free</span>
+                </div>
+                <div class="flex justify-between font-bold mb-4">
+                    <span>Total:</span>
+                    <span>$1750</span>
+                </div>
+                <button class="w-full bg-red-500 text-white py-2 rounded hover:bg-red-600">
+                    Procees to checkout
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+</body>
+</html>

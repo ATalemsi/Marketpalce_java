@@ -19,4 +19,14 @@
         <servlet-name>GetProduct</servlet-name>
         <url-pattern>/products/details</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CommandProductServlet</servlet-name>
+        <servlet-class>com.market.marketplace.servlet.card.addProductCardServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>CommandProductServlet</servlet-name>
+        <url-pattern>/command-product</url-pattern>
+    </servlet-mapping>
 </web-app>

@@ -14,6 +14,8 @@ public class CommandProduct {
     @NotNull(message = "Quantity cannot be null")
     private int quantity;
 
+    @Column(nullable = false, columnDefinition = "boolean default false")
+    private boolean status = false;
     @NotNull(message = "Command cannot be null")
     @ManyToOne
     @JoinColumn(name = "command_id", nullable = false)
@@ -75,5 +77,10 @@ public class CommandProduct {
                 ", commandId=" + (command != null ? command.getId() : null) +
                 ", productId=" + (product != null ? product.getId() : null) +
                 '}';
+    }
+
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 }

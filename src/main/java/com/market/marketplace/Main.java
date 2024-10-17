@@ -35,7 +35,7 @@ public class Main {
         EntityManager entityManager = null;
 
         try {
-            // Create an EntityManager
+
             entityManager = entityManagerFactory.createEntityManager();
             System.out.println("EntityManager created!");
 

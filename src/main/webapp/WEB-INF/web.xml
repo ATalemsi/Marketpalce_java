@@ -41,4 +41,14 @@
         <url-pattern>/cart</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>UpdateCartServlet</servlet-name>
+        <servlet-class>com.market.marketplace.servlet.Cart.UpdateCartServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>UpdateCartServlet</servlet-name>
+        <url-pattern>/update-cart</url-pattern>
+    </servlet-mapping>
+
 </web-app>

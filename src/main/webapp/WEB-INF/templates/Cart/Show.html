@@ -7,11 +7,120 @@
     <meta charset="UTF-8">
     <title>MarketWiz</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Function to update the subtotal and total
+            function updateCart() {
+                let total = 0;
+                document.querySelectorAll('tr[data-product-id]').forEach(function (row) {
+                    const price = parseFloat(row.querySelector('.product-price').textContent.replace('$', ''));
+                    const quantity = parseInt(row.querySelector('.quantity-input').value);
+                    const subtotal = price * quantity;
 
+                    // Update the subtotal for the product
+                    row.querySelector('.product-subtotal').textContent = '$' + subtotal.toFixed(2);
+
+                    // Add to the total
+                    total += subtotal;
+                });
+
+                // Update the total in the cart summary
+                document.querySelector('#cart-subtotal').textContent = '$' + total.toFixed(2);
+                document.querySelector('#cart-total').textContent = '$' + total.toFixed(2);
+            }
+
+            // Function to remove a product row if quantity is 0
+            function removeProductRow(row) {
+                row.remove();
+                updateCart(); // Recalculate the total
+            }
+
+            // Add event listeners to the buttons and inputs
+            document.querySelectorAll('.quantity-button').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    const row = this.closest('tr');
+                    const input = row.querySelector('.quantity-input');
+                    const stock = parseInt(row.dataset.stock); // Max stock for the product
+                    let quantity = parseInt(input.value);
+
+                    // Determine if increment or decrement
+                    if (this.classList.contains('increase')) {
+                        if (quantity < stock) {
+                            quantity++;
+                        } else {
+                            alert('Cannot exceed stock quantity');
+                        }
+                    } else if (this.classList.contains('decrease')) {
+                        quantity--;
+                        if (quantity <= 0) {
+                            removeProductRow(row); // Remove product from cart
+                            return;
+                        }
+                    }
+
+                    // Update the input value and the cart
+                    input.value = quantity;
+                    updateCart();
+                });
+            });
+
+            // Manually update cart if input is changed directly
+            document.querySelectorAll('.quantity-input').forEach(function (input) {
+                input.addEventListener('input', function () {
+                    const row = this.closest('tr');
+                    const stock = parseInt(row.dataset.stock); // Max stock for the product
+                    let quantity = parseInt(this.value);
+
+                    if (isNaN(quantity) || quantity <= 0) {
+                        removeProductRow(row); // Remove product from cart
+                    } else if (quantity > stock) {
+                        alert('Cannot exceed stock quantity');
+                        this.value = stock;
+                    }
+
+                    updateCart();
+                });
+            });
+
+            document.querySelector('.update-cart-button').addEventListener('click', function () {
+                const cartItems = [];
+                document.querySelectorAll('tr[data-product-id]').forEach(function (row) {
+                    const productId = row.dataset.productId;
+                    const quantity = parseInt(row.querySelector('.quantity-input').value);
+
+                    if (quantity > 0) {
+                        cartItems.push({id: productId, quantity: quantity});
+                    }
+                });
+
+                const currentPath = window.location.pathname;
+
+                const contextPath = currentPath.substring(0, currentPath.indexOf('/', 1));
+
+                fetch(contextPath + '/update-cart', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({items: cartItems}),
+                })
+                    .then(response => {
+                        if (response.ok) {
+                            alert('Cart updated successfully!');
+                            updateCart();
+
+                        }
+                        throw new Error('Network response was not ok.');
+                    })
+            });
+
+            updateCart();
+        });
+    </script>
 </head>
+
 <body class="bg-gray-100">
 <div th:replace="fragments/header :: header">Header</div>
-
 
 <div layout:fragment="content">
     <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-md p-6 mt-4">
@@ -25,28 +134,33 @@
             </tr>
             </thead>
             <tbody>
-            <tr th:each="product : ${cartProducts}" class="border-b">
+            <tr th:each="product : ${cartProducts}" class="border-b"
+                th:attr="data-product-id=${product.product.id}, data-stock=${product.product.stock}">
                 <td class="py-4 flex items-center">
                     <button class="mr-2 text-red-500">&times;</button>
-                    <img src="/api/placeholder/80/80" alt="LCD Monitor" class="w-16 h-16 object-cover mr-4">
+                    <img src="" alt="LCD Monitor" class="w-16 h-16 object-cover mr-4">
                     <span th:text="${product.product.name}">Product Name</span>
                 </td>
-                <td th:text="${product.product.price}">$650</td>
+                <td class="product-price" th:text="${product.product.price}">$650</td>
                 <td>
                     <div class="flex items-center border rounded w-24">
-                        <button class="px-2 py-1 bg-gray-100">-</button>
-                        <input type="text" th:value="${product.quantity}" class="w-full text-center border-x"/>
-                        <button class="px-2 py-1 bg-gray-100">+</button>
+                        <button class="px-2 py-1 bg-gray-100 decrease quantity-button">-</button>
+                        <input type="text" th:value="${product.quantity}"
+                               class="quantity-input w-full text-center border-x"/>
+                        <button class="px-2 py-1 bg-gray-100 increase quantity-button">+</button>
                     </div>
                 </td>
-                <td class="text-right" th:text="${product.quantity * product.product.price}">$650</td>
+                <td class="product-subtotal text-right" th:text="${product.quantity * product.product.price}">$650</td>
             </tr>
             </tbody>
         </table>
 
         <div class="flex justify-between mb-6">
-            <button class="px-4 py-2 border rounded hover:bg-gray-100">Return To Shop</button>
-            <button class="px-4 py-2 border rounded hover:bg-gray-100">Update Cart</button>
+            <a th:href="@{/}">
+                <button class="px-4 py-2 border rounded hover:bg-gray-100">Return To Shop</button>
+            </a>
+
+            <button class="px-4 py-2 border rounded hover:bg-gray-100 update-cart-button">Update Cart</button>
         </div>
 
         <div class="w-full md:w-1/2 ml-auto">
@@ -54,7 +168,7 @@
                 <h2 class="text-lg font-bold mb-4">Cart Total</h2>
                 <div class="flex justify-between mb-2">
                     <span>Subtotal:</span>
-                    <span>$1750</span>
+                    <span id="cart-subtotal">$0.00</span> <!-- Initial value -->
                 </div>
                 <div class="flex justify-between mb-2 pb-2 border-b">
                     <span>Shipping:</span>
@@ -62,17 +176,14 @@
                 </div>
                 <div class="flex justify-between font-bold mb-4">
                     <span>Total:</span>
-                    <span>$1750</span>
+                    <span id="cart-total">$0.00</span> <!-- Initial value -->
                 </div>
                 <button class="w-full bg-red-500 text-white py-2 rounded hover:bg-red-600">
-                    Procees to checkout
+                    Proceed to checkout
                 </button>
             </div>
         </div>
     </div>
-
-
 </div>
-
 </body>
 </html>

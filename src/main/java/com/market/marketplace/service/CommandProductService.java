@@ -8,4 +8,6 @@ public interface CommandProductService {
     void addProductToCommand(int productId, int quantity, int commandId);
 
     List<CommandProduct> getCurrentCartForClient(int i);
+
+    void updateCart(int commandId, List<CommandProduct> commandProducts);
 }

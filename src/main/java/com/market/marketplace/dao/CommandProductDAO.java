@@ -8,4 +8,7 @@ public interface CommandProductDAO {
     void addCommandProduct(CommandProduct commandProduct);
 
     List<CommandProduct> findCurrentCartForClient(int clientId);
+
+    public void deleteByCommandId(int commandId);
+
 }

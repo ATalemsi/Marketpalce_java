@@ -37,4 +37,12 @@ public class CommandProductServiceImpl implements CommandProductService {
         return commandProductDAO.findCurrentCartForClient(clientId);
     }
 
+
+    public void updateCart(int commandId, List<CommandProduct> commandProducts) {
+        commandProductDAO.deleteByCommandId(commandId);
+
+        for (CommandProduct commandProduct : commandProducts) {
+            commandProductDAO.addCommandProduct(commandProduct);
+        }
+    }
 }

@@ -47,6 +47,7 @@
           <element id="library" level="project" name="Maven: ch.qos.logback:logback-core:1.3.3" />
           <element id="library" level="project" name="Maven: com.h2database:h2:2.1.214" />
           <element id="library" level="project" name="Maven: org.json:json:20240303" />
+          <element id="library" level="project" name="Maven: com.google.code.gson:gson:2.10.1" />
         </element>
       </element>
       <element id="directory" name="META-INF">

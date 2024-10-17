@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
@@ -39,9 +40,6 @@ public class CommandProductDAOImpl implements CommandProductDAO {
 
     @Override
     public List<CommandProduct> findCurrentCartForClient(int clientId) {
-//        return entityManager.createQuery("SELECT cp FROM CommandProduct cp WHERE cp.command.client.id = :clientId AND cp.isValid = false", CommandProduct.class)
-//                .setParameter("clientId", clientId)
-//                .getResultList();
 
             String jpql = "SELECT cp FROM CommandProduct cp WHERE cp.command.client.id = :clientId AND cp.isValid = false";
             TypedQuery<CommandProduct> query = entityManager.createQuery(jpql, CommandProduct.class);
@@ -50,4 +48,12 @@ public class CommandProductDAOImpl implements CommandProductDAO {
 
     }
 
+    @Override
+    public void deleteByCommandId(int commandId) {
+        entityManager.getTransaction().begin();
+        Query query = entityManager.createQuery("DELETE FROM CommandProduct cp WHERE cp.command.id = :commandId");
+        query.setParameter("commandId", commandId);
+        query.executeUpdate();
+        entityManager.getTransaction().commit();
+    }
 }

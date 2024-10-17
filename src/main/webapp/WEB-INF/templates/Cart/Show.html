@@ -9,12 +9,12 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
 </head>
-<body>
+<body class="bg-gray-100">
 <div th:replace="fragments/header :: header">Header</div>
 
 
 <div layout:fragment="content">
-    <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-md p-6">
+    <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-md p-6 mt-4">
         <table class="w-full mb-6">
             <thead>
             <tr class="border-b">
@@ -25,37 +25,21 @@
             </tr>
             </thead>
             <tbody>
-            <tr class="border-b">
+            <tr th:each="product : ${cartProducts}" class="border-b">
                 <td class="py-4 flex items-center">
                     <button class="mr-2 text-red-500">&times;</button>
                     <img src="/api/placeholder/80/80" alt="LCD Monitor" class="w-16 h-16 object-cover mr-4">
-                    <span>LCD Monitor</span>
+                    <span th:text="${product.product.name}">Product Name</span>
                 </td>
-                <td>$650</td>
+                <td th:text="${product.product.price}">$650</td>
                 <td>
                     <div class="flex items-center border rounded w-24">
                         <button class="px-2 py-1 bg-gray-100">-</button>
-                        <input type="text" value="01" class="w-full text-center border-x"/>
+                        <input type="text" th:value="${product.quantity}" class="w-full text-center border-x"/>
                         <button class="px-2 py-1 bg-gray-100">+</button>
                     </div>
                 </td>
-                <td class="text-right">$650</td>
-            </tr>
-            <tr class="border-b">
-                <td class="py-4 flex items-center">
-                    <button class="mr-2 text-red-500">&times;</button>
-                    <img src="/api/placeholder/80/80" alt="H1 Gamepad" class="w-16 h-16 object-cover mr-4">
-                    <span>H1 Gamepad</span>
-                </td>
-                <td>$550</td>
-                <td>
-                    <div class="flex items-center border rounded w-24">
-                        <button class="px-2 py-1 bg-gray-100">-</button>
-                        <input type="text" value="02" class="w-full text-center border-x"/>
-                        <button class="px-2 py-1 bg-gray-100">+</button>
-                    </div>
-                </td>
-                <td class="text-right">$1100</td>
+                <td class="text-right" th:text="${product.quantity * product.product.price}">$650</td>
             </tr>
             </tbody>
         </table>

@@ -15,7 +15,7 @@ public class CommandProduct {
     private int quantity;
 
     @Column(nullable = false, columnDefinition = "boolean default false")
-    private boolean status = false;
+    private boolean isValid = false;
     @NotNull(message = "Command cannot be null")
     @ManyToOne
     @JoinColumn(name = "command_id", nullable = false)
@@ -80,7 +80,11 @@ public class CommandProduct {
     }
 
 
-    public void setStatus(boolean status) {
-        this.status = status;
+    public boolean isValid() {
+        return isValid;
+    }
+
+    public void setValid(boolean valid) {
+        isValid = valid;
     }
 }

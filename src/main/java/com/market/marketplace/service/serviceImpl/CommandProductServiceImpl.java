@@ -7,6 +7,8 @@ import com.market.marketplace.entities.CommandProduct;
 import com.market.marketplace.entities.Product;
 import com.market.marketplace.service.CommandProductService;
 
+import java.util.List;
+
 public class CommandProductServiceImpl implements CommandProductService {
     private CommandProductDAO commandProductDAO ;
 
@@ -25,8 +27,14 @@ public class CommandProductServiceImpl implements CommandProductService {
         commandProduct.setCommand(command);
         commandProduct.setProduct(product);
         commandProduct.setQuantity(quantity);
-        commandProduct.setStatus(false);
+        commandProduct.setValid(false);
 
         commandProductDAO.addCommandProduct(commandProduct);
     }
+
+    @Override
+    public List<CommandProduct> getCurrentCartForClient(int clientId) {
+        return commandProductDAO.findCurrentCartForClient(clientId);
+    }
+
 }

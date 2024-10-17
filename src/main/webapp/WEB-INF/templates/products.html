@@ -198,8 +198,10 @@
             <div class="p-4 text-center flex flex-col gap-4 items-start">
                 <h2 th:text="${product.name}" class="font-bold text-sm"></h2>
                 <p class="text-red-600 font-bold text-lg" th:text="${product.price}"> <span class="ml-4 line-through text-gray-500">$1160</span> </p>
+                <a th:href="@{/products(action='delete', id=${product.id})}" class="bg-red-300 rounded-md p-1">Delete</a>
 
             </div>
+
         </div>
 
 

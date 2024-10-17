@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Customer Orders</title>
+</head>
+
+<body class="bg-gray-100 ">
+
+<div th:replace="fragments/header :: header">Header</div>
+<div layout:fragment="content">
+
+    <div class="container mx-auto  rounded-lg shadow-lg m-12 p-12">
+        <table class="min-w-full border-collapse border border-gray-300">
+            <thead>
+            <tr class="bg-gray-200">
+                <th class="border border-gray-300 px-4 py-2">Order ID</th>
+                <th class="border border-gray-300 px-4 py-2">Date</th>
+                <th class="border border-gray-300 px-4 py-2">Status</th>
+                <th class="border border-gray-300 px-4 py-2">Amount</th>
+                <th class="border border-gray-300 px-4 py-2">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr th:each="command : ${commands}"> <!-- Loop through the commands -->
+                <td class="border border-gray-300 px-4 py-2" th:text="${command.id}">#25425</td>
+                <td class="border border-gray-300 px-4 py-2"
+                    th:text="${command.orderDateString}">
+                </td>
+
+                <td class="border border-gray-300 px-4 py-2" th:text="${command.status != null ? command.status : 'No Status'}"></td>
+                <td class="border border-gray-300 px-4 py-2" th:text="${command.getTotalAmount() != null ? command.getTotalAmount() : '0.00'}"></td>
+
+
+
+                <td class="border border-gray-300 px-4 py-2">
+
+                    <a th:href="@{/commands/{id}(id=${command.id})}">
+                        <button class="text-blue-500 hover:underline">View Details</button>
+                    </a>
+                    <a th:href="@{/commands/cancel/{id}(id=${command.id})}">
+                        <button class="text-red-500 hover:underline">Cancel</button>
+                    </a>
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+
+</html>

@@ -4,6 +4,7 @@ import com.market.marketplace.entities.enums.CommandStatus;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
@@ -17,7 +18,7 @@ public class Command {
     private int id;
 
     @NotNull(message = "Order date cannot be null")
-    private LocalDateTime orderDate;
+    private LocalDate orderDate;
 
     @NotNull(message = "Status cannot be null")
     @Enumerated(EnumType.STRING)
@@ -33,10 +34,10 @@ public class Command {
 
     // Constructors
     public Command() {
-        this.orderDate = LocalDateTime.now();
+        this.orderDate = LocalDate.now();
     }
 
-    public Command(LocalDateTime orderDate, CommandStatus status, Client client) {
+    public Command(LocalDate orderDate, CommandStatus status, Client client) {
         this.orderDate = orderDate;
         this.status = status;
         this.client = client;
@@ -51,11 +52,11 @@ public class Command {
         this.id = id;
     }
 
-    public LocalDateTime getOrderDate() {
+    public LocalDate getOrderDate() {
         return orderDate;
     }
 
-    public void setOrderDate(LocalDateTime orderDate) {
+    public void setOrderDate(LocalDate orderDate) {
         this.orderDate = orderDate;
     }
 
@@ -92,8 +93,24 @@ public class Command {
         commandProducts.remove(commandProduct);
         commandProduct.setCommand(null);
     }
+    public double getTotalAmount() {
+        return commandProducts.stream()
+                .mapToDouble(commandProduct -> commandProduct.getQuantity() * commandProduct.getProduct().getPrice()) // Assurez-vous que Product a un attribut 'price'
+                .sum();
+    }
 
-    // toString method for debugging
+    @Transient // Pour indiquer que cet attribut ne doit pas être persistant dans la base de données
+    private String orderDateString;
+
+    // Getters et Setters...
+
+    public String getOrderDateString() {
+        return orderDateString;
+    }
+
+    public void setOrderDateString(String orderDateString) {
+        this.orderDateString = orderDateString;
+    }
     @Override
     public String toString() {
         return "Command{" +

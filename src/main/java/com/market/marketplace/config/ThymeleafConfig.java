@@ -30,7 +30,6 @@ public class ThymeleafConfig implements ServletContextListener {
 
         TemplateEngine templateEngine = new TemplateEngine();
         templateEngine.setTemplateResolver(templateResolver);
-
         servletContext.setAttribute(TEMPLATE_ENGINE_ATTR, templateEngine);
     }
 

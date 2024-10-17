@@ -28,7 +28,7 @@ public class Product {
     @Digits(integer = 10, fraction = 2, message = "Price must be a valid decimal number with up to 2 decimal places")
     @Min(value = 0, message = "Price cannot be negative")
     @Column(nullable = false)
-    private BigDecimal price;
+    private double price;
 
     @Min(value = 0, message = "Stock cannot be negative")
     @Column(nullable = false)
@@ -47,15 +47,12 @@ public class Product {
     public Product() {
     }
 
-    public Product(String name, String description, BigDecimal price, int stock, Admin admin) {
+    public Product(String name, String description, double price, int stock, Admin admin) {
         this.name = name;
         this.description = description;
         this.price = price;
         this.stock = stock;
         this.admin = admin;
-    }
-
-    public Product(int productId, String test_product, double v) {
     }
 
     // Getters and Setters
@@ -83,11 +80,11 @@ public class Product {
         this.description = description;
     }
 
-    public BigDecimal getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 

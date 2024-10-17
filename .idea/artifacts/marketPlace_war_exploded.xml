@@ -45,10 +45,6 @@
           <element id="library" level="project" name="Maven: com.sun.mail:javax.mail:1.6.2" />
           <element id="library" level="project" name="Maven: javax.activation:activation:1.1" />
           <element id="library" level="project" name="Maven: ch.qos.logback:logback-core:1.3.3" />
-          <element id="library" level="project" name="Maven: nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:3.0.0" />
-          <element id="library" level="project" name="Maven: org.codehaus.groovy:groovy:3.0.8" />
-          <element id="library" level="project" name="Maven: nz.net.ultraq.extensions:groovy-extensions:1.1.0" />
-          <element id="library" level="project" name="Maven: nz.net.ultraq.thymeleaf:thymeleaf-expression-processor:3.0.0" />
         </element>
       </element>
       <element id="directory" name="META-INF">

@@ -1,4 +1,4 @@
-package com.market.marketplace.daoImpl;
+package com.market.marketplace.dao.daoImpl;
 
 import com.market.marketplace.dao.ProductDao;
 import com.market.marketplace.entities.Product;
@@ -30,7 +30,7 @@ public class ProductDaoImpl implements ProductDao {
         }
     }
 
-   // @Override
+   @Override
     public Product findById(int id) {
         EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
         try {
@@ -40,17 +40,21 @@ public class ProductDaoImpl implements ProductDao {
         }
     }
 
-    //@Override
-    public List<Product> findAll() {
+
+    @Override
+    public List<Product> findAll(int page, int size) {
         EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
         try {
-            return em.createQuery("SELECT p FROM Product p", Product.class).getResultList();
+            return em.createQuery("SELECT p FROM Product p", Product.class)
+                    .setFirstResult(page * size)
+                    .setMaxResults(size)
+                    .getResultList();
         } finally {
             em.close();
         }
     }
 
-   // @Override
+   @Override
     public void update(Product product) {
         EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
         EntityTransaction tx = null;
@@ -70,7 +74,7 @@ public class ProductDaoImpl implements ProductDao {
         }
     }
 
-    //@Override
+    @Override
     public void delete(Product product) {
         EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
         EntityTransaction tx = null;
@@ -88,6 +92,16 @@ public class ProductDaoImpl implements ProductDao {
                 tx.rollback();
             }
             e.printStackTrace();
+        } finally {
+            em.close();
+        }
+    }
+
+    @Override
+    public int countProducts() {
+        EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
+        try {
+            return ((Number) em.createQuery("SELECT COUNT(p) FROM Product p").getSingleResult()).intValue();
         } finally {
             em.close();
         }

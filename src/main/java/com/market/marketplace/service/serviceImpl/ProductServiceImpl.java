@@ -42,4 +42,9 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public int getTotalProductsCount() { return productDao.countProducts(); }
+
+    @Override
+    public List<Product> searchProductsByName(String name, int page, int size) {
+        return productDao.searchByName(name, page, size);
+    }
 }

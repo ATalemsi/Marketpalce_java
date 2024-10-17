@@ -11,4 +11,6 @@ public interface ProductDao {
      void update(Product product);
      void delete(Product product);
     int countProducts();
+
+   List<Product> searchByName(String name, int page, int size);
 }

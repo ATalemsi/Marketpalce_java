@@ -58,6 +58,14 @@
         </div>
     </div>
 </header>
+
+<form th:action="@{/products}" method="get" class="flex justify-center mb-4 mt-4">
+    <input type="text" name="search" placeholder="Search by product name" class="border p-2 rounded" th:value="${searchQuery}"/>
+    <button type="submit" class="ml-2 px-3 py-1 bg-black text-white rounded">Search</button>
+</form>
+<div class="flex justify-center mb-4 mt-4">
+    <a th:href="@{/products}" class="px-3 py-1 bg-blue-600 text-white rounded">Show All Products</a>
+</div>
 <!-- Breadcrumb -->
 <div class="container mx-20 mt-4 px-4 lg:px-4">
     <p class="text-sm text-gray-500">Home /</p>

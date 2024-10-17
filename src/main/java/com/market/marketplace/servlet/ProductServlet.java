@@ -39,17 +39,30 @@ public class ProductServlet extends HttpServlet {
     }
 
     @Override
+
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String action = req.getParameter("action");
+        String search = req.getParameter("search");
 
-        if (action == null) {
-            listProducts(req, resp);
-        } else if (action.equals("edit")) {
-            showEditForm(req, resp);
-        } else if (action.equals("delete")) {
-            deleteProduct(req, resp);
+        if (search != null && !search.isEmpty()) {
+            // Reset page when searching
+            req.setAttribute("currentPage", 0);
+            searchProducts(req, resp, search);
         } else {
-            listProducts(req, resp);
+            // Handle actions like edit or delete
+            switch (action != null ? action : "") {
+                case "edit":
+                    showEditForm(req, resp);
+                    break;
+
+                case "delete":
+                    deleteProduct(req, resp);
+                    break;
+
+                default:
+                    listProducts(req, resp);
+                    break;
+            }
         }
     }
 
@@ -82,6 +95,26 @@ public class ProductServlet extends HttpServlet {
         // Process the template
         templateEngine.process("products", context, resp.getWriter());
         logger.info("Products fetched: " + products);
+    }
+
+    private void searchProducts(HttpServletRequest req, HttpServletResponse resp, String search) throws ServletException, IOException {
+        int page = 0;
+        int size = 8;
+        List<Product> searchResults = productService.searchProductsByName(search, page, size);
+
+        resp.reset();
+
+        int totalProducts = searchResults.size();
+        int totalPages = (int) Math.ceil((double) totalProducts / size);
+
+        WebContext context = new WebContext(req, resp, getServletContext(), req.getLocale());
+        context.setVariable("products", searchResults);
+        context.setVariable("currentPage", page);
+        context.setVariable("totalPages", totalPages);
+
+        templateEngine.process("products", context, resp.getWriter());
+
+        logger.info("Search results for '" + search + "': " + searchResults);
     }
 
     // Add a new product

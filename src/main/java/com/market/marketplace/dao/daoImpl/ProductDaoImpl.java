@@ -6,9 +6,16 @@ import com.market.marketplace.util.JpaUtil;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.TypedQuery;
+import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class ProductDaoImpl implements ProductDao {
+
+    private static final Logger logger = LoggerFactory.getLogger(ProductDaoImpl.class);
 
     @Override
     public void save(Product product) {
@@ -106,4 +113,19 @@ public class ProductDaoImpl implements ProductDao {
             em.close();
         }
     }
+
+    @Override
+    public List<Product> searchByName(String name, int page, int size) {
+        EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
+        TypedQuery<Product> query = em.createQuery("SELECT p FROM Product p WHERE p.name LIKE :name", Product.class);
+        query.setParameter("name", "%" + name + "%");
+        query.setFirstResult(page * size);
+        query.setMaxResults(size);
+        List<Product> results = query.getResultList();
+        em.close();
+        return results;
+    }
+
+
+
 }

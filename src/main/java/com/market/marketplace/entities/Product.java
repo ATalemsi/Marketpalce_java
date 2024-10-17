@@ -2,7 +2,6 @@ package com.market.marketplace.entities;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
-import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
 

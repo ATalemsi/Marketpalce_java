@@ -21,4 +21,7 @@ public interface ProductService {
     void removeProduct(Product product);
 
     int getTotalProductsCount();
+
+    List<Product> searchProductsByName(String name, int page, int size);
+
 }

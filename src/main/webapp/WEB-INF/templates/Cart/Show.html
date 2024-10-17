@@ -178,12 +178,53 @@
                     <span>Total:</span>
                     <span id="cart-total">$0.00</span> <!-- Initial value -->
                 </div>
-                <button class="w-full bg-red-500 text-white py-2 rounded hover:bg-red-600">
+
+                <button data-toggle="modal" data-target="#checkoutModal" class="w-full bg-red-500 text-white py-2 rounded hover:bg-red-600" onclick="toggleModal()">
                     Proceed to checkout
                 </button>
             </div>
         </div>
     </div>
+
+
+
+    <!-- Modal Structure -->
+    <div id="checkoutModal" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-gray-800 bg-opacity-50">
+       <div class="bg-white rounded-lg shadow-lg p-6 w-96">
+            <h2 class="text-lg font-bold mb-4">Checkout</h2>
+            <form id="checkoutForm" method="GET" th:action="@{/checkout}">
+                <div class="form-group mb-4">
+                    <label for="shippingAddress" class="block mb-1">Shipping Address</label>
+                    <input type="text" class="form-control border rounded w-full p-2" id="shippingAddress"
+                           name="shippingAddress" value="shippingAddress" required>
+                </div>
+                <div class="form-group mb-4">
+                    <label for="paymentMethod" class="block mb-1">Payment Method</label>
+                    <select class="form-control border rounded w-full p-2" id="paymentMethod" name="paymentMethod"
+                            required>
+                        <option value="">Select Payment Method</option>
+                        <!--                        <option value="Credit Card" th:selected="${client.paymentMethod == 'Credit Card'}">Credit Card</option>-->
+
+                        <!--                    <option value="PayPal" th:selected="${client.paymentMethod == 'PayPal'}">PayPal</option>-->
+                        <!--                    <option value="Bank Transfer" th:selected="${client.paymentMethod == 'Bank Transfer'}">Bank Transfer</option>-->
+
+                        <option value="Bank Transfer" selected>Bank Transfer</option>
+                    </select>
+                </div>
+                <div class="flex justify-between">
+                    <button type="button" class="btn btn-secondary" onclick="toggleModal()">Cancel</button>
+                    <button type="submit" class="bg-red-500 text-white py-2 px-4 rounded">Confirm Order</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        function toggleModal() {
+            const modal = document.getElementById('checkoutModal');
+            modal.classList.toggle('hidden'); // Toggle visibility
+        }
+    </script>
+
 </div>
 </body>
 </html>

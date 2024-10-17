@@ -56,4 +56,13 @@ public class CommandProductDAOImpl implements CommandProductDAO {
         query.executeUpdate();
         entityManager.getTransaction().commit();
     }
+
+    @Override
+    public void updateCommandStatusToValid(int commandId) {
+        entityManager.getTransaction().begin();
+        entityManager.createQuery("UPDATE CommandProduct c SET c.isValid = true WHERE c.command.id = :commandId")
+                .setParameter("commandId", commandId)
+                .executeUpdate();
+        entityManager.getTransaction().commit();
+    }
 }

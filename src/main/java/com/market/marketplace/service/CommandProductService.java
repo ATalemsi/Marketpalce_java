@@ -10,4 +10,6 @@ public interface CommandProductService {
     List<CommandProduct> getCurrentCartForClient(int i);
 
     void updateCart(int commandId, List<CommandProduct> commandProducts);
+
+    void confirmCommand(int commandId) ;
 }

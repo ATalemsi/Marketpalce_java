@@ -51,4 +51,13 @@
         <url-pattern>/update-cart</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>CheckoutServlet</servlet-name>
+        <servlet-class>com.market.marketplace.servlet.Checkout.CheckoutServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>CheckoutServlet</servlet-name>
+        <url-pattern>/checkout</url-pattern>
+    </servlet-mapping>
 </web-app>

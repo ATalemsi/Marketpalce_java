@@ -11,4 +11,5 @@ public interface CommandProductDAO {
 
     public void deleteByCommandId(int commandId);
 
+    void updateCommandStatusToValid(int commandId);
 }

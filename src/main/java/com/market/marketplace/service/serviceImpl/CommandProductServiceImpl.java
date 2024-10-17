@@ -45,4 +45,9 @@ public class CommandProductServiceImpl implements CommandProductService {
             commandProductDAO.addCommandProduct(commandProduct);
         }
     }
+
+    public void confirmCommand(int commandId) {
+
+        commandProductDAO.updateCommandStatusToValid(commandId);
+    }
 }

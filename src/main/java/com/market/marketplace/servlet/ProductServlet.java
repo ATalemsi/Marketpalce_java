@@ -50,18 +50,10 @@ public class ProductServlet extends HttpServlet {
             searchProducts(req, resp, search);
         } else {
             // Handle actions like edit or delete
-            switch (action != null ? action : "") {
-                case "edit":
-                    showEditForm(req, resp);
-                    break;
-
-                case "delete":
-                    deleteProduct(req, resp);
-                    break;
-
-                default:
-                    listProducts(req, resp);
-                    break;
+            if ("delete".equals((action != null ? action : ""))) {
+                deleteProduct(req, resp);
+            } else {
+                listProducts(req, resp);
             }
         }
     }
@@ -141,14 +133,6 @@ public class ProductServlet extends HttpServlet {
         resp.sendRedirect(req.getContextPath() + "/products");
     }
 
-    // Show form for editing an existing product
-    private void showEditForm(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int id = Integer.parseInt(req.getParameter("id"));
-        Product existingProduct = productService.getProductById(id);
-        WebContext context = new WebContext(req, resp, getServletContext(), req.getLocale());
-        context.setVariable("product", existingProduct);
-        templateEngine.process("editProduct", context, resp.getWriter());
-    }
 
     // Update an existing product
     private void updateProduct(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -163,6 +147,9 @@ public class ProductServlet extends HttpServlet {
         product.setDescription(description);
         product.setPrice(price);
         product.setStock(stock);
+
+        logger.info("Updating product: id={}, name={}, description={}, price={}, stock={}",
+                id, name, description, price, stock);
 
         productService.updateProduct(product);
         logger.info("Updated product: " + product);

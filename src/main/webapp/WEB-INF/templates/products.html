@@ -127,11 +127,6 @@
 
 
 
-<!-- Modal toggle -->
-<button data-modal-target="select-modal" data-modal-toggle="select-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-    Toggle modal
-</button>
-
 <!-- edit product modal -->
 <div id="select-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
     <div class="relative p-4 w-full max-w-md max-h-full">
@@ -150,7 +145,7 @@
                 </button>
             </div>
             <!-- Modal body -->
-            <form class="p-4 md:p-5">
+            <form class="p-4 md:p-5" id="editProductForm" method="POST">
                 <div class="grid gap-4 mb-4 grid-cols-2">
                     <div class="col-span-2">
                         <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
@@ -166,7 +161,7 @@
                     </div>
                     <div class="col-span-2">
                         <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Product Description</label>
-                        <textarea id="editDescription" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write product description here"></textarea>
+                        <textarea id="editDescription" name="description" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write product description here"></textarea>
                     </div>
                 </div>
                 <button type="submit" class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
@@ -198,6 +193,20 @@
             <div class="p-4 text-center flex flex-col gap-4 items-start">
                 <h2 th:text="${product.name}" class="font-bold text-sm"></h2>
                 <p class="text-red-600 font-bold text-lg" th:text="${product.price}"> <span class="ml-4 line-through text-gray-500">$1160</span> </p>
+                <!-- Modal toggle -->
+                <button class="block text-white bg-blue-700 hover:bg-blue-800"
+                        data-modal-target="select-modal"
+                        data-modal-toggle="select-modal"
+                        th:data-id="${product.id}"
+                        th:data-name="${product.name}"
+                        th:data-description="${product.description}"
+                        th:data-price="${product.price}"
+                        th:data-stock="${product.stock}"
+                        onclick="populateEditForm(this)"
+                        type="button">
+                    Edit Product
+                </button>
+
                 <a th:href="@{/products(action='delete', id=${product.id})}" class="bg-red-300 rounded-md p-1">Delete</a>
 
             </div>
@@ -278,6 +287,26 @@
         <p>© Copyright Rimel 2022. All rights reserved</p>
     </div>
 </footer>
+<script>function populateEditForm(button) {
+    // Get the product details from the button's data attributes
+    const productId = button.getAttribute('data-id');
+    const productName = button.getAttribute('data-name');
+    const productDescription = button.getAttribute('data-description');
+    const productPrice = button.getAttribute('data-price');
+    const productStock = button.getAttribute('data-stock');
+
+    // Populate the form fields with the product data
+    document.getElementById('editName').value = productName;
+    document.getElementById('editDescription').value = productDescription;
+    document.getElementById('editPrice').value = productPrice;
+    document.getElementById('editStock').value = productStock;
+
+    // Update the form action with the product ID
+    const form = document.querySelector('#select-modal form');
+    const contextPath = window.location.pathname.substring(0, window.location.pathname.indexOf("/",2));
+    form.setAttribute('action', `${contextPath}/products?action=update&id=${productId}`);
+}
+</script>
 </body>
 
 </html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Command Details</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+<div th:replace="fragments/header :: header">Header</div>
+<div layout:fragment="content">
+    <div class="max-w-6xl mx-auto mt-8 p-6 bg-white rounded-lg shadow-md">
+
+        <div class="flex justify-between items-center">
+            <div>
+                <h1 class="text-2xl font-bold">Orders ID: <span class="text-gray-600">#<span th:text="${command.id}">6743</span></span>
+                </h1>
+                <p class="text-sm text-gray-500">
+                    <i class="far fa-calendar-alt"></i>
+                    <span th:text="${command.orderDate}">Feb 16, 2022</span> -
+                    <span th:text="${command.orderDate}">Feb 20, 2022</span>
+                </p>
+            </div>
+            <div>
+                <span class="bg-yellow-500 text-white text-sm py-1 px-3 rounded-full" th:text="${command.status}">Pending</span>
+            </div>
+        </div>
+
+        <!-- Customer, Payment, and Delivery Info -->
+        <div class="grid grid-cols-3 gap-6 my-6">
+            <div class="p-4 bg-red-100 rounded-lg">
+                <h3 class="font-bold mb-2">Customer</h3>
+                <p>Full Name: <span
+                        th:text="${command.client.firstName +' ' + command.client.lastName }">Shristi Singh</span></p>
+                <p>Email: <span th:text="${command.client.email}">shristi@gmail.com</span></p>
+            </div>
+            <div class="p-4 bg-red-100 rounded-lg">
+                <h3 class="font-bold mb-2">Payment Info</h3>
+                <p>Payment Method: <span th:text="${command.client.paymentMethod}">Paypal</span></p>
+            </div>
+            <div class="p-4 bg-red-100 rounded-lg">
+                <h3 class="font-bold mb-2">Deliver to</h3>
+                <p>Address: <span th:text="${command.client.shippingAddress}">Dharam Colony old</span></p>
+            </div>
+        </div>
+
+        <!-- Products Table -->
+        <h2 class="text-xl font-bold mb-4">Products</h2>
+        <table class="min-w-full bg-white border border-gray-200 rounded-lg">
+            <thead>
+            <tr class="w-full bg-gray-100">
+                <th class="p-4 text-left">Product</th>
+                <th class="p-4 text-left">Price</th>
+                <th class="p-4 text-left">Quantity</th>
+                <th class="p-4 text-left">Subtotal</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="product : ${command.commandProducts}">
+                <td class="p-4 border-b">
+                    <div class="flex items-center">
+                        <img src="" alt="Product" class="w-16 h-16 rounded mr-4">
+                        <span th:text="${product.product.name}">LCD Monitor</span>
+                    </div>
+                </td>
+                <td class="p-4 border-b" th:text="${product.product.price}">$650</td>
+                <td class="p-4 border-b">
+                    <input type="number" th:value="${product.quantity}" class="w-12 border border-gray-300 rounded-lg">
+                </td>
+                <td class="p-4 border-b" th:text="${product.product.price * product.quantity }">$650</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <!-- Cart Total -->
+        <div class="mt-6 flex justify-end">
+            <div class="bg-gray-100 p-6 rounded-lg shadow-md w-64">
+                <p class="flex justify-between">
+                    <span>Subtotal:</span>
+                    <span th:text="${command.id}">$1750</span>
+                </p>
+                <p class="flex justify-between">
+                    <span>Shipping:</span>
+                    <span>Free</span>
+                </p>
+                <p class="flex justify-between font-bold">
+                    <span>Total:</span>
+                    <span th:text="${command.id}">$1750</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

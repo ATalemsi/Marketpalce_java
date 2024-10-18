@@ -73,5 +73,10 @@ public class AdminServiceImpl implements AdminService {
         adminDao.deleteSuperAdmin(adminId);
     }
 
+    @Override
+    public void deleteClientById(int clientId) {
+        adminDao.deleteClientById(clientId);
+    }
+
 }
 

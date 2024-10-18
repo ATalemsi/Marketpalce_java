@@ -123,8 +123,11 @@ public class AdminServlet extends HttpServlet {
                 case "deleteSuperAdmin":
                     handleDeleteSuperAdmin(request, response);
                     break;
+                case "deleteClients":  // New case for deleting clients
+                    handleDeleteClients(request, response);
+                    break;
                 default:
-                    response.sendRedirect(request.getContextPath() + "/"); // Redirect to admins page
+                    response.sendRedirect(request.getContextPath() + "/");
                     break;
             }
         } catch (Exception e) {
@@ -222,8 +225,8 @@ public class AdminServlet extends HttpServlet {
     }
     private void handleUpdateAdminNormal(HttpServletRequest request, HttpServletResponse response) throws IOException {
         int adminId = Integer.parseInt(request.getParameter("adminId"));
-        String firstName = request.getParameter("firstName");
-        String lastName = request.getParameter("lastName");
+        String firstName = request.getParameter("firstname");
+        String lastName = request.getParameter("lastname");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
@@ -232,6 +235,7 @@ public class AdminServlet extends HttpServlet {
         admin.setFirstName(firstName);
         admin.setLastName(lastName);
         admin.setEmail(email);
+        admin.setAccessLevel(0); // Normal admin level
 
         if (password != null && !password.isEmpty()) {
             String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
@@ -239,14 +243,25 @@ public class AdminServlet extends HttpServlet {
         }
 
         try {
-            adminServiceImpl.updateAdminNormal(admin);
+            adminServiceImpl.updateAdminNormal(admin); // Update the normal admin
         } catch (Exception e) {
             e.printStackTrace();
-
         }
 
+        // Redirect to the admin management page
         response.sendRedirect(request.getContextPath() + "/admin?tableType=admins");
     }
+    private void handleDeleteClients(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        int clientId = Integer.parseInt(request.getParameter("clientId"));
+
+        try {
+            adminServiceImpl.deleteClientById(clientId);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        response.sendRedirect(request.getContextPath() + "/admin?tableType=clients");
+    }
+
 
 
     @Override

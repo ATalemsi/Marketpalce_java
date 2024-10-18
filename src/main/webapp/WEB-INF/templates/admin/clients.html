@@ -51,7 +51,7 @@
         </div>
     </div>
 </header>
-<div class="flex justify-start mt-4 ml-8">
+<div class="flex justify-start mt-4 ml-12">
     <a th:if="${#session.getAttribute('role') == 'ADMIN' && #session.getAttribute('niveauAcces') == 1}"
        class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-200"
        th:href="@{/admin(tableType='admins')}">
@@ -83,9 +83,11 @@
                     <td class="p-4" th:text="${client.lastName}"></td>
                     <td class="p-4" th:text="${client.email}"></td>
                     <td class="p-4 flex space-x-2">
-                        <button class="p-1 bg-red-500 text-white rounded hover:bg-red-600 transition duration-200">
-                            Delete
-                        </button>
+                        <form th:action="@{/admin}" method="POST" class="inline">
+                            <input type="hidden" name="action" value="deleteClients">
+                            <input type="hidden" name="clientId" th:value="${client.id}">
+                            <button type="submit" class="p-1 bg-red-500 text-white rounded hover:bg-red-600 transition duration-200">Delete</button>
+                        </form>
                     </td>
                 </tr>
                 </tbody>

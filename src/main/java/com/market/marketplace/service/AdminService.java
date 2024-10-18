@@ -16,4 +16,5 @@ public interface AdminService {
     void addSuperAdmin(Admin admin);
     void updateSuperAdmin(Admin admin);
     void deleteSuperAdmin(int adminId);
+    void deleteClientById(int clientId);
 }

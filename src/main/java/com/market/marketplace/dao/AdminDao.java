@@ -17,5 +17,7 @@ public interface AdminDao {
      void updateSuperAdmin(Admin admin);
      void deleteSuperAdmin(int adminId);
      Admin getAdminInfoByEmail(String email);
+     void deleteClientById(int clientId);
+
 
 }

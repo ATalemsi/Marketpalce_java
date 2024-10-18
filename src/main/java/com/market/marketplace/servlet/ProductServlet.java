@@ -19,8 +19,8 @@ import org.slf4j.LoggerFactory;
 
 public class ProductServlet extends HttpServlet {
 
-    private ProductService productService;
-    private TemplateEngine templateEngine;
+    public ProductService productService;
+    public TemplateEngine templateEngine;
 
     private static final Logger logger = LoggerFactory.getLogger(ProductServlet.class);
 
@@ -39,7 +39,7 @@ public class ProductServlet extends HttpServlet {
     }
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String action = req.getParameter("action");
         String search = req.getParameter("search");
         String adminIdParam = req.getParameter("adminId");
@@ -75,7 +75,7 @@ public class ProductServlet extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String action = req.getParameter("action");
 
         if (action.equals("add")) {
@@ -88,7 +88,7 @@ public class ProductServlet extends HttpServlet {
     }
 
     // List all products
-    private void listProducts(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public void listProducts(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int page = Integer.parseInt(req.getParameter("page") != null ? req.getParameter("page") : "0");
         int size = 8;
         List<Product> products = productService.getAllProducts(page, size);
@@ -106,7 +106,7 @@ public class ProductServlet extends HttpServlet {
         logger.info("Products fetched: " + products);
     }
 
-    private void searchProducts(HttpServletRequest req, HttpServletResponse resp, String search) throws ServletException, IOException {
+    public void searchProducts(HttpServletRequest req, HttpServletResponse resp, String search) throws ServletException, IOException {
         int page = 0;
         int size = 8;
         List<Product> searchResults = productService.searchProductsByName(search, page, size);
@@ -127,7 +127,7 @@ public class ProductServlet extends HttpServlet {
     }
 
     // Add a new product
-    private void addProduct(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public void addProduct(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int adminId = Integer.parseInt(req.getParameter("adminId"));
         String name = req.getParameter("name");
         String description = req.getParameter("description");
@@ -152,7 +152,7 @@ public class ProductServlet extends HttpServlet {
 
 
     // Update an existing product
-    private void updateProduct(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public void updateProduct(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int id = Integer.parseInt(req.getParameter("id"));
         String name = req.getParameter("name");
         String description = req.getParameter("description");
@@ -177,7 +177,7 @@ public class ProductServlet extends HttpServlet {
     }
 
     // Delete a product
-    private void deleteProduct(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    public void deleteProduct(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         int id = Integer.parseInt(req.getParameter("id"));
         Product product = productService.getProductById(id);
         productService.removeProduct(product);
@@ -189,7 +189,7 @@ public class ProductServlet extends HttpServlet {
 
 
     // List products by admin
-    private void listProductsByAdmin(HttpServletRequest req, HttpServletResponse resp, int adminId) throws ServletException, IOException {
+    public void listProductsByAdmin(HttpServletRequest req, HttpServletResponse resp, int adminId) throws ServletException, IOException {
         int page = Integer.parseInt(req.getParameter("page") != null ? req.getParameter("page") : "0");
         int size = 8;
 

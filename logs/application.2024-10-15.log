@@ -1,0 +1,1055 @@
+2024-10-15 16:22:59 [main] INFO  com.market.marketplace.Main - logger test 1
+2024-10-15 16:22:59 [main] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Slf4jLoggerProvider
+2024-10-15 16:23:00 [main] DEBUG o.h.jpa.HibernatePersistenceProvider - Located and parsed 1 persistence units; checking each
+2024-10-15 16:23:00 [main] DEBUG o.h.jpa.HibernatePersistenceProvider - Checking persistence-unit [name=marketPlace, explicit-provider=org.hibernate.jpa.HibernatePersistenceProvider] against incoming persistence unit name [marketPlace]
+2024-10-15 16:23:00 [main] DEBUG o.h.jpa.boot.spi.ProviderChecker - Persistence-unit [marketPlace] requested PersistenceProvider [org.hibernate.jpa.HibernatePersistenceProvider]
+2024-10-15 16:23:00 [main] DEBUG o.h.jpa.internal.util.LogHelper - PersistenceUnitInfo [
+	name: marketPlace
+	persistence provider classname: org.hibernate.jpa.HibernatePersistenceProvider
+	classloader: null
+	excludeUnlistedClasses: false
+	JTA datasource: null
+	Non JTA datasource: null
+	Transaction type: RESOURCE_LOCAL
+	PU root URL: file:/C:/Users/douae/IdeaProjects/marketPlace/target/classes/
+	Shared Cache Mode: null
+	Validation Mode: null
+	Jar files URLs []
+	Managed classes names [
+		com.market.marketplace.entities.Product
+		com.market.marketplace.entities.User]
+	Mapping files names []
+	Properties [
+		javax.persistence.jdbc.driver: org.postgresql.Driver
+		javax.persistence.jdbc.password: password
+		javax.persistence.jdbc.url: jdbc:postgresql://localhost:5432/marketPlace
+		hibernate.dialect: org.hibernate.dialect.PostgreSQL95Dialect
+		hibernate.show_sql: true
+		hibernate.hbm2ddl.auto: update
+		javax.persistence.jdbc.user: postgres]
+2024-10-15 16:23:00 [main] DEBUG o.h.i.internal.IntegratorServiceImpl - Adding Integrator [org.hibernate.cfg.beanvalidation.BeanValidationIntegrator].
+2024-10-15 16:23:00 [main] DEBUG o.h.i.internal.IntegratorServiceImpl - Adding Integrator [org.hibernate.secure.spi.JaccIntegrator].
+2024-10-15 16:23:00 [main] DEBUG o.h.i.internal.IntegratorServiceImpl - Adding Integrator [org.hibernate.cache.internal.CollectionCacheInvalidator].
+2024-10-15 16:23:00 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.1.Final
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2024-10-15 16:23:00 [main] DEBUG o.h.service.spi.ServiceBinding - Overriding existing service binding [org.hibernate.secure.spi.JaccService]
+2024-10-15 16:23:00 [main] DEBUG o.h.c.i.RegionFactoryInitiator - Cannot default RegionFactory based on registered strategies as `[]` RegionFactory strategies were registered
+2024-10-15 16:23:00 [main] DEBUG o.h.c.i.RegionFactoryInitiator - Cache region factory : org.hibernate.cache.internal.NoCachingRegionFactory
+2024-10-15 16:23:00 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration boolean -> org.hibernate.type.BooleanType@5965d37
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration boolean -> org.hibernate.type.BooleanType@5965d37
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Boolean -> org.hibernate.type.BooleanType@5965d37
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration numeric_boolean -> org.hibernate.type.NumericBooleanType@6cb107fd
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration true_false -> org.hibernate.type.TrueFalseType@2ab4bc72
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration yes_no -> org.hibernate.type.YesNoType@740fb309
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration byte -> org.hibernate.type.ByteType@6f204a1a
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration byte -> org.hibernate.type.ByteType@6f204a1a
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Byte -> org.hibernate.type.ByteType@6f204a1a
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration character -> org.hibernate.type.CharacterType@3cce5371
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration char -> org.hibernate.type.CharacterType@3cce5371
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Character -> org.hibernate.type.CharacterType@3cce5371
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration short -> org.hibernate.type.ShortType@338fc1d8
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration short -> org.hibernate.type.ShortType@338fc1d8
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Short -> org.hibernate.type.ShortType@338fc1d8
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration integer -> org.hibernate.type.IntegerType@480d3575
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration int -> org.hibernate.type.IntegerType@480d3575
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Integer -> org.hibernate.type.IntegerType@480d3575
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration long -> org.hibernate.type.LongType@65f8f5ae
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration long -> org.hibernate.type.LongType@65f8f5ae
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Long -> org.hibernate.type.LongType@65f8f5ae
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration float -> org.hibernate.type.FloatType@5c7933ad
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration float -> org.hibernate.type.FloatType@5c7933ad
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Float -> org.hibernate.type.FloatType@5c7933ad
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration double -> org.hibernate.type.DoubleType@68c9d179
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration double -> org.hibernate.type.DoubleType@68c9d179
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Double -> org.hibernate.type.DoubleType@68c9d179
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration big_decimal -> org.hibernate.type.BigDecimalType@14fc5f04
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.math.BigDecimal -> org.hibernate.type.BigDecimalType@14fc5f04
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration big_integer -> org.hibernate.type.BigIntegerType@333d4a8c
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.math.BigInteger -> org.hibernate.type.BigIntegerType@333d4a8c
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration string -> org.hibernate.type.StringType@4d14b6c2
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.String -> org.hibernate.type.StringType@4d14b6c2
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration nstring -> org.hibernate.type.StringNVarcharType@25df00a0
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration ncharacter -> org.hibernate.type.CharacterNCharType@5884a914
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration url -> org.hibernate.type.UrlType@1a4927d6
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.net.URL -> org.hibernate.type.UrlType@1a4927d6
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration Duration -> org.hibernate.type.DurationType@4b520ea8
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.time.Duration -> org.hibernate.type.DurationType@4b520ea8
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration Instant -> org.hibernate.type.InstantType@782859e
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.time.Instant -> org.hibernate.type.InstantType@782859e
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration LocalDateTime -> org.hibernate.type.LocalDateTimeType@6f43c82
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.time.LocalDateTime -> org.hibernate.type.LocalDateTimeType@6f43c82
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration LocalDate -> org.hibernate.type.LocalDateType@6f15d60e
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.time.LocalDate -> org.hibernate.type.LocalDateType@6f15d60e
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration LocalTime -> org.hibernate.type.LocalTimeType@4f0f2942
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.time.LocalTime -> org.hibernate.type.LocalTimeType@4f0f2942
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration OffsetDateTime -> org.hibernate.type.OffsetDateTimeType@69504ae9
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.time.OffsetDateTime -> org.hibernate.type.OffsetDateTimeType@69504ae9
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration OffsetTime -> org.hibernate.type.OffsetTimeType@126253fd
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.time.OffsetTime -> org.hibernate.type.OffsetTimeType@126253fd
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration ZonedDateTime -> org.hibernate.type.ZonedDateTimeType@5276d6ee
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.time.ZonedDateTime -> org.hibernate.type.ZonedDateTimeType@5276d6ee
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration date -> org.hibernate.type.DateType@7dfd3c81
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.sql.Date -> org.hibernate.type.DateType@7dfd3c81
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration time -> org.hibernate.type.TimeType@7dfb0c0f
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.sql.Time -> org.hibernate.type.TimeType@7dfb0c0f
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration timestamp -> org.hibernate.type.TimestampType@d23e042
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.sql.Timestamp -> org.hibernate.type.TimestampType@d23e042
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.util.Date -> org.hibernate.type.TimestampType@d23e042
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration dbtimestamp -> org.hibernate.type.DbTimestampType@14dd7b39
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration calendar -> org.hibernate.type.CalendarType@51891008
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.util.Calendar -> org.hibernate.type.CalendarType@51891008
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.util.GregorianCalendar -> org.hibernate.type.CalendarType@51891008
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration calendar_date -> org.hibernate.type.CalendarDateType@d2de489
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration calendar_time -> org.hibernate.type.CalendarTimeType@41330d4f
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration locale -> org.hibernate.type.LocaleType@508dec2b
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.util.Locale -> org.hibernate.type.LocaleType@508dec2b
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration currency -> org.hibernate.type.CurrencyType@1df8da7a
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.util.Currency -> org.hibernate.type.CurrencyType@1df8da7a
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration timezone -> org.hibernate.type.TimeZoneType@5efa40fe
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.util.TimeZone -> org.hibernate.type.TimeZoneType@5efa40fe
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration class -> org.hibernate.type.ClassType@2d29b4ee
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Class -> org.hibernate.type.ClassType@2d29b4ee
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration uuid-binary -> org.hibernate.type.UUIDBinaryType@1224144a
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.util.UUID -> org.hibernate.type.UUIDBinaryType@1224144a
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration uuid-char -> org.hibernate.type.UUIDCharType@3b35a229
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration binary -> org.hibernate.type.BinaryType@7dc3712
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration byte[] -> org.hibernate.type.BinaryType@7dc3712
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration [B -> org.hibernate.type.BinaryType@7dc3712
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration wrapper-binary -> org.hibernate.type.WrapperBinaryType@5be1d0a4
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration Byte[] -> org.hibernate.type.WrapperBinaryType@5be1d0a4
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration [Ljava.lang.Byte; -> org.hibernate.type.WrapperBinaryType@5be1d0a4
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration row_version -> org.hibernate.type.RowVersionType@7d322cad
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration image -> org.hibernate.type.ImageType@78452606
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration characters -> org.hibernate.type.CharArrayType@7098b907
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration char[] -> org.hibernate.type.CharArrayType@7098b907
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration [C -> org.hibernate.type.CharArrayType@7098b907
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration wrapper-characters -> org.hibernate.type.CharacterArrayType@3bcd05cb
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration [Ljava.lang.Character; -> org.hibernate.type.CharacterArrayType@3bcd05cb
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration Character[] -> org.hibernate.type.CharacterArrayType@3bcd05cb
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration text -> org.hibernate.type.TextType@20bd8be5
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration ntext -> org.hibernate.type.NTextType@10289886
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration blob -> org.hibernate.type.BlobType@3e78b6a5
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.sql.Blob -> org.hibernate.type.BlobType@3e78b6a5
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration materialized_blob -> org.hibernate.type.MaterializedBlobType@7975d1d8
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration clob -> org.hibernate.type.ClobType@50029372
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.sql.Clob -> org.hibernate.type.ClobType@50029372
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration nclob -> org.hibernate.type.NClobType@5038d0b5
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.sql.NClob -> org.hibernate.type.NClobType@5038d0b5
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration materialized_clob -> org.hibernate.type.MaterializedClobType@6bb4dd34
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration materialized_nclob -> org.hibernate.type.MaterializedNClobType@4b8729ff
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration serializable -> org.hibernate.type.SerializableType@2bdd8394
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration object -> org.hibernate.type.ObjectType@79defdc
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.lang.Object -> org.hibernate.type.ObjectType@79defdc
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration imm_date -> org.hibernate.type.AdaptedImmutableType@238d68ff
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration imm_time -> org.hibernate.type.AdaptedImmutableType@4b86805d
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration imm_timestamp -> org.hibernate.type.AdaptedImmutableType@5852c06f
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration imm_dbtimestamp -> org.hibernate.type.AdaptedImmutableType@4149c063
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration imm_calendar -> org.hibernate.type.AdaptedImmutableType@9cb8225
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration imm_calendar_date -> org.hibernate.type.AdaptedImmutableType@76b07f29
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration imm_binary -> org.hibernate.type.AdaptedImmutableType@38af9828
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration imm_serializable -> org.hibernate.type.AdaptedImmutableType@376a0d86
+2024-10-15 16:23:00 [main] DEBUG o.h.b.internal.BootstrapContextImpl - Injecting ScanEnvironment [org.hibernate.jpa.boot.internal.StandardJpaScanEnvironmentImpl@1e13529a] into BootstrapContext; was [null]
+2024-10-15 16:23:00 [main] DEBUG o.h.b.internal.BootstrapContextImpl - Injecting ScanOptions [org.hibernate.boot.archive.scan.internal.StandardScanOptions@1ec9bd38] into BootstrapContext; was [org.hibernate.boot.archive.scan.internal.StandardScanOptions@452e19ca]
+2024-10-15 16:23:00 [main] DEBUG o.h.b.internal.BootstrapContextImpl - Injecting JPA temp ClassLoader [null] into BootstrapContext; was [null]
+2024-10-15 16:23:00 [main] DEBUG o.h.b.internal.ClassLoaderAccessImpl - ClassLoaderAccessImpl#injectTempClassLoader(null) [was null]
+2024-10-15 16:23:00 [main] DEBUG o.h.i.f.i.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [uuid2] -> [org.hibernate.id.UUIDGenerator]
+2024-10-15 16:23:00 [main] DEBUG o.h.i.f.i.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [guid] -> [org.hibernate.id.GUIDGenerator]
+2024-10-15 16:23:00 [main] DEBUG o.h.i.f.i.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [uuid] -> [org.hibernate.id.UUIDHexGenerator]
+2024-10-15 16:23:00 [main] DEBUG o.h.i.f.i.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [uuid.hex] -> [org.hibernate.id.UUIDHexGenerator]
+2024-10-15 16:23:00 [main] DEBUG o.h.i.f.i.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [assigned] -> [org.hibernate.id.Assigned]
+2024-10-15 16:23:00 [main] DEBUG o.h.i.f.i.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [identity] -> [org.hibernate.id.IdentityGenerator]
+2024-10-15 16:23:00 [main] DEBUG o.h.i.f.i.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [select] -> [org.hibernate.id.SelectGenerator]
+2024-10-15 16:23:00 [main] DEBUG o.h.i.f.i.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [sequence] -> [org.hibernate.id.enhanced.SequenceStyleGenerator]
+2024-10-15 16:23:00 [main] DEBUG o.h.i.f.i.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [seqhilo] -> [org.hibernate.id.SequenceHiLoGenerator]
+2024-10-15 16:23:00 [main] DEBUG o.h.i.f.i.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [increment] -> [org.hibernate.id.IncrementGenerator]
+2024-10-15 16:23:00 [main] DEBUG o.h.i.f.i.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [foreign] -> [org.hibernate.id.ForeignGenerator]
+2024-10-15 16:23:00 [main] DEBUG o.h.i.f.i.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [sequence-identity] -> [org.hibernate.id.SequenceIdentityGenerator]
+2024-10-15 16:23:00 [main] DEBUG o.h.i.f.i.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [enhanced-sequence] -> [org.hibernate.id.enhanced.SequenceStyleGenerator]
+2024-10-15 16:23:00 [main] DEBUG o.h.i.f.i.DefaultIdentifierGeneratorFactory - Registering IdentifierGenerator strategy [enhanced-table] -> [org.hibernate.id.enhanced.TableGenerator]
+2024-10-15 16:23:00 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+2024-10-15 16:23:00 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/marketPlace]
+2024-10-15 16:23:00 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001001: Connection properties: {user=postgres, password=password}
+2024-10-15 16:23:00 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001003: Autocommit mode: false
+2024-10-15 16:23:00 [main] DEBUG o.h.e.j.c.i.DriverManagerConnectionProviderImpl - Initializing Connection pool with 1 Connections
+2024-10-15 16:23:00 [main] INFO  o.h.e.j.c.i.DriverManagerConnectionProviderImpl - HHH000115: Hibernate connection pool size: 20 (min=1)
+2024-10-15 16:23:00 [main] DEBUG o.h.e.j.e.i.JdbcEnvironmentInitiator - Database ->
+       name : PostgreSQL
+    version : 16.4
+      major : 16
+      minor : 4
+2024-10-15 16:23:00 [main] DEBUG o.h.e.j.e.i.JdbcEnvironmentInitiator - Driver ->
+       name : PostgreSQL JDBC Driver
+    version : 42.7.3
+      major : 42
+      minor : 7
+2024-10-15 16:23:00 [main] DEBUG o.h.e.j.e.i.JdbcEnvironmentInitiator - JDBC version : 4.2
+2024-10-15 16:23:00 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
+2024-10-15 16:23:00 [main] DEBUG o.h.e.j.e.s.IdentifierHelperBuilder - JDBC driver metadata reported database stores quoted identifiers in neither upper, lower nor mixed case
+2024-10-15 16:23:00 [main] DEBUG o.h.boot.model.relational.Namespace - Created database namespace [logicalName=Name{catalog=null, schema=null}, physicalName=Name{catalog=null, schema=null}]
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration pg-uuid -> org.hibernate.type.PostgresUUIDType@4426bff1
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - Adding type registration java.util.UUID -> org.hibernate.type.PostgresUUIDType@4426bff1
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.type.BasicTypeRegistry - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@1224144a
+2024-10-15 16:23:00 [main] DEBUG o.h.type.spi.TypeConfiguration$Scope - Scoping TypeConfiguration [org.hibernate.type.spi.TypeConfiguration@4b79ac84] to MetadataBuildingContext [org.hibernate.boot.internal.MetadataBuildingContextRootImpl@53941c2f]
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.AnnotationBinder - Binding entity from annotated class: com.market.marketplace.entities.User
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3DiscriminatorColumn{logicalColumnName'role', discriminatorTypeName='string'}
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.EntityBinder - Import with entity name User
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.EntityBinder - Bind entity com.market.marketplace.entities.User on table users
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(users), mappingColumn=id, insertable=true, updatable=true, unique=false}
+2024-10-15 16:23:00 [main] DEBUG o.h.b.internal.ClassLoaderAccessImpl - Not known whether passed class name [com.market.marketplace.entities.User] is safe
+2024-10-15 16:23:00 [main] DEBUG o.h.b.internal.ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : com.market.marketplace.entities.User
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.PropertyBinder - MetadataSourceProcessor property id with lazy=false
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [com.market.marketplace.entities.User:id]
+2024-10-15 16:23:00 [main] DEBUG o.h.c.annotations.SimpleValueBinder - building SimpleValue for id
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.PropertyBinder - Building property id
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.BinderHelper - #makeIdGenerator(org.hibernate.mapping.SimpleValue([org.hibernate.mapping.Column(id)]), id, identity, , ...)
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(users), mappingColumn=email, insertable=true, updatable=true, unique=true}
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.PropertyBinder - MetadataSourceProcessor property email with lazy=false
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [com.market.marketplace.entities.User:email]
+2024-10-15 16:23:00 [main] DEBUG o.h.c.annotations.SimpleValueBinder - building SimpleValue for email
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.PropertyBinder - Building property email
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(users), mappingColumn=firstName, insertable=true, updatable=true, unique=false}
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.PropertyBinder - MetadataSourceProcessor property firstName with lazy=false
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [com.market.marketplace.entities.User:firstName]
+2024-10-15 16:23:00 [main] DEBUG o.h.c.annotations.SimpleValueBinder - building SimpleValue for firstName
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.PropertyBinder - Building property firstName
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(users), mappingColumn=lastName, insertable=true, updatable=true, unique=false}
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.PropertyBinder - MetadataSourceProcessor property lastName with lazy=false
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [com.market.marketplace.entities.User:lastName]
+2024-10-15 16:23:00 [main] DEBUG o.h.c.annotations.SimpleValueBinder - building SimpleValue for lastName
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.PropertyBinder - Building property lastName
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(users), mappingColumn=password, insertable=true, updatable=true, unique=false}
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.PropertyBinder - MetadataSourceProcessor property password with lazy=false
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [com.market.marketplace.entities.User:password]
+2024-10-15 16:23:00 [main] DEBUG o.h.c.annotations.SimpleValueBinder - building SimpleValue for password
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.PropertyBinder - Building property password
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(users), mappingColumn=role, insertable=false, updatable=false, unique=false}
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.PropertyBinder - MetadataSourceProcessor property role with lazy=false
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [com.market.marketplace.entities.User:role]
+2024-10-15 16:23:00 [main] DEBUG o.h.c.annotations.SimpleValueBinder - building SimpleValue for role
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.PropertyBinder - Building property role
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.AnnotationBinder - Binding entity from annotated class: com.market.marketplace.entities.Client
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.EntityBinder - Import with entity name Client
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3JoinColumn{logicalColumnName='null', referencedColumn='null', mappedBy='client'}
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(users), mappingColumn=commands, insertable=true, updatable=true, unique=false}
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(users), mappingColumn=null, insertable=true, updatable=true, unique=false}
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(users), mappingColumn=element, insertable=true, updatable=true, unique=false}
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(users), mappingColumn=commands_KEY, insertable=true, updatable=true, unique=false}
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3JoinColumn{logicalColumnName='commands_KEY', referencedColumn='null', mappedBy='null'}
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3JoinColumn{logicalColumnName='null', referencedColumn='null', mappedBy='client'}
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3JoinColumn{logicalColumnName='null', referencedColumn='null', mappedBy='client'}
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.CollectionBinder - Collection role: com.market.marketplace.entities.Client.commands
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.PropertyBinder - Building property commands
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(users), mappingColumn=paymentMethod, insertable=true, updatable=true, unique=false}
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.PropertyBinder - MetadataSourceProcessor property paymentMethod with lazy=false
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [com.market.marketplace.entities.Client:paymentMethod]
+2024-10-15 16:23:00 [main] DEBUG o.h.c.annotations.SimpleValueBinder - building SimpleValue for paymentMethod
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.PropertyBinder - Building property paymentMethod
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(users), mappingColumn=shippingAddress, insertable=true, updatable=true, unique=false}
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.PropertyBinder - MetadataSourceProcessor property shippingAddress with lazy=false
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [com.market.marketplace.entities.Client:shippingAddress]
+2024-10-15 16:23:00 [main] DEBUG o.h.c.annotations.SimpleValueBinder - building SimpleValue for shippingAddress
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.PropertyBinder - Building property shippingAddress
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.AnnotationBinder - Binding entity from annotated class: com.market.marketplace.entities.Command
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3DiscriminatorColumn{logicalColumnName'DTYPE', discriminatorTypeName='string'}
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.EntityBinder - Import with entity name Command
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.EntityBinder - Bind entity com.market.marketplace.entities.Command on table commands
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(commands), mappingColumn=id, insertable=true, updatable=true, unique=false}
+2024-10-15 16:23:00 [main] DEBUG o.h.b.internal.ClassLoaderAccessImpl - Not known whether passed class name [com.market.marketplace.entities.Command] is safe
+2024-10-15 16:23:00 [main] DEBUG o.h.b.internal.ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : com.market.marketplace.entities.Command
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.PropertyBinder - MetadataSourceProcessor property id with lazy=false
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [com.market.marketplace.entities.Command:id]
+2024-10-15 16:23:00 [main] DEBUG o.h.c.annotations.SimpleValueBinder - building SimpleValue for id
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.PropertyBinder - Building property id
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.BinderHelper - #makeIdGenerator(org.hibernate.mapping.SimpleValue([org.hibernate.mapping.Column(id)]), id, identity, , ...)
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3JoinColumn{logicalColumnName='client_id', referencedColumn='', mappedBy=''}
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(commands), mappingColumn=client, insertable=true, updatable=true, unique=false}
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.PropertyBinder - Building property client
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3JoinColumn{logicalColumnName='null', referencedColumn='null', mappedBy='command'}
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(commands), mappingColumn=commandProducts, insertable=true, updatable=true, unique=false}
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(commands), mappingColumn=null, insertable=true, updatable=true, unique=false}
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(commands), mappingColumn=element, insertable=true, updatable=true, unique=false}
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(commands), mappingColumn=commandProducts_KEY, insertable=true, updatable=true, unique=false}
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3JoinColumn{logicalColumnName='commandProducts_KEY', referencedColumn='null', mappedBy='null'}
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3JoinColumn{logicalColumnName='null', referencedColumn='null', mappedBy='command'}
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3JoinColumn{logicalColumnName='null', referencedColumn='null', mappedBy='command'}
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.CollectionBinder - Collection role: com.market.marketplace.entities.Command.commandProducts
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.PropertyBinder - Building property commandProducts
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(commands), mappingColumn=orderDate, insertable=true, updatable=true, unique=false}
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.PropertyBinder - MetadataSourceProcessor property orderDate with lazy=false
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [com.market.marketplace.entities.Command:orderDate]
+2024-10-15 16:23:00 [main] DEBUG o.h.c.annotations.SimpleValueBinder - building SimpleValue for orderDate
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.PropertyBinder - Building property orderDate
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(commands), mappingColumn=status, insertable=true, updatable=true, unique=false}
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.PropertyBinder - MetadataSourceProcessor property status with lazy=false
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [com.market.marketplace.entities.Command:status]
+2024-10-15 16:23:00 [main] DEBUG o.h.c.annotations.SimpleValueBinder - building SimpleValue for status
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.PropertyBinder - Building property status
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.AnnotationBinder - Binding entity from annotated class: com.market.marketplace.entities.CommandProduct
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3DiscriminatorColumn{logicalColumnName'DTYPE', discriminatorTypeName='string'}
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.EntityBinder - Import with entity name CommandProduct
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.EntityBinder - Bind entity com.market.marketplace.entities.CommandProduct on table command_product
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(command_product), mappingColumn=id, insertable=true, updatable=true, unique=false}
+2024-10-15 16:23:00 [main] DEBUG o.h.b.internal.ClassLoaderAccessImpl - Not known whether passed class name [com.market.marketplace.entities.CommandProduct] is safe
+2024-10-15 16:23:00 [main] DEBUG o.h.b.internal.ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : com.market.marketplace.entities.CommandProduct
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.PropertyBinder - MetadataSourceProcessor property id with lazy=false
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [com.market.marketplace.entities.CommandProduct:id]
+2024-10-15 16:23:00 [main] DEBUG o.h.c.annotations.SimpleValueBinder - building SimpleValue for id
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.PropertyBinder - Building property id
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.BinderHelper - #makeIdGenerator(org.hibernate.mapping.SimpleValue([org.hibernate.mapping.Column(id)]), id, identity, , ...)
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3JoinColumn{logicalColumnName='command_id', referencedColumn='', mappedBy=''}
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(command_product), mappingColumn=command, insertable=true, updatable=true, unique=false}
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.PropertyBinder - Building property command
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3JoinColumn{logicalColumnName='product_id', referencedColumn='', mappedBy=''}
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(command_product), mappingColumn=product, insertable=true, updatable=true, unique=false}
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.PropertyBinder - Building property product
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(command_product), mappingColumn=quantity, insertable=true, updatable=true, unique=false}
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.PropertyBinder - MetadataSourceProcessor property quantity with lazy=false
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [com.market.marketplace.entities.CommandProduct:quantity]
+2024-10-15 16:23:00 [main] DEBUG o.h.c.annotations.SimpleValueBinder - building SimpleValue for quantity
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.PropertyBinder - Building property quantity
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.AnnotationBinder - Binding entity from annotated class: com.market.marketplace.entities.Product
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3DiscriminatorColumn{logicalColumnName'DTYPE', discriminatorTypeName='string'}
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.EntityBinder - Import with entity name Product
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.EntityBinder - Bind entity com.market.marketplace.entities.Product on table products
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(products), mappingColumn=id, insertable=true, updatable=true, unique=false}
+2024-10-15 16:23:00 [main] DEBUG o.h.b.internal.ClassLoaderAccessImpl - Not known whether passed class name [com.market.marketplace.entities.Product] is safe
+2024-10-15 16:23:00 [main] DEBUG o.h.b.internal.ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : com.market.marketplace.entities.Product
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.PropertyBinder - MetadataSourceProcessor property id with lazy=false
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [com.market.marketplace.entities.Product:id]
+2024-10-15 16:23:00 [main] DEBUG o.h.c.annotations.SimpleValueBinder - building SimpleValue for id
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.PropertyBinder - Building property id
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.BinderHelper - #makeIdGenerator(org.hibernate.mapping.SimpleValue([org.hibernate.mapping.Column(id)]), id, identity, , ...)
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3JoinColumn{logicalColumnName='admin_id', referencedColumn='', mappedBy=''}
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(products), mappingColumn=admin, insertable=true, updatable=true, unique=false}
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.PropertyBinder - Building property admin
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3JoinColumn{logicalColumnName='null', referencedColumn='null', mappedBy='product'}
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(products), mappingColumn=commandProducts, insertable=true, updatable=true, unique=false}
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(products), mappingColumn=null, insertable=true, updatable=true, unique=false}
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(products), mappingColumn=element, insertable=true, updatable=true, unique=false}
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(products), mappingColumn=commandProducts_KEY, insertable=true, updatable=true, unique=false}
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3JoinColumn{logicalColumnName='commandProducts_KEY', referencedColumn='null', mappedBy='null'}
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3JoinColumn{logicalColumnName='null', referencedColumn='null', mappedBy='product'}
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3JoinColumn{logicalColumnName='null', referencedColumn='null', mappedBy='product'}
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.CollectionBinder - Collection role: com.market.marketplace.entities.Product.commandProducts
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.PropertyBinder - Building property commandProducts
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(products), mappingColumn=description, insertable=true, updatable=true, unique=false}
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.PropertyBinder - MetadataSourceProcessor property description with lazy=false
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [com.market.marketplace.entities.Product:description]
+2024-10-15 16:23:00 [main] DEBUG o.h.c.annotations.SimpleValueBinder - building SimpleValue for description
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.PropertyBinder - Building property description
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(products), mappingColumn=name, insertable=true, updatable=true, unique=true}
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.PropertyBinder - MetadataSourceProcessor property name with lazy=false
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [com.market.marketplace.entities.Product:name]
+2024-10-15 16:23:00 [main] DEBUG o.h.c.annotations.SimpleValueBinder - building SimpleValue for name
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.PropertyBinder - Building property name
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(products), mappingColumn=price, insertable=true, updatable=true, unique=false}
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.PropertyBinder - MetadataSourceProcessor property price with lazy=false
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [com.market.marketplace.entities.Product:price]
+2024-10-15 16:23:00 [main] DEBUG o.h.c.annotations.SimpleValueBinder - building SimpleValue for price
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.PropertyBinder - Building property price
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(products), mappingColumn=stock, insertable=true, updatable=true, unique=false}
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.PropertyBinder - MetadataSourceProcessor property stock with lazy=false
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [com.market.marketplace.entities.Product:stock]
+2024-10-15 16:23:00 [main] DEBUG o.h.c.annotations.SimpleValueBinder - building SimpleValue for stock
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.PropertyBinder - Building property stock
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.AnnotationBinder - Binding entity from annotated class: com.market.marketplace.entities.Admin
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.EntityBinder - Import with entity name Admin
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(users), mappingColumn=accessLevel, insertable=true, updatable=true, unique=false}
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.PropertyBinder - MetadataSourceProcessor property accessLevel with lazy=false
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.AbstractPropertyHolder - Attempting to locate auto-apply AttributeConverter for property [com.market.marketplace.entities.Admin:accessLevel]
+2024-10-15 16:23:00 [main] DEBUG o.h.c.annotations.SimpleValueBinder - building SimpleValue for accessLevel
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.PropertyBinder - Building property accessLevel
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3JoinColumn{logicalColumnName='null', referencedColumn='null', mappedBy='admin'}
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(users), mappingColumn=products, insertable=true, updatable=true, unique=false}
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(users), mappingColumn=null, insertable=true, updatable=true, unique=false}
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(users), mappingColumn=element, insertable=true, updatable=true, unique=false}
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3Column{table=org.hibernate.mapping.Table(users), mappingColumn=products_KEY, insertable=true, updatable=true, unique=false}
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3JoinColumn{logicalColumnName='products_KEY', referencedColumn='null', mappedBy='null'}
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3JoinColumn{logicalColumnName='null', referencedColumn='null', mappedBy='admin'}
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Ejb3Column - Binding column: Ejb3JoinColumn{logicalColumnName='null', referencedColumn='null', mappedBy='admin'}
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.CollectionBinder - Collection role: com.market.marketplace.entities.Admin.products
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.PropertyBinder - Building property products
+2024-10-15 16:23:00 [main] DEBUG o.h.c.annotations.SimpleValueBinder - Starting fillSimpleValue for id
+2024-10-15 16:23:00 [main] DEBUG o.h.c.annotations.SimpleValueBinder - Starting fillSimpleValue for email
+2024-10-15 16:23:00 [main] DEBUG o.h.c.annotations.SimpleValueBinder - Starting fillSimpleValue for firstName
+2024-10-15 16:23:00 [main] DEBUG o.h.c.annotations.SimpleValueBinder - Starting fillSimpleValue for lastName
+2024-10-15 16:23:00 [main] DEBUG o.h.c.annotations.SimpleValueBinder - Starting fillSimpleValue for password
+2024-10-15 16:23:00 [main] DEBUG o.h.c.annotations.SimpleValueBinder - Starting fillSimpleValue for role
+2024-10-15 16:23:00 [main] DEBUG o.h.c.annotations.SimpleValueBinder - Starting fillSimpleValue for paymentMethod
+2024-10-15 16:23:00 [main] DEBUG o.h.c.annotations.SimpleValueBinder - Starting fillSimpleValue for shippingAddress
+2024-10-15 16:23:00 [main] DEBUG o.h.c.annotations.SimpleValueBinder - Starting fillSimpleValue for id
+2024-10-15 16:23:00 [main] DEBUG o.h.c.annotations.SimpleValueBinder - Starting fillSimpleValue for orderDate
+2024-10-15 16:23:00 [main] DEBUG o.h.c.annotations.SimpleValueBinder - Starting fillSimpleValue for status
+2024-10-15 16:23:00 [main] DEBUG o.h.c.annotations.SimpleValueBinder - Starting fillSimpleValue for id
+2024-10-15 16:23:00 [main] DEBUG o.h.c.annotations.SimpleValueBinder - Starting fillSimpleValue for quantity
+2024-10-15 16:23:00 [main] DEBUG o.h.c.annotations.SimpleValueBinder - Starting fillSimpleValue for id
+2024-10-15 16:23:00 [main] DEBUG o.h.c.annotations.SimpleValueBinder - Starting fillSimpleValue for description
+2024-10-15 16:23:00 [main] DEBUG o.h.c.annotations.SimpleValueBinder - Starting fillSimpleValue for name
+2024-10-15 16:23:00 [main] DEBUG o.h.c.annotations.SimpleValueBinder - Starting fillSimpleValue for price
+2024-10-15 16:23:00 [main] DEBUG o.h.c.annotations.SimpleValueBinder - Starting fillSimpleValue for stock
+2024-10-15 16:23:00 [main] DEBUG o.h.c.annotations.SimpleValueBinder - Starting fillSimpleValue for accessLevel
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.mapping.PrimaryKey - Forcing column [id] to be non-null as it is part of the primary key for table [users]
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.mapping.PrimaryKey - Forcing column [id] to be non-null as it is part of the primary key for table [commands]
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.mapping.PrimaryKey - Forcing column [id] to be non-null as it is part of the primary key for table [command_product]
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.mapping.PrimaryKey - Forcing column [id] to be non-null as it is part of the primary key for table [products]
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.cfg.CollectionSecondPass - Second pass for collection: com.market.marketplace.entities.Client.commands
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.CollectionBinder - Binding a OneToMany: com.market.marketplace.entities.Client.commands through a foreign key
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.CollectionBinder - Mapping collection: com.market.marketplace.entities.Client.commands -> commands
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.TableBinder - Retrieving property com.market.marketplace.entities.Command.client
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.cfg.CollectionSecondPass - Mapped collection key: client_id, one-to-many: com.market.marketplace.entities.Command
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.cfg.CollectionSecondPass - Second pass for collection: com.market.marketplace.entities.Command.commandProducts
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.CollectionBinder - Binding a OneToMany: com.market.marketplace.entities.Command.commandProducts through a foreign key
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.CollectionBinder - Mapping collection: com.market.marketplace.entities.Command.commandProducts -> command_product
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.TableBinder - Retrieving property com.market.marketplace.entities.CommandProduct.command
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.cfg.CollectionSecondPass - Mapped collection key: command_id, one-to-many: com.market.marketplace.entities.CommandProduct
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.cfg.CollectionSecondPass - Second pass for collection: com.market.marketplace.entities.Product.commandProducts
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.CollectionBinder - Binding a OneToMany: com.market.marketplace.entities.Product.commandProducts through a foreign key
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.CollectionBinder - Mapping collection: com.market.marketplace.entities.Product.commandProducts -> command_product
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.TableBinder - Retrieving property com.market.marketplace.entities.CommandProduct.product
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.cfg.CollectionSecondPass - Mapped collection key: product_id, one-to-many: com.market.marketplace.entities.CommandProduct
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.cfg.CollectionSecondPass - Second pass for collection: com.market.marketplace.entities.Admin.products
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.CollectionBinder - Binding a OneToMany: com.market.marketplace.entities.Admin.products through a foreign key
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.CollectionBinder - Mapping collection: com.market.marketplace.entities.Admin.products -> products
+2024-10-15 16:23:00 [main] DEBUG o.h.cfg.annotations.TableBinder - Retrieving property com.market.marketplace.entities.Product.admin
+2024-10-15 16:23:00 [main] DEBUG o.hibernate.cfg.CollectionSecondPass - Mapped collection key: admin_id, one-to-many: com.market.marketplace.entities.Product
+2024-10-15 16:23:00 [main] DEBUG o.h.b.i.InFlightMetadataCollectorImpl - Resolving reference to class: com.market.marketplace.entities.Command
+2024-10-15 16:23:00 [main] DEBUG o.h.b.i.InFlightMetadataCollectorImpl - Resolving reference to class: com.market.marketplace.entities.Product
+2024-10-15 16:23:00 [main] DEBUG o.h.b.i.InFlightMetadataCollectorImpl - Resolving reference to class: com.market.marketplace.entities.Client
+2024-10-15 16:23:00 [main] DEBUG o.h.b.i.InFlightMetadataCollectorImpl - Resolving reference to class: com.market.marketplace.entities.Admin
+2024-10-15 16:23:00 [main] DEBUG o.h.b.i.InFlightMetadataCollectorImpl - Resolving reference to class: com.market.marketplace.entities.Command
+2024-10-15 16:23:00 [main] DEBUG o.h.b.i.InFlightMetadataCollectorImpl - Resolving reference to class: com.market.marketplace.entities.Product
+2024-10-15 16:23:00 [main] DEBUG o.h.b.i.InFlightMetadataCollectorImpl - Resolving reference to class: com.market.marketplace.entities.Client
+2024-10-15 16:23:00 [main] DEBUG o.h.b.i.InFlightMetadataCollectorImpl - Resolving reference to class: com.market.marketplace.entities.Admin
+2024-10-15 16:23:00 [main] DEBUG o.h.internal.SessionFactoryImpl - Building session factory
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Settings - SessionFactory name : null
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Settings - Automatic flush during beforeCompletion(): enabled
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Settings - Automatic session close at end of transaction: disabled
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Settings - Statistics: disabled
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Settings - Deleted entity synthetic identifier rollback: disabled
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Settings - Default entity-mode: pojo
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Settings - Check Nullability in Core (should be disabled when Bean Validation is on): enabled
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Settings - Allow initialization of lazy state outside session : disabled
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Settings - Using BatchFetchStyle : LEGACY
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Settings - Default batch fetch size: -1
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Settings - Maximum outer join fetch depth: null
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Settings - Default null ordering: NONE
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Settings - Order SQL updates by primary key: disabled
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Settings - Order SQL inserts for batching: disabled
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Settings - multi-tenancy strategy : NONE
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Settings - JTA Track by Thread: enabled
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Settings - Query language substitutions: {}
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Settings - Named query checking : enabled
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Settings - Second-level cache: disabled
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Settings - Second-level query cache: disabled
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Settings - Second-level query cache factory: null
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Settings - Second-level cache region prefix: null
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Settings - Optimize second-level cache for minimal puts: disabled
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Settings - Structured second-level cache entries: disabled
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Settings - Second-level cache direct-reference entries: disabled
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Settings - Automatic eviction of collection cache: disabled
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Settings - JDBC batch size: 15
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Settings - JDBC batch updates for versioned data: enabled
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Settings - Scrollable result sets: enabled
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Settings - Wrap result sets: disabled
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Settings - JDBC3 getGeneratedKeys(): enabled
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Settings - JDBC result set fetch size: null
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Settings - Connection release mode: AFTER_TRANSACTION
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Settings - Generate SQL with comments: disabled
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Settings - JPA compliance - query : disabled
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Settings - JPA compliance - closed-handling : disabled
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Settings - JPA compliance - lists : disabled
+2024-10-15 16:23:00 [main] DEBUG org.hibernate.cfg.Settings - JPA compliance - transactions : disabled
+2024-10-15 16:23:00 [main] DEBUG o.h.b.internal.ClassLoaderAccessImpl - Not known whether passed class name [com.market.marketplace.entities.Client] is safe
+2024-10-15 16:23:00 [main] DEBUG o.h.b.internal.ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : com.market.marketplace.entities.Client
+2024-10-15 16:23:00 [main] DEBUG o.h.b.internal.ClassLoaderAccessImpl - Not known whether passed class name [com.market.marketplace.entities.Admin] is safe
+2024-10-15 16:23:00 [main] DEBUG o.h.b.internal.ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : com.market.marketplace.entities.Admin
+2024-10-15 16:23:00 [main] DEBUG o.h.s.i.SessionFactoryServiceRegistryImpl - EventListenerRegistry access via ServiceRegistry is deprecated.  Use `sessionFactory.getEventEngine().getListenerRegistry()` instead
+2024-10-15 16:23:00 [main] DEBUG o.h.s.i.SessionFactoryServiceRegistryImpl - EventListenerRegistry access via ServiceRegistry is deprecated.  Use `sessionFactory.getEventEngine().getListenerRegistry()` instead
+2024-10-15 16:23:00 [main] DEBUG o.h.internal.SessionFactoryImpl - Session factory constructed with filter configurations : {}
+2024-10-15 16:23:00 [main] DEBUG o.h.internal.SessionFactoryImpl - Instantiating session factory with properties: {sun.desktop=windows, awt.toolkit=sun.awt.windows.WToolkit, java.specification.version=1.8, file.encoding.pkg=sun.io, sun.cpu.isalist=amd64, sun.jnu.encoding=Cp1252, hibernate.dialect=org.hibernate.dialect.PostgreSQL95Dialect, java.class.path=C:\Program Files\BellSoft\openlogic-openjdk-8u422-b05-windows-x64\jre\lib\charsets.jar;C:\Program Files\BellSoft\openlogic-openjdk-8u422-b05-windows-x64\jre\lib\ext\access-bridge-64.jar;C:\Program Files\BellSoft\openlogic-openjdk-8u422-b05-windows-x64\jre\lib\ext\cldrdata.jar;C:\Program Files\BellSoft\openlogic-openjdk-8u422-b05-windows-x64\jre\lib\ext\dnsns.jar;C:\Program Files\BellSoft\openlogic-openjdk-8u422-b05-windows-x64\jre\lib\ext\jaccess.jar;C:\Program Files\BellSoft\openlogic-openjdk-8u422-b05-windows-x64\jre\lib\ext\jfxrt.jar;C:\Program Files\BellSoft\openlogic-openjdk-8u422-b05-windows-x64\jre\lib\ext\localedata.jar;C:\Program Files\BellSoft\openlogic-openjdk-8u422-b05-windows-x64\jre\lib\ext\nashorn.jar;C:\Program Files\BellSoft\openlogic-openjdk-8u422-b05-windows-x64\jre\lib\ext\sunec.jar;C:\Program Files\BellSoft\openlogic-openjdk-8u422-b05-windows-x64\jre\lib\ext\sunjce_provider.jar;C:\Program Files\BellSoft\openlogic-openjdk-8u422-b05-windows-x64\jre\lib\ext\sunmscapi.jar;C:\Program Files\BellSoft\openlogic-openjdk-8u422-b05-windows-x64\jre\lib\ext\sunpkcs11.jar;C:\Program Files\BellSoft\openlogic-openjdk-8u422-b05-windows-x64\jre\lib\ext\zipfs.jar;C:\Program Files\BellSoft\openlogic-openjdk-8u422-b05-windows-x64\jre\lib\jce.jar;C:\Program Files\BellSoft\openlogic-openjdk-8u422-b05-windows-x64\jre\lib\jfr.jar;C:\Program Files\BellSoft\openlogic-openjdk-8u422-b05-windows-x64\jre\lib\jfxswt.jar;C:\Program Files\BellSoft\openlogic-openjdk-8u422-b05-windows-x64\jre\lib\jsse.jar;C:\Program Files\BellSoft\openlogic-openjdk-8u422-b05-windows-x64\jre\lib\management-agent.jar;C:\Program Files\BellSoft\openlogic-openjdk-8u422-b05-windows-x64\jre\lib\resources.jar;C:\Program Files\BellSoft\openlogic-openjdk-8u422-b05-windows-x64\jre\lib\rt.jar;C:\Users\douae\IdeaProjects\marketPlace\target\classes;C:\Users\douae\.m2\repository\javax\mvc\javax.mvc-api\1.0.0\javax.mvc-api-1.0.0.jar;C:\Users\douae\.m2\repository\org\hibernate\hibernate-core\5.6.1.Final\hibernate-core-5.6.1.Final.jar;C:\Users\douae\.m2\repository\org\jboss\logging\jboss-logging\3.4.2.Final\jboss-logging-3.4.2.Final.jar;C:\Users\douae\.m2\repository\javax\persistence\javax.persistence-api\2.2\javax.persistence-api-2.2.jar;C:\Users\douae\.m2\repository\net\bytebuddy\byte-buddy\1.11.20\byte-buddy-1.11.20.jar;C:\Users\douae\.m2\repository\antlr\antlr\2.7.7\antlr-2.7.7.jar;C:\Users\douae\.m2\repository\org\jboss\spec\javax\transaction\jboss-transaction-api_1.2_spec\1.1.1.Final\jboss-transaction-api_1.2_spec-1.1.1.Final.jar;C:\Users\douae\.m2\repository\org\jboss\jandex\2.2.3.Final\jandex-2.2.3.Final.jar;C:\Users\douae\.m2\repository\com\fasterxml\classmate\1.5.1\classmate-1.5.1.jar;C:\Users\douae\.m2\repository\javax\activation\javax.activation-api\1.2.0\javax.activation-api-1.2.0.jar;C:\Users\douae\.m2\repository\org\hibernate\common\hibernate-commons-annotations\5.1.2.Final\hibernate-commons-annotations-5.1.2.Final.jar;C:\Users\douae\.m2\repository\javax\xml\bind\jaxb-api\2.3.1\jaxb-api-2.3.1.jar;C:\Users\douae\.m2\repository\org\glassfish\jaxb\jaxb-runtime\2.3.1\jaxb-runtime-2.3.1.jar;C:\Users\douae\.m2\repository\org\glassfish\jaxb\txw2\2.3.1\txw2-2.3.1.jar;C:\Users\douae\.m2\repository\com\sun\istack\istack-commons-runtime\3.0.7\istack-commons-runtime-3.0.7.jar;C:\Users\douae\.m2\repository\org\jvnet\staxex\stax-ex\1.8\stax-ex-1.8.jar;C:\Users\douae\.m2\repository\com\sun\xml\fastinfoset\FastInfoset\1.2.15\FastInfoset-1.2.15.jar;C:\Users\douae\.m2\repository\org\hibernate\validator\hibernate-validator\6.2.0.Final\hibernate-validator-6.2.0.Final.jar;C:\Users\douae\.m2\repository\jakarta\validation\jakarta.validation-api\2.0.2\jakarta.validation-api-2.0.2.jar;C:\Users\douae\.m2\repository\org\thymeleaf\thymeleaf\3.0.12.RELEASE\thymeleaf-3.0.12.RELEASE.jar;C:\Users\douae\.m2\repository\ognl\ognl\3.1.26\ognl-3.1.26.jar;C:\Users\douae\.m2\repository\org\javassist\javassist\3.20.0-GA\javassist-3.20.0-GA.jar;C:\Users\douae\.m2\repository\org\attoparser\attoparser\2.0.5.RELEASE\attoparser-2.0.5.RELEASE.jar;C:\Users\douae\.m2\repository\org\unbescape\unbescape\1.1.6.RELEASE\unbescape-1.1.6.RELEASE.jar;C:\Users\douae\.m2\repository\org\postgresql\postgresql\42.7.3\postgresql-42.7.3.jar;C:\Users\douae\.m2\repository\org\checkerframework\checker-qual\3.42.0\checker-qual-3.42.0.jar;C:\Users\douae\.m2\repository\org\slf4j\slf4j-api\2.0.12\slf4j-api-2.0.12.jar;C:\Users\douae\.m2\repository\ch\qos\logback\logback-classic\1.3.3\logback-classic-1.3.3.jar;C:\Users\douae\.m2\repository\com\sun\mail\javax.mail\1.6.2\javax.mail-1.6.2.jar;C:\Users\douae\.m2\repository\javax\activation\activation\1.1\activation-1.1.jar;C:\Users\douae\.m2\repository\ch\qos\logback\logback-core\1.3.3\logback-core-1.3.3.jar;C:\Program Files\JetBrains\IntelliJ IDEA 2022.2.5\lib\idea_rt.jar, java.vm.vendor=OpenLogic-OpenJDK, sun.arch.data.model=64, user.variant=, java.vendor.url=http://java.oracle.com/, user.timezone=Africa/Casablanca, javax.persistence.jdbc.url=jdbc:postgresql://localhost:5432/marketPlace, javax.persistence.jdbc.user=****, os.name=Windows 11, java.vm.specification.version=1.8, jakarta.persistence.jdbc.password=****, user.country=US, sun.java.launcher=SUN_STANDARD, local.setting.IS_JTA_TXN_COORD=false, sun.boot.library.path=C:\Program Files\BellSoft\openlogic-openjdk-8u422-b05-windows-x64\jre\bin, sun.java.command=com.market.marketplace.Main, jakarta.persistence.jdbc.driver=org.postgresql.Driver, sun.cpu.endian=little, user.home=C:\Users\douae, user.language=en, java.specification.vendor=Oracle Corporation, java.home=C:\Program Files\BellSoft\openlogic-openjdk-8u422-b05-windows-x64\jre, file.separator=\, jakarta.persistence.jdbc.user=****, line.separator=
+, hibernate.persistenceUnitName=marketPlace, java.vm.specification.vendor=Oracle Corporation, java.specification.name=Java Platform API Specification, hibernate.transaction.coordinator_class=class org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorBuilderImpl, java.awt.graphicsenv=sun.awt.Win32GraphicsEnvironment, javax.persistence.jdbc.driver=org.postgresql.Driver, sun.boot.class.path=C:\Program Files\BellSoft\openlogic-openjdk-8u422-b05-windows-x64\jre\lib\resources.jar;C:\Program Files\BellSoft\openlogic-openjdk-8u422-b05-windows-x64\jre\lib\rt.jar;C:\Program Files\BellSoft\openlogic-openjdk-8u422-b05-windows-x64\jre\lib\sunrsasign.jar;C:\Program Files\BellSoft\openlogic-openjdk-8u422-b05-windows-x64\jre\lib\jsse.jar;C:\Program Files\BellSoft\openlogic-openjdk-8u422-b05-windows-x64\jre\lib\jce.jar;C:\Program Files\BellSoft\openlogic-openjdk-8u422-b05-windows-x64\jre\lib\charsets.jar;C:\Program Files\BellSoft\openlogic-openjdk-8u422-b05-windows-x64\jre\lib\jfr.jar;C:\Program Files\BellSoft\openlogic-openjdk-8u422-b05-windows-x64\jre\classes, hibernate.hbm2ddl.auto=update, user.script=, sun.management.compiler=HotSpot 64-Bit Tiered Compilers, java.runtime.version=1.8.0_422-422-b05, user.name=douae, path.separator=;, hibernate.connection.username=****, os.version=10.0, java.endorsed.dirs=C:\Program Files\BellSoft\openlogic-openjdk-8u422-b05-windows-x64\jre\lib\endorsed, java.runtime.name=OpenJDK Runtime Environment, hibernate.connection.url=jdbc:postgresql://localhost:5432/marketPlace, file.encoding=UTF-8, hibernate.ejb.persistenceUnitName=marketPlace, java.vm.name=OpenJDK 64-Bit Server VM, hibernate.show_sql=true, hibernate.connection.driver_class=org.postgresql.Driver, java.vendor.url.bug=http://bugreport.sun.com/bugreport/, java.io.tmpdir=C:\Users\douae\AppData\Local\Temp\, java.version=1.8.0_422-422, user.dir=C:\Users\douae\IdeaProjects\marketPlace, os.arch=amd64, java.vm.specification.name=Java Virtual Machine Specification, java.awt.printerjob=sun.awt.windows.WPrinterJob, hibernate.connection.password=****, sun.os.patch.level=, jakarta.persistence.jdbc.url=jdbc:postgresql://localhost:5432/marketPlace, hibernate.boot.CfgXmlAccessService.key=org.hibernate.boot.registry.StandardServiceRegistryBuilder$1@27a5328c, java.library.path=C:\Program Files\BellSoft\openlogic-openjdk-8u422-b05-windows-x64\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\BellSoft\openlogic-openjdk-8u422-b05-windows-x64\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\xampp\php;C:\ProgramData\ComposerSetup\bin;C:\Program Files\nodejs\;C:\Program Files\Docker\Docker\resources\bin;C:\Users\douae\OneDrive\Bureau\apache-maven-3.9.9\bin;C:\Users\douae\OneDrive\Bureau\apache-maven-3.9.9\bin;C:\Users\douae\AppData\Local\Programs\Python\Python312\Scripts\;C:\Users\douae\AppData\Local\Programs\Python\Python312\;C:\Users\douae\AppData\Local\Programs\Python\Launcher\;C:\Users\douae\AppData\Local\Microsoft\WindowsApps;;C:\Users\douae\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\douae\AppData\Roaming\Composer\vendor\bin;C:\Users\douae\AppData\Roaming\npm;C:\Program Files\JetBrains\IntelliJ IDEA 2022.2.5\bin;;., java.vendor=OpenLogic-OpenJDK, java.vm.info=mixed mode, java.vm.version=25.422-b05, java.specification.maintenance.version=5, hibernate.bytecode.use_reflection_optimizer=false, sun.io.unicode.encoding=UnicodeLittle, java.ext.dirs=C:\Program Files\BellSoft\openlogic-openjdk-8u422-b05-windows-x64\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext, javax.persistence.jdbc.password=****, java.class.version=52.0}
+2024-10-15 16:23:00 [main] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 6.2.0.Final
+2024-10-15 16:23:01 [main] DEBUG o.h.v.i.x.config.ValidationXmlParser - Trying to load META-INF/validation.xml for XML based Validator configuration.
+2024-10-15 16:23:01 [main] DEBUG o.h.v.i.x.c.ResourceLoaderHelper - Trying to load META-INF/validation.xml via TCCL
+2024-10-15 16:23:01 [main] DEBUG o.h.v.i.x.c.ResourceLoaderHelper - Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+2024-10-15 16:23:01 [main] DEBUG o.h.v.i.x.config.ValidationXmlParser - No META-INF/validation.xml found. Using annotation based configuration only.
+2024-10-15 16:23:01 [main] DEBUG o.h.v.i.e.r.TraversableResolvers - Found javax.persistence.Persistence on classpath containing 'getPersistenceUtil'. Assuming JPA 2 environment. Trying to instantiate JPA aware TraversableResolver
+2024-10-15 16:23:01 [main] DEBUG o.h.v.i.e.r.TraversableResolvers - Instantiated JPA aware TraversableResolver of type org.hibernate.validator.internal.engine.resolver.JPATraversableResolver.
+2024-10-15 16:23:01 [main] DEBUG o.h.v.m.ResourceBundleMessageInterpolator - Failed to load expression factory via classloader sun.misc.Launcher$AppClassLoader@18b4aac2
+java.lang.NoClassDefFoundError: javax/el/ExpressionFactory
+	at org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator.canLoadExpressionFactory(ResourceBundleMessageInterpolator.java:216)
+	at org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator.buildExpressionFactory(ResourceBundleMessageInterpolator.java:170)
+	at org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator.<init>(ResourceBundleMessageInterpolator.java:94)
+	at org.hibernate.validator.internal.engine.AbstractConfigurationImpl.getDefaultMessageInterpolator(AbstractConfigurationImpl.java:573)
+	at org.hibernate.validator.internal.engine.AbstractConfigurationImpl.getDefaultMessageInterpolatorConfiguredWithClassLoader(AbstractConfigurationImpl.java:822)
+	at org.hibernate.validator.internal.engine.AbstractConfigurationImpl.getMessageInterpolator(AbstractConfigurationImpl.java:483)
+	at org.hibernate.validator.internal.engine.ValidatorFactoryImpl.<init>(ValidatorFactoryImpl.java:153)
+	at org.hibernate.validator.HibernateValidator.buildValidatorFactory(HibernateValidator.java:38)
+	at org.hibernate.validator.internal.engine.AbstractConfigurationImpl.buildValidatorFactory(AbstractConfigurationImpl.java:451)
+	at javax.validation.Validation.buildDefaultValidatorFactory(Validation.java:103)
+	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.getValidatorFactory(TypeSafeActivator.java:501)
+	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.activate(TypeSafeActivator.java:83)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.hibernate.cfg.beanvalidation.BeanValidationIntegrator.integrate(BeanValidationIntegrator.java:137)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:292)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:56)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:79)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:54)
+	at com.market.marketplace.Main.main(Main.java:33)
+Caused by: java.lang.ClassNotFoundException: javax.el.ExpressionFactory
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:387)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:418)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:352)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:351)
+	... 24 common frames omitted
+2024-10-15 16:23:01 [main] DEBUG o.h.v.m.ResourceBundleMessageInterpolator - Failed to load expression factory via classloader sun.misc.Launcher$AppClassLoader@18b4aac2
+java.lang.NoClassDefFoundError: javax/el/ExpressionFactory
+	at org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator.canLoadExpressionFactory(ResourceBundleMessageInterpolator.java:216)
+	at org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator.buildExpressionFactory(ResourceBundleMessageInterpolator.java:183)
+	at org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator.<init>(ResourceBundleMessageInterpolator.java:94)
+	at org.hibernate.validator.internal.engine.AbstractConfigurationImpl.getDefaultMessageInterpolator(AbstractConfigurationImpl.java:573)
+	at org.hibernate.validator.internal.engine.AbstractConfigurationImpl.getDefaultMessageInterpolatorConfiguredWithClassLoader(AbstractConfigurationImpl.java:822)
+	at org.hibernate.validator.internal.engine.AbstractConfigurationImpl.getMessageInterpolator(AbstractConfigurationImpl.java:483)
+	at org.hibernate.validator.internal.engine.ValidatorFactoryImpl.<init>(ValidatorFactoryImpl.java:153)
+	at org.hibernate.validator.HibernateValidator.buildValidatorFactory(HibernateValidator.java:38)
+	at org.hibernate.validator.internal.engine.AbstractConfigurationImpl.buildValidatorFactory(AbstractConfigurationImpl.java:451)
+	at javax.validation.Validation.buildDefaultValidatorFactory(Validation.java:103)
+	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.getValidatorFactory(TypeSafeActivator.java:501)
+	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.activate(TypeSafeActivator.java:83)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.hibernate.cfg.beanvalidation.BeanValidationIntegrator.integrate(BeanValidationIntegrator.java:137)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:292)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:56)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:79)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:54)
+	at com.market.marketplace.Main.main(Main.java:33)
+2024-10-15 16:23:01 [main] DEBUG o.h.c.b.TypeSafeActivator - Unable to acquire Bean Validation ValidatorFactory, skipping activation
+2024-10-15 16:23:01 [main] DEBUG o.h.secure.spi.JaccIntegrator - Skipping JACC integration as it was not enabled
+2024-10-15 16:23:01 [main] DEBUG org.hibernate.type.EnumType - Using NAMED-based conversion for Enum com.market.marketplace.entities.enums.Role
+2024-10-15 16:23:01 [main] DEBUG org.hibernate.type.EnumType - Using NAMED-based conversion for Enum com.market.marketplace.entities.enums.CommandStatus
+2024-10-15 16:23:01 [main] DEBUG o.h.internal.SessionFactoryImpl - Instantiated session factory
+2024-10-15 16:23:01 [main] DEBUG o.h.type.spi.TypeConfiguration$Scope - Scoping TypeConfiguration [org.hibernate.type.spi.TypeConfiguration@4b79ac84] to SessionFactoryImpl [org.hibernate.internal.SessionFactoryImpl@73511076]
+2024-10-15 16:23:01 [main] DEBUG o.h.b.internal.ClassLoaderAccessImpl - Not known whether passed class name [com.market.marketplace.entities.Client] is safe
+2024-10-15 16:23:01 [main] DEBUG o.h.b.internal.ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : com.market.marketplace.entities.Client
+2024-10-15 16:23:01 [main] DEBUG o.h.b.internal.ClassLoaderAccessImpl - Not known whether passed class name [com.market.marketplace.entities.User] is safe
+2024-10-15 16:23:01 [main] DEBUG o.h.b.internal.ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : com.market.marketplace.entities.User
+2024-10-15 16:23:01 [main] DEBUG o.h.b.internal.ClassLoaderAccessImpl - Not known whether passed class name [com.market.marketplace.entities.Admin] is safe
+2024-10-15 16:23:01 [main] DEBUG o.h.b.internal.ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : com.market.marketplace.entities.Admin
+2024-10-15 16:23:01 [main] DEBUG o.hibernate.orm.bytecode.interceptor - To-one property `com.market.marketplace.entities.Command#client` was mapped with LAZY + NO_PROXY but the class was not enhanced
+2024-10-15 16:23:01 [main] DEBUG o.hibernate.orm.bytecode.interceptor - To-one property `com.market.marketplace.entities.Command#client` was mapped with LAZY + NO_PROXY but the class was not enhanced
+2024-10-15 16:23:01 [main] DEBUG o.h.b.internal.ClassLoaderAccessImpl - Not known whether passed class name [com.market.marketplace.entities.Command] is safe
+2024-10-15 16:23:01 [main] DEBUG o.h.b.internal.ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : com.market.marketplace.entities.Command
+2024-10-15 16:23:01 [main] DEBUG o.hibernate.orm.bytecode.interceptor - To-one property `com.market.marketplace.entities.Command#client` was mapped with LAZY + NO_PROXY but the class was not enhanced
+2024-10-15 16:23:01 [main] DEBUG o.hibernate.orm.bytecode.interceptor - To-one property `com.market.marketplace.entities.Command#client` was mapped with LAZY + NO_PROXY but the class was not enhanced
+2024-10-15 16:23:01 [main] DEBUG o.hibernate.orm.bytecode.interceptor - To-one property `com.market.marketplace.entities.CommandProduct#command` was mapped with LAZY + NO_PROXY but the class was not enhanced
+2024-10-15 16:23:01 [main] DEBUG o.hibernate.orm.bytecode.interceptor - To-one property `com.market.marketplace.entities.CommandProduct#command` was mapped with LAZY + NO_PROXY but the class was not enhanced
+2024-10-15 16:23:01 [main] DEBUG o.hibernate.orm.bytecode.interceptor - To-one property `com.market.marketplace.entities.CommandProduct#product` was mapped with LAZY + NO_PROXY but the class was not enhanced
+2024-10-15 16:23:01 [main] DEBUG o.hibernate.orm.bytecode.interceptor - To-one property `com.market.marketplace.entities.CommandProduct#product` was mapped with LAZY + NO_PROXY but the class was not enhanced
+2024-10-15 16:23:01 [main] DEBUG o.h.b.internal.ClassLoaderAccessImpl - Not known whether passed class name [com.market.marketplace.entities.CommandProduct] is safe
+2024-10-15 16:23:01 [main] DEBUG o.h.b.internal.ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : com.market.marketplace.entities.CommandProduct
+2024-10-15 16:23:01 [main] DEBUG o.hibernate.orm.bytecode.interceptor - To-one property `com.market.marketplace.entities.CommandProduct#command` was mapped with LAZY + NO_PROXY but the class was not enhanced
+2024-10-15 16:23:01 [main] DEBUG o.hibernate.orm.bytecode.interceptor - To-one property `com.market.marketplace.entities.CommandProduct#product` was mapped with LAZY + NO_PROXY but the class was not enhanced
+2024-10-15 16:23:01 [main] DEBUG o.hibernate.orm.bytecode.interceptor - To-one property `com.market.marketplace.entities.CommandProduct#command` was mapped with LAZY + NO_PROXY but the class was not enhanced
+2024-10-15 16:23:01 [main] DEBUG o.hibernate.orm.bytecode.interceptor - To-one property `com.market.marketplace.entities.CommandProduct#product` was mapped with LAZY + NO_PROXY but the class was not enhanced
+2024-10-15 16:23:01 [main] DEBUG o.hibernate.orm.bytecode.interceptor - To-one property `com.market.marketplace.entities.Product#admin` was mapped with LAZY + NO_PROXY but the class was not enhanced
+2024-10-15 16:23:01 [main] DEBUG o.hibernate.orm.bytecode.interceptor - To-one property `com.market.marketplace.entities.Product#admin` was mapped with LAZY + NO_PROXY but the class was not enhanced
+2024-10-15 16:23:01 [main] DEBUG o.h.b.internal.ClassLoaderAccessImpl - Not known whether passed class name [com.market.marketplace.entities.Product] is safe
+2024-10-15 16:23:01 [main] DEBUG o.h.b.internal.ClassLoaderAccessImpl - No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : com.market.marketplace.entities.Product
+2024-10-15 16:23:01 [main] DEBUG o.hibernate.orm.bytecode.interceptor - To-one property `com.market.marketplace.entities.Product#admin` was mapped with LAZY + NO_PROXY but the class was not enhanced
+2024-10-15 16:23:01 [main] DEBUG o.hibernate.orm.bytecode.interceptor - To-one property `com.market.marketplace.entities.Product#admin` was mapped with LAZY + NO_PROXY but the class was not enhanced
+2024-10-15 16:23:01 [main] DEBUG o.h.p.c.AbstractCollectionPersister - Static SQL for collection: com.market.marketplace.entities.Command.commandProducts
+2024-10-15 16:23:01 [main] DEBUG o.h.p.c.AbstractCollectionPersister -  Row insert: update command_product set command_id=? where id=?
+2024-10-15 16:23:01 [main] DEBUG o.h.p.c.AbstractCollectionPersister -  Row update: update command_product set  where id=?
+2024-10-15 16:23:01 [main] DEBUG o.h.p.c.AbstractCollectionPersister -  Row delete: update command_product set command_id=null where command_id=? and id=?
+2024-10-15 16:23:01 [main] DEBUG o.h.p.c.AbstractCollectionPersister -  One-shot delete: update command_product set command_id=null where command_id=?
+2024-10-15 16:23:01 [main] DEBUG o.h.p.c.AbstractCollectionPersister - Static SQL for collection: com.market.marketplace.entities.Admin.products
+2024-10-15 16:23:01 [main] DEBUG o.h.p.c.AbstractCollectionPersister -  Row insert: update products set admin_id=? where id=?
+2024-10-15 16:23:01 [main] DEBUG o.h.p.c.AbstractCollectionPersister -  Row update: update products set  where id=?
+2024-10-15 16:23:01 [main] DEBUG o.h.p.c.AbstractCollectionPersister -  Row delete: update products set admin_id=null where admin_id=? and id=?
+2024-10-15 16:23:01 [main] DEBUG o.h.p.c.AbstractCollectionPersister -  One-shot delete: update products set admin_id=null where admin_id=?
+2024-10-15 16:23:01 [main] DEBUG o.h.p.c.AbstractCollectionPersister - Static SQL for collection: com.market.marketplace.entities.Product.commandProducts
+2024-10-15 16:23:01 [main] DEBUG o.h.p.c.AbstractCollectionPersister -  Row insert: update command_product set product_id=? where id=?
+2024-10-15 16:23:01 [main] DEBUG o.h.p.c.AbstractCollectionPersister -  Row update: update command_product set  where id=?
+2024-10-15 16:23:01 [main] DEBUG o.h.p.c.AbstractCollectionPersister -  Row delete: update command_product set product_id=null where product_id=? and id=?
+2024-10-15 16:23:01 [main] DEBUG o.h.p.c.AbstractCollectionPersister -  One-shot delete: update command_product set product_id=null where product_id=?
+2024-10-15 16:23:01 [main] DEBUG o.h.p.c.AbstractCollectionPersister - Static SQL for collection: com.market.marketplace.entities.Client.commands
+2024-10-15 16:23:01 [main] DEBUG o.h.p.c.AbstractCollectionPersister -  Row insert: update commands set client_id=? where id=?
+2024-10-15 16:23:01 [main] DEBUG o.h.p.c.AbstractCollectionPersister -  Row update: update commands set  where id=?
+2024-10-15 16:23:01 [main] DEBUG o.h.p.c.AbstractCollectionPersister -  Row delete: update commands set client_id=null where client_id=? and id=?
+2024-10-15 16:23:01 [main] DEBUG o.h.p.c.AbstractCollectionPersister -  One-shot delete: update commands set client_id=null where client_id=?
+2024-10-15 16:23:01 [main] DEBUG o.h.p.entity.AbstractEntityPersister - Static SQL for entity: com.market.marketplace.entities.Client
+2024-10-15 16:23:01 [main] DEBUG o.h.p.entity.AbstractEntityPersister -  Version select: select id from users where id =?
+2024-10-15 16:23:01 [main] DEBUG o.h.p.entity.AbstractEntityPersister -  Snapshot select: select client_.id, client_.email as email3_3_, client_.firstName as firstnam4_3_, client_.lastName as lastname5_3_, client_.password as password6_3_, client_.paymentMethod as paymentm7_3_, client_.shippingAddress as shipping8_3_ from users client_ where client_.id=?
+2024-10-15 16:23:01 [main] DEBUG o.h.p.entity.AbstractEntityPersister -  Insert 0: insert into users (email, firstName, lastName, password, paymentMethod, shippingAddress, role, id) values (?, ?, ?, ?, ?, ?, 'CLIENT', ?)
+2024-10-15 16:23:01 [main] DEBUG o.h.p.entity.AbstractEntityPersister -  Update 0: update users set email=?, firstName=?, lastName=?, password=?, paymentMethod=?, shippingAddress=? where id=?
+2024-10-15 16:23:01 [main] DEBUG o.h.p.entity.AbstractEntityPersister -  Delete 0: delete from users where id=?
+2024-10-15 16:23:01 [main] DEBUG o.h.p.entity.AbstractEntityPersister -  Identity insert: insert into users (email, firstName, lastName, password, paymentMethod, shippingAddress, role) values (?, ?, ?, ?, ?, ?, 'CLIENT')
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.b.i.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@47d7bfb3]
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : email
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : firstName
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : lastName
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : password
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : role
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : commands
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.b.i.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:1> -> org.hibernate.loader.plan.build.internal.spaces.CollectionQuerySpaceImpl@1e6cc850]
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.b.i.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:2> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@7b7b3edb]
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : paymentMethod
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : shippingAddress
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.b.i.FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.e.i.LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.b.spi.LoadPlanTreePrinter - LoadPlan(entity=com.market.marketplace.entities.Client)
+    - Returns
+       - EntityReturnImpl(entity=com.market.marketplace.entities.Client, querySpaceUid=<gen:0>, path=com.market.marketplace.entities.Client)
+          - CollectionAttributeFetchImpl(collection=com.market.marketplace.entities.Client.commands, querySpaceUid=<gen:1>, path=com.market.marketplace.entities.Client.commands)
+             - (collection element) CollectionFetchableElementEntityGraph(entity=com.market.marketplace.entities.Command, querySpaceUid=<gen:2>, path=com.market.marketplace.entities.Client.commands.<elements>)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=com.market.marketplace.entities.Client)
+          - SQL table alias mapping - client0_
+          - alias suffix - 0_
+          - suffixed key columns - {id2_3_0_}
+
+2024-10-15 16:23:01 [main] DEBUG o.h.loader.entity.plan.EntityLoader - Static select for entity com.market.marketplace.entities.Client [NONE]: select client0_.id as id2_3_0_, client0_.email as email3_3_0_, client0_.firstName as firstnam4_3_0_, client0_.lastName as lastname5_3_0_, client0_.password as password6_3_0_, client0_.role as role1_3_0_, client0_.paymentMethod as paymentm7_3_0_, client0_.shippingAddress as shipping8_3_0_ from users client0_ where client0_.id=? and client0_.role='CLIENT'
+2024-10-15 16:23:01 [main] DEBUG o.h.p.entity.AbstractEntityPersister - Static SQL for entity: com.market.marketplace.entities.User
+2024-10-15 16:23:01 [main] DEBUG o.h.p.entity.AbstractEntityPersister -  Version select: select id from users where id =?
+2024-10-15 16:23:01 [main] DEBUG o.h.p.entity.AbstractEntityPersister -  Snapshot select: select user_.id, user_.email as email3_3_, user_.firstName as firstnam4_3_, user_.lastName as lastname5_3_, user_.password as password6_3_ from users user_ where user_.id=?
+2024-10-15 16:23:01 [main] DEBUG o.h.p.entity.AbstractEntityPersister -  Insert 0: insert into users (email, firstName, lastName, password, role, id) values (?, ?, ?, ?, 'User', ?)
+2024-10-15 16:23:01 [main] DEBUG o.h.p.entity.AbstractEntityPersister -  Update 0: update users set email=?, firstName=?, lastName=?, password=? where id=?
+2024-10-15 16:23:01 [main] DEBUG o.h.p.entity.AbstractEntityPersister -  Delete 0: delete from users where id=?
+2024-10-15 16:23:01 [main] DEBUG o.h.p.entity.AbstractEntityPersister -  Identity insert: insert into users (email, firstName, lastName, password, role) values (?, ?, ?, ?, 'User')
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.b.i.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@ae372b9]
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : email
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : firstName
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : lastName
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : password
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : role
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : commands
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.b.i.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:1> -> org.hibernate.loader.plan.build.internal.spaces.CollectionQuerySpaceImpl@77b9d0c7]
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.b.i.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:2> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@65fd6708]
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : paymentMethod
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : shippingAddress
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : accessLevel
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : products
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.b.i.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:3> -> org.hibernate.loader.plan.build.internal.spaces.CollectionQuerySpaceImpl@749ab7b4]
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.b.i.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:4> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@127f9161]
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.b.i.FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.e.i.LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.b.spi.LoadPlanTreePrinter - LoadPlan(entity=com.market.marketplace.entities.User)
+    - Returns
+       - EntityReturnImpl(entity=com.market.marketplace.entities.User, querySpaceUid=<gen:0>, path=com.market.marketplace.entities.User)
+          - CollectionAttributeFetchImpl(collection=com.market.marketplace.entities.Client.commands, querySpaceUid=<gen:1>, path=com.market.marketplace.entities.User.commands)
+             - (collection element) CollectionFetchableElementEntityGraph(entity=com.market.marketplace.entities.Command, querySpaceUid=<gen:2>, path=com.market.marketplace.entities.User.commands.<elements>)
+          - CollectionAttributeFetchImpl(collection=com.market.marketplace.entities.Admin.products, querySpaceUid=<gen:3>, path=com.market.marketplace.entities.User.products)
+             - (collection element) CollectionFetchableElementEntityGraph(entity=com.market.marketplace.entities.Product, querySpaceUid=<gen:4>, path=com.market.marketplace.entities.User.products.<elements>)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=com.market.marketplace.entities.User)
+          - SQL table alias mapping - user0_
+          - alias suffix - 0_
+          - suffixed key columns - {id2_3_0_}
+
+2024-10-15 16:23:01 [main] DEBUG o.h.loader.entity.plan.EntityLoader - Static select for entity com.market.marketplace.entities.User [NONE]: select user0_.id as id2_3_0_, user0_.email as email3_3_0_, user0_.firstName as firstnam4_3_0_, user0_.lastName as lastname5_3_0_, user0_.password as password6_3_0_, user0_.role as role1_3_0_, user0_.paymentMethod as paymentm7_3_0_, user0_.shippingAddress as shipping8_3_0_, user0_.accessLevel as accessle9_3_0_ from users user0_ where user0_.id=?
+2024-10-15 16:23:01 [main] DEBUG o.h.p.entity.AbstractEntityPersister - Static SQL for entity: com.market.marketplace.entities.Command
+2024-10-15 16:23:01 [main] DEBUG o.h.p.entity.AbstractEntityPersister -  Version select: select id from commands where id =?
+2024-10-15 16:23:01 [main] DEBUG o.h.p.entity.AbstractEntityPersister -  Snapshot select: select command_.id, command_.client_id as client_i4_1_, command_.orderDate as orderdat2_1_, command_.status as status3_1_ from commands command_ where command_.id=?
+2024-10-15 16:23:01 [main] DEBUG o.h.p.entity.AbstractEntityPersister -  Insert 0: insert into commands (client_id, orderDate, status, id) values (?, ?, ?, ?)
+2024-10-15 16:23:01 [main] DEBUG o.h.p.entity.AbstractEntityPersister -  Update 0: update commands set client_id=?, orderDate=?, status=? where id=?
+2024-10-15 16:23:01 [main] DEBUG o.h.p.entity.AbstractEntityPersister -  Delete 0: delete from commands where id=?
+2024-10-15 16:23:01 [main] DEBUG o.h.p.entity.AbstractEntityPersister -  Identity insert: insert into commands (client_id, orderDate, status) values (?, ?, ?)
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.b.i.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@2bf94401]
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : client
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.b.i.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:1> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@4349754]
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : client.email
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : client.firstName
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : client.lastName
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : client.password
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : client.role
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : client.commands
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Property path deemed to be circular : client.commands
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : client.paymentMethod
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : client.shippingAddress
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : commandProducts
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.b.i.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:2> -> org.hibernate.loader.plan.build.internal.spaces.CollectionQuerySpaceImpl@28a6301f]
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.b.i.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:3> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@2c306a57]
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : orderDate
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : status
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.b.i.FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.e.i.LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.b.spi.LoadPlanTreePrinter - LoadPlan(entity=com.market.marketplace.entities.Command)
+    - Returns
+       - EntityReturnImpl(entity=com.market.marketplace.entities.Command, querySpaceUid=<gen:0>, path=com.market.marketplace.entities.Command)
+          - EntityAttributeFetchImpl(entity=com.market.marketplace.entities.Client, querySpaceUid=<gen:1>, path=com.market.marketplace.entities.Command.client)
+          - CollectionAttributeFetchImpl(collection=com.market.marketplace.entities.Command.commandProducts, querySpaceUid=<gen:2>, path=com.market.marketplace.entities.Command.commandProducts)
+             - (collection element) CollectionFetchableElementEntityGraph(entity=com.market.marketplace.entities.CommandProduct, querySpaceUid=<gen:3>, path=com.market.marketplace.entities.Command.commandProducts.<elements>)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=com.market.marketplace.entities.Command)
+          - SQL table alias mapping - command0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_1_0_}
+          - JOIN (JoinDefinedByMetadata(client)) : <gen:0> -> <gen:1>
+             - EntityQuerySpaceImpl(uid=<gen:1>, entity=com.market.marketplace.entities.Client)
+                - SQL table alias mapping - client1_
+                - alias suffix - 1_
+                - suffixed key columns - {id2_3_1_}
+
+2024-10-15 16:23:01 [main] DEBUG o.h.loader.entity.plan.EntityLoader - Static select for entity com.market.marketplace.entities.Command [NONE]: select command0_.id as id1_1_0_, command0_.client_id as client_i4_1_0_, command0_.orderDate as orderdat2_1_0_, command0_.status as status3_1_0_, client1_.id as id2_3_1_, client1_.email as email3_3_1_, client1_.firstName as firstnam4_3_1_, client1_.lastName as lastname5_3_1_, client1_.password as password6_3_1_, client1_.role as role1_3_1_, client1_.paymentMethod as paymentm7_3_1_, client1_.shippingAddress as shipping8_3_1_ from commands command0_ inner join users client1_ on command0_.client_id=client1_.id where command0_.id=?
+2024-10-15 16:23:01 [main] DEBUG o.h.p.entity.AbstractEntityPersister - Static SQL for entity: com.market.marketplace.entities.CommandProduct
+2024-10-15 16:23:01 [main] DEBUG o.h.p.entity.AbstractEntityPersister -  Version select: select id from command_product where id =?
+2024-10-15 16:23:01 [main] DEBUG o.h.p.entity.AbstractEntityPersister -  Snapshot select: select commandpro_.id, commandpro_.command_id as command_3_0_, commandpro_.product_id as product_4_0_, commandpro_.quantity as quantity2_0_ from command_product commandpro_ where commandpro_.id=?
+2024-10-15 16:23:01 [main] DEBUG o.h.p.entity.AbstractEntityPersister -  Insert 0: insert into command_product (command_id, product_id, quantity, id) values (?, ?, ?, ?)
+2024-10-15 16:23:01 [main] DEBUG o.h.p.entity.AbstractEntityPersister -  Update 0: update command_product set command_id=?, product_id=?, quantity=? where id=?
+2024-10-15 16:23:01 [main] DEBUG o.h.p.entity.AbstractEntityPersister -  Delete 0: delete from command_product where id=?
+2024-10-15 16:23:01 [main] DEBUG o.h.p.entity.AbstractEntityPersister -  Identity insert: insert into command_product (command_id, product_id, quantity) values (?, ?, ?)
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.b.i.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@1436a7ab]
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : command
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.b.i.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:1> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@3d36dff4]
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : command.client
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.b.i.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:2> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@5b94ccbc]
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : command.client.email
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : command.client.firstName
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : command.client.lastName
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : command.client.password
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : command.client.role
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : command.client.commands
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Property path deemed to be circular : command.client.commands
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : command.client.paymentMethod
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : command.client.shippingAddress
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : command.commandProducts
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Property path deemed to be circular : command.commandProducts
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : command.orderDate
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : command.status
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : product
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.b.i.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:3> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@336365bc]
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : product.admin
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.b.i.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:4> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@4567e53d]
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : product.admin.email
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : product.admin.firstName
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : product.admin.lastName
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : product.admin.password
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : product.admin.role
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : product.admin.accessLevel
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : product.admin.products
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Property path deemed to be circular : product.admin.products
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : product.commandProducts
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Property path deemed to be circular : product.commandProducts
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : product.description
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : product.name
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : product.price
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : product.stock
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : quantity
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.b.i.FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.e.i.LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.b.spi.LoadPlanTreePrinter - LoadPlan(entity=com.market.marketplace.entities.CommandProduct)
+    - Returns
+       - EntityReturnImpl(entity=com.market.marketplace.entities.CommandProduct, querySpaceUid=<gen:0>, path=com.market.marketplace.entities.CommandProduct)
+          - EntityAttributeFetchImpl(entity=com.market.marketplace.entities.Command, querySpaceUid=<gen:1>, path=com.market.marketplace.entities.CommandProduct.command)
+             - EntityAttributeFetchImpl(entity=com.market.marketplace.entities.Client, querySpaceUid=<gen:2>, path=com.market.marketplace.entities.CommandProduct.command.client)
+          - EntityAttributeFetchImpl(entity=com.market.marketplace.entities.Product, querySpaceUid=<gen:3>, path=com.market.marketplace.entities.CommandProduct.product)
+             - EntityAttributeFetchImpl(entity=com.market.marketplace.entities.Admin, querySpaceUid=<gen:4>, path=com.market.marketplace.entities.CommandProduct.product.admin)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=com.market.marketplace.entities.CommandProduct)
+          - SQL table alias mapping - commandpro0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_0_0_}
+          - JOIN (JoinDefinedByMetadata(command)) : <gen:0> -> <gen:1>
+             - EntityQuerySpaceImpl(uid=<gen:1>, entity=com.market.marketplace.entities.Command)
+                - SQL table alias mapping - command1_
+                - alias suffix - 1_
+                - suffixed key columns - {id1_1_1_}
+                - JOIN (JoinDefinedByMetadata(client)) : <gen:1> -> <gen:2>
+                   - EntityQuerySpaceImpl(uid=<gen:2>, entity=com.market.marketplace.entities.Client)
+                      - SQL table alias mapping - client2_
+                      - alias suffix - 2_
+                      - suffixed key columns - {id2_3_2_}
+          - JOIN (JoinDefinedByMetadata(product)) : <gen:0> -> <gen:3>
+             - EntityQuerySpaceImpl(uid=<gen:3>, entity=com.market.marketplace.entities.Product)
+                - SQL table alias mapping - product3_
+                - alias suffix - 3_
+                - suffixed key columns - {id1_2_3_}
+                - JOIN (JoinDefinedByMetadata(admin)) : <gen:3> -> <gen:4>
+                   - EntityQuerySpaceImpl(uid=<gen:4>, entity=com.market.marketplace.entities.Admin)
+                      - SQL table alias mapping - admin4_
+                      - alias suffix - 4_
+                      - suffixed key columns - {id2_3_4_}
+
+2024-10-15 16:23:01 [main] DEBUG o.h.loader.entity.plan.EntityLoader - Static select for entity com.market.marketplace.entities.CommandProduct [NONE]: select commandpro0_.id as id1_0_0_, commandpro0_.command_id as command_3_0_0_, commandpro0_.product_id as product_4_0_0_, commandpro0_.quantity as quantity2_0_0_, command1_.id as id1_1_1_, command1_.client_id as client_i4_1_1_, command1_.orderDate as orderdat2_1_1_, command1_.status as status3_1_1_, client2_.id as id2_3_2_, client2_.email as email3_3_2_, client2_.firstName as firstnam4_3_2_, client2_.lastName as lastname5_3_2_, client2_.password as password6_3_2_, client2_.role as role1_3_2_, client2_.paymentMethod as paymentm7_3_2_, client2_.shippingAddress as shipping8_3_2_, product3_.id as id1_2_3_, product3_.admin_id as admin_id6_2_3_, product3_.description as descript2_2_3_, product3_.name as name3_2_3_, product3_.price as price4_2_3_, product3_.stock as stock5_2_3_, admin4_.id as id2_3_4_, admin4_.email as email3_3_4_, admin4_.firstName as firstnam4_3_4_, admin4_.lastName as lastname5_3_4_, admin4_.password as password6_3_4_, admin4_.role as role1_3_4_, admin4_.accessLevel as accessle9_3_4_ from command_product commandpro0_ inner join commands command1_ on commandpro0_.command_id=command1_.id inner join users client2_ on command1_.client_id=client2_.id inner join products product3_ on commandpro0_.product_id=product3_.id inner join users admin4_ on product3_.admin_id=admin4_.id where commandpro0_.id=?
+2024-10-15 16:23:01 [main] DEBUG o.h.p.entity.AbstractEntityPersister - Static SQL for entity: com.market.marketplace.entities.Product
+2024-10-15 16:23:01 [main] DEBUG o.h.p.entity.AbstractEntityPersister -  Version select: select id from products where id =?
+2024-10-15 16:23:01 [main] DEBUG o.h.p.entity.AbstractEntityPersister -  Snapshot select: select product_.id, product_.admin_id as admin_id6_2_, product_.description as descript2_2_, product_.name as name3_2_, product_.price as price4_2_, product_.stock as stock5_2_ from products product_ where product_.id=?
+2024-10-15 16:23:01 [main] DEBUG o.h.p.entity.AbstractEntityPersister -  Insert 0: insert into products (admin_id, description, name, price, stock, id) values (?, ?, ?, ?, ?, ?)
+2024-10-15 16:23:01 [main] DEBUG o.h.p.entity.AbstractEntityPersister -  Update 0: update products set admin_id=?, description=?, name=?, price=?, stock=? where id=?
+2024-10-15 16:23:01 [main] DEBUG o.h.p.entity.AbstractEntityPersister -  Delete 0: delete from products where id=?
+2024-10-15 16:23:01 [main] DEBUG o.h.p.entity.AbstractEntityPersister -  Identity insert: insert into products (admin_id, description, name, price, stock) values (?, ?, ?, ?, ?)
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.b.i.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@5bb7643d]
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : admin
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.b.i.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:1> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@4074023c]
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : admin.email
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : admin.firstName
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : admin.lastName
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : admin.password
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : admin.role
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : admin.accessLevel
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : admin.products
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Property path deemed to be circular : admin.products
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : commandProducts
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.b.i.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:2> -> org.hibernate.loader.plan.build.internal.spaces.CollectionQuerySpaceImpl@5e268ce6]
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.b.i.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:3> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@66ec9390]
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : description
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : name
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : price
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : stock
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.b.i.FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.e.i.LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.b.spi.LoadPlanTreePrinter - LoadPlan(entity=com.market.marketplace.entities.Product)
+    - Returns
+       - EntityReturnImpl(entity=com.market.marketplace.entities.Product, querySpaceUid=<gen:0>, path=com.market.marketplace.entities.Product)
+          - EntityAttributeFetchImpl(entity=com.market.marketplace.entities.Admin, querySpaceUid=<gen:1>, path=com.market.marketplace.entities.Product.admin)
+          - CollectionAttributeFetchImpl(collection=com.market.marketplace.entities.Product.commandProducts, querySpaceUid=<gen:2>, path=com.market.marketplace.entities.Product.commandProducts)
+             - (collection element) CollectionFetchableElementEntityGraph(entity=com.market.marketplace.entities.CommandProduct, querySpaceUid=<gen:3>, path=com.market.marketplace.entities.Product.commandProducts.<elements>)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=com.market.marketplace.entities.Product)
+          - SQL table alias mapping - product0_
+          - alias suffix - 0_
+          - suffixed key columns - {id1_2_0_}
+          - JOIN (JoinDefinedByMetadata(admin)) : <gen:0> -> <gen:1>
+             - EntityQuerySpaceImpl(uid=<gen:1>, entity=com.market.marketplace.entities.Admin)
+                - SQL table alias mapping - admin1_
+                - alias suffix - 1_
+                - suffixed key columns - {id2_3_1_}
+
+2024-10-15 16:23:01 [main] DEBUG o.h.loader.entity.plan.EntityLoader - Static select for entity com.market.marketplace.entities.Product [NONE]: select product0_.id as id1_2_0_, product0_.admin_id as admin_id6_2_0_, product0_.description as descript2_2_0_, product0_.name as name3_2_0_, product0_.price as price4_2_0_, product0_.stock as stock5_2_0_, admin1_.id as id2_3_1_, admin1_.email as email3_3_1_, admin1_.firstName as firstnam4_3_1_, admin1_.lastName as lastname5_3_1_, admin1_.password as password6_3_1_, admin1_.role as role1_3_1_, admin1_.accessLevel as accessle9_3_1_ from products product0_ inner join users admin1_ on product0_.admin_id=admin1_.id where product0_.id=?
+2024-10-15 16:23:01 [main] DEBUG o.h.p.entity.AbstractEntityPersister - Static SQL for entity: com.market.marketplace.entities.Admin
+2024-10-15 16:23:01 [main] DEBUG o.h.p.entity.AbstractEntityPersister -  Version select: select id from users where id =?
+2024-10-15 16:23:01 [main] DEBUG o.h.p.entity.AbstractEntityPersister -  Snapshot select: select admin_.id, admin_.email as email3_3_, admin_.firstName as firstnam4_3_, admin_.lastName as lastname5_3_, admin_.password as password6_3_, admin_.accessLevel as accessle9_3_ from users admin_ where admin_.id=?
+2024-10-15 16:23:01 [main] DEBUG o.h.p.entity.AbstractEntityPersister -  Insert 0: insert into users (email, firstName, lastName, password, accessLevel, role, id) values (?, ?, ?, ?, ?, 'ADMIN', ?)
+2024-10-15 16:23:01 [main] DEBUG o.h.p.entity.AbstractEntityPersister -  Update 0: update users set email=?, firstName=?, lastName=?, password=?, accessLevel=? where id=?
+2024-10-15 16:23:01 [main] DEBUG o.h.p.entity.AbstractEntityPersister -  Delete 0: delete from users where id=?
+2024-10-15 16:23:01 [main] DEBUG o.h.p.entity.AbstractEntityPersister -  Identity insert: insert into users (email, firstName, lastName, password, accessLevel, role) values (?, ?, ?, ?, ?, 'ADMIN')
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.b.i.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@6e91893]
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : email
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : firstName
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : lastName
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : password
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : role
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : accessLevel
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : products
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.b.i.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:1> -> org.hibernate.loader.plan.build.internal.spaces.CollectionQuerySpaceImpl@562457e1]
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.b.i.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:2> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@54562ea6]
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.b.i.FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.e.i.LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.b.spi.LoadPlanTreePrinter - LoadPlan(entity=com.market.marketplace.entities.Admin)
+    - Returns
+       - EntityReturnImpl(entity=com.market.marketplace.entities.Admin, querySpaceUid=<gen:0>, path=com.market.marketplace.entities.Admin)
+          - CollectionAttributeFetchImpl(collection=com.market.marketplace.entities.Admin.products, querySpaceUid=<gen:1>, path=com.market.marketplace.entities.Admin.products)
+             - (collection element) CollectionFetchableElementEntityGraph(entity=com.market.marketplace.entities.Product, querySpaceUid=<gen:2>, path=com.market.marketplace.entities.Admin.products.<elements>)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=com.market.marketplace.entities.Admin)
+          - SQL table alias mapping - admin0_
+          - alias suffix - 0_
+          - suffixed key columns - {id2_3_0_}
+
+2024-10-15 16:23:01 [main] DEBUG o.h.loader.entity.plan.EntityLoader - Static select for entity com.market.marketplace.entities.Admin [NONE]: select admin0_.id as id2_3_0_, admin0_.email as email3_3_0_, admin0_.firstName as firstnam4_3_0_, admin0_.lastName as lastname5_3_0_, admin0_.password as password6_3_0_, admin0_.role as role1_3_0_, admin0_.accessLevel as accessle9_3_0_ from users admin0_ where admin0_.id=? and admin0_.role='ADMIN'
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.b.i.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.CollectionQuerySpaceImpl@57ce634f]
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.b.i.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:1> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@b8a7e43]
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : command
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Property path deemed to be circular : command
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : product
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.b.i.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:2> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@4a6c18ad]
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : product.admin
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.b.i.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:3> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@20095ab4]
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : product.admin.email
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : product.admin.firstName
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : product.admin.lastName
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : product.admin.password
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : product.admin.role
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : product.admin.accessLevel
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : product.admin.products
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Property path deemed to be circular : product.admin.products
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : product.commandProducts
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Property path deemed to be circular : product.commandProducts
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : product.description
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : product.name
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : product.price
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : product.stock
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : quantity
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.b.i.FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.e.i.LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.b.spi.LoadPlanTreePrinter - LoadPlan(collection=com.market.marketplace.entities.Command.commandProducts)
+    - Returns
+       - CollectionReturnImpl(collection=com.market.marketplace.entities.Command.commandProducts, querySpaceUid=<gen:0>, path=[com.market.marketplace.entities.Command.commandProducts])
+          - (collection element) CollectionFetchableElementEntityGraph(entity=com.market.marketplace.entities.CommandProduct, querySpaceUid=<gen:1>, path=[com.market.marketplace.entities.Command.commandProducts].<elements>)
+             - EntityAttributeFetchImpl(entity=com.market.marketplace.entities.Product, querySpaceUid=<gen:2>, path=[com.market.marketplace.entities.Command.commandProducts].<elements>.product)
+                - EntityAttributeFetchImpl(entity=com.market.marketplace.entities.Admin, querySpaceUid=<gen:3>, path=[com.market.marketplace.entities.Command.commandProducts].<elements>.product.admin)
+    - QuerySpaces
+       - CollectionQuerySpaceImpl(uid=<gen:0>, collection=com.market.marketplace.entities.Command.commandProducts)
+          - SQL table alias mapping - commandpro0_
+          - alias suffix - 0_
+          - suffixed key columns - {command_3_0_0_}
+          - entity-element alias suffix - 1_
+          - 1_entity-element suffixed key columns - id1_0_1_
+          - JOIN (JoinDefinedByMetadata(elements)) : <gen:0> -> <gen:1>
+             - EntityQuerySpaceImpl(uid=<gen:1>, entity=com.market.marketplace.entities.CommandProduct)
+                - SQL table alias mapping - commandpro0_
+                - alias suffix - 1_
+                - suffixed key columns - {id1_0_1_}
+                - JOIN (JoinDefinedByMetadata(product)) : <gen:1> -> <gen:2>
+                   - EntityQuerySpaceImpl(uid=<gen:2>, entity=com.market.marketplace.entities.Product)
+                      - SQL table alias mapping - product1_
+                      - alias suffix - 2_
+                      - suffixed key columns - {id1_2_2_}
+                      - JOIN (JoinDefinedByMetadata(admin)) : <gen:2> -> <gen:3>
+                         - EntityQuerySpaceImpl(uid=<gen:3>, entity=com.market.marketplace.entities.Admin)
+                            - SQL table alias mapping - admin2_
+                            - alias suffix - 3_
+                            - suffixed key columns - {id2_3_3_}
+
+2024-10-15 16:23:01 [main] DEBUG o.h.l.c.plan.CollectionLoader - Static select for collection com.market.marketplace.entities.Command.commandProducts: select commandpro0_.command_id as command_3_0_0_, commandpro0_.id as id1_0_0_, commandpro0_.id as id1_0_1_, commandpro0_.command_id as command_3_0_1_, commandpro0_.product_id as product_4_0_1_, commandpro0_.quantity as quantity2_0_1_, product1_.id as id1_2_2_, product1_.admin_id as admin_id6_2_2_, product1_.description as descript2_2_2_, product1_.name as name3_2_2_, product1_.price as price4_2_2_, product1_.stock as stock5_2_2_, admin2_.id as id2_3_3_, admin2_.email as email3_3_3_, admin2_.firstName as firstnam4_3_3_, admin2_.lastName as lastname5_3_3_, admin2_.password as password6_3_3_, admin2_.role as role1_3_3_, admin2_.accessLevel as accessle9_3_3_ from command_product commandpro0_ inner join products product1_ on commandpro0_.product_id=product1_.id inner join users admin2_ on product1_.admin_id=admin2_.id where commandpro0_.command_id=?
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.b.i.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.CollectionQuerySpaceImpl@35ff8fc9]
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.b.i.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:1> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@5fb7183b]
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : admin
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Property path deemed to be circular : admin
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : commandProducts
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.b.i.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:2> -> org.hibernate.loader.plan.build.internal.spaces.CollectionQuerySpaceImpl@16c8b7bd]
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.b.i.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:3> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@7159139f]
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : description
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : name
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : price
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : stock
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.b.i.FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.e.i.LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.b.spi.LoadPlanTreePrinter - LoadPlan(collection=com.market.marketplace.entities.Admin.products)
+    - Returns
+       - CollectionReturnImpl(collection=com.market.marketplace.entities.Admin.products, querySpaceUid=<gen:0>, path=[com.market.marketplace.entities.Admin.products])
+          - (collection element) CollectionFetchableElementEntityGraph(entity=com.market.marketplace.entities.Product, querySpaceUid=<gen:1>, path=[com.market.marketplace.entities.Admin.products].<elements>)
+             - CollectionAttributeFetchImpl(collection=com.market.marketplace.entities.Product.commandProducts, querySpaceUid=<gen:2>, path=[com.market.marketplace.entities.Admin.products].<elements>.commandProducts)
+                - (collection element) CollectionFetchableElementEntityGraph(entity=com.market.marketplace.entities.CommandProduct, querySpaceUid=<gen:3>, path=[com.market.marketplace.entities.Admin.products].<elements>.commandProducts.<elements>)
+    - QuerySpaces
+       - CollectionQuerySpaceImpl(uid=<gen:0>, collection=com.market.marketplace.entities.Admin.products)
+          - SQL table alias mapping - products0_
+          - alias suffix - 0_
+          - suffixed key columns - {admin_id6_2_0_}
+          - entity-element alias suffix - 1_
+          - 1_entity-element suffixed key columns - id1_2_1_
+          - JOIN (JoinDefinedByMetadata(elements)) : <gen:0> -> <gen:1>
+             - EntityQuerySpaceImpl(uid=<gen:1>, entity=com.market.marketplace.entities.Product)
+                - SQL table alias mapping - products0_
+                - alias suffix - 1_
+                - suffixed key columns - {id1_2_1_}
+
+2024-10-15 16:23:01 [main] DEBUG o.h.l.c.plan.CollectionLoader - Static select for collection com.market.marketplace.entities.Admin.products: select products0_.admin_id as admin_id6_2_0_, products0_.id as id1_2_0_, products0_.id as id1_2_1_, products0_.admin_id as admin_id6_2_1_, products0_.description as descript2_2_1_, products0_.name as name3_2_1_, products0_.price as price4_2_1_, products0_.stock as stock5_2_1_ from products products0_ where products0_.admin_id=?
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.b.i.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.CollectionQuerySpaceImpl@65bcf7c2]
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.b.i.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:1> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@3db64bd4]
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : command
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.b.i.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:2> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@55ecbafe]
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : command.client
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.b.i.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:3> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@37c2eacb]
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : command.client.email
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : command.client.firstName
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : command.client.lastName
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : command.client.password
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : command.client.role
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : command.client.commands
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Property path deemed to be circular : command.client.commands
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : command.client.paymentMethod
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : command.client.shippingAddress
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : command.commandProducts
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Property path deemed to be circular : command.commandProducts
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : command.orderDate
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : command.status
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : product
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Property path deemed to be circular : product
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : quantity
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.b.i.FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.e.i.LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.b.spi.LoadPlanTreePrinter - LoadPlan(collection=com.market.marketplace.entities.Product.commandProducts)
+    - Returns
+       - CollectionReturnImpl(collection=com.market.marketplace.entities.Product.commandProducts, querySpaceUid=<gen:0>, path=[com.market.marketplace.entities.Product.commandProducts])
+          - (collection element) CollectionFetchableElementEntityGraph(entity=com.market.marketplace.entities.CommandProduct, querySpaceUid=<gen:1>, path=[com.market.marketplace.entities.Product.commandProducts].<elements>)
+             - EntityAttributeFetchImpl(entity=com.market.marketplace.entities.Command, querySpaceUid=<gen:2>, path=[com.market.marketplace.entities.Product.commandProducts].<elements>.command)
+                - EntityAttributeFetchImpl(entity=com.market.marketplace.entities.Client, querySpaceUid=<gen:3>, path=[com.market.marketplace.entities.Product.commandProducts].<elements>.command.client)
+    - QuerySpaces
+       - CollectionQuerySpaceImpl(uid=<gen:0>, collection=com.market.marketplace.entities.Product.commandProducts)
+          - SQL table alias mapping - commandpro0_
+          - alias suffix - 0_
+          - suffixed key columns - {product_4_0_0_}
+          - entity-element alias suffix - 1_
+          - 1_entity-element suffixed key columns - id1_0_1_
+          - JOIN (JoinDefinedByMetadata(elements)) : <gen:0> -> <gen:1>
+             - EntityQuerySpaceImpl(uid=<gen:1>, entity=com.market.marketplace.entities.CommandProduct)
+                - SQL table alias mapping - commandpro0_
+                - alias suffix - 1_
+                - suffixed key columns - {id1_0_1_}
+                - JOIN (JoinDefinedByMetadata(command)) : <gen:1> -> <gen:2>
+                   - EntityQuerySpaceImpl(uid=<gen:2>, entity=com.market.marketplace.entities.Command)
+                      - SQL table alias mapping - command1_
+                      - alias suffix - 2_
+                      - suffixed key columns - {id1_1_2_}
+                      - JOIN (JoinDefinedByMetadata(client)) : <gen:2> -> <gen:3>
+                         - EntityQuerySpaceImpl(uid=<gen:3>, entity=com.market.marketplace.entities.Client)
+                            - SQL table alias mapping - client2_
+                            - alias suffix - 3_
+                            - suffixed key columns - {id2_3_3_}
+
+2024-10-15 16:23:01 [main] DEBUG o.h.l.c.plan.CollectionLoader - Static select for collection com.market.marketplace.entities.Product.commandProducts: select commandpro0_.product_id as product_4_0_0_, commandpro0_.id as id1_0_0_, commandpro0_.id as id1_0_1_, commandpro0_.command_id as command_3_0_1_, commandpro0_.product_id as product_4_0_1_, commandpro0_.quantity as quantity2_0_1_, command1_.id as id1_1_2_, command1_.client_id as client_i4_1_2_, command1_.orderDate as orderdat2_1_2_, command1_.status as status3_1_2_, client2_.id as id2_3_3_, client2_.email as email3_3_3_, client2_.firstName as firstnam4_3_3_, client2_.lastName as lastname5_3_3_, client2_.password as password6_3_3_, client2_.role as role1_3_3_, client2_.paymentMethod as paymentm7_3_3_, client2_.shippingAddress as shipping8_3_3_ from command_product commandpro0_ inner join commands command1_ on commandpro0_.command_id=command1_.id inner join users client2_ on command1_.client_id=client2_.id where commandpro0_.product_id=?
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.b.i.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.CollectionQuerySpaceImpl@32b9bd12]
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.b.i.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:1> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@352e787a]
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : client
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Property path deemed to be circular : client
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : commandProducts
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.b.i.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:2> -> org.hibernate.loader.plan.build.internal.spaces.CollectionQuerySpaceImpl@7e75bf2d]
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.b.i.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:3> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@385ef531]
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : orderDate
+2024-10-15 16:23:01 [main] DEBUG o.h.p.w.spi.MetamodelGraphWalker - Visiting attribute path : status
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.b.i.FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.e.i.LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+2024-10-15 16:23:01 [main] DEBUG o.h.l.p.b.spi.LoadPlanTreePrinter - LoadPlan(collection=com.market.marketplace.entities.Client.commands)
+    - Returns
+       - CollectionReturnImpl(collection=com.market.marketplace.entities.Client.commands, querySpaceUid=<gen:0>, path=[com.market.marketplace.entities.Client.commands])
+          - (collection element) CollectionFetchableElementEntityGraph(entity=com.market.marketplace.entities.Command, querySpaceUid=<gen:1>, path=[com.market.marketplace.entities.Client.commands].<elements>)
+             - CollectionAttributeFetchImpl(collection=com.market.marketplace.entities.Command.commandProducts, querySpaceUid=<gen:2>, path=[com.market.marketplace.entities.Client.commands].<elements>.commandProducts)
+                - (collection element) CollectionFetchableElementEntityGraph(entity=com.market.marketplace.entities.CommandProduct, querySpaceUid=<gen:3>, path=[com.market.marketplace.entities.Client.commands].<elements>.commandProducts.<elements>)
+    - QuerySpaces
+       - CollectionQuerySpaceImpl(uid=<gen:0>, collection=com.market.marketplace.entities.Client.commands)
+          - SQL table alias mapping - commands0_
+          - alias suffix - 0_
+          - suffixed key columns - {client_i4_1_0_}
+          - entity-element alias suffix - 1_
+          - 1_entity-element suffixed key columns - id1_1_1_
+          - JOIN (JoinDefinedByMetadata(elements)) : <gen:0> -> <gen:1>
+             - EntityQuerySpaceImpl(uid=<gen:1>, entity=com.market.marketplace.entities.Command)
+                - SQL table alias mapping - commands0_
+                - alias suffix - 1_
+                - suffixed key columns - {id1_1_1_}
+
+2024-10-15 16:23:01 [main] DEBUG o.h.l.c.plan.CollectionLoader - Static select for collection com.market.marketplace.entities.Client.commands: select commands0_.client_id as client_i4_1_0_, commands0_.id as id1_1_0_, commands0_.id as id1_1_1_, commands0_.client_id as client_i4_1_1_, commands0_.orderDate as orderdat2_1_1_, commands0_.status as status3_1_1_ from commands commands0_ where commands0_.client_id=?
+2024-10-15 16:23:01 [main] INFO  o.hibernate.orm.connections.access - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@17b64941] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2024-10-15 16:23:01 [main] DEBUG org.hibernate.mapping.Table - No alter strings for table : command_product
+2024-10-15 16:23:01 [main] DEBUG org.hibernate.mapping.Table - No alter strings for table : commands
+2024-10-15 16:23:01 [main] DEBUG org.hibernate.mapping.Table - No alter strings for table : products
+2024-10-15 16:23:01 [main] DEBUG org.hibernate.mapping.Table - No alter strings for table : users
+2024-10-15 16:23:01 [main] DEBUG o.h.e.t.j.p.i.JtaPlatformInitiator - No JtaPlatform was specified, checking resolver
+2024-10-15 16:23:01 [main] DEBUG o.h.e.t.j.p.i.JtaPlatformResolverInitiator - No JtaPlatformResolver was specified, using default [org.hibernate.engine.transaction.jta.platform.internal.StandardJtaPlatformResolver]
+2024-10-15 16:23:01 [main] DEBUG o.h.e.t.j.p.i.StandardJtaPlatformResolver - Could not resolve JtaPlatform, using default [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-10-15 16:23:01 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-10-15 16:23:01 [main] DEBUG o.h.query.spi.NamedQueryRepository - Checking 0 named HQL queries
+2024-10-15 16:23:01 [main] DEBUG o.h.query.spi.NamedQueryRepository - Checking 0 named SQL queries
+2024-10-15 16:23:01 [main] DEBUG o.h.s.i.SessionFactoryServiceRegistryImpl - EventListenerRegistry access via ServiceRegistry is deprecated.  Use `sessionFactory.getEventEngine().getListenerRegistry()` instead
+2024-10-15 16:23:01 [main] DEBUG o.h.internal.SessionFactoryRegistry - Initializing SessionFactoryRegistry : org.hibernate.internal.SessionFactoryRegistry@1d61c6dc
+2024-10-15 16:23:01 [main] DEBUG o.h.internal.SessionFactoryRegistry - Registering SessionFactory: fc2db835-2ee6-415c-ab24-2a8ff78a8d7f (<unnamed>)
+2024-10-15 16:23:01 [main] DEBUG o.h.internal.SessionFactoryRegistry - Not binding SessionFactory to JNDI, no JNDI name configured
+2024-10-15 16:23:01 [main] INFO  com.market.marketplace.Main - entityManagerFactory created
+2024-10-15 16:23:01 [main] DEBUG o.h.s.internal.StatisticsInitiator - Statistics initialized [enabled=false]
+2024-10-15 16:23:01 [main] DEBUG o.h.internal.SessionFactoryImpl - HHH000031: Closing
+2024-10-15 16:23:01 [main] DEBUG o.h.type.spi.TypeConfiguration$Scope - Un-scoping TypeConfiguration [org.hibernate.type.spi.TypeConfiguration$Scope@35342d2f] from SessionFactory [org.hibernate.internal.SessionFactoryImpl@73511076]
+2024-10-15 16:23:01 [main] DEBUG o.h.s.i.AbstractServiceRegistryImpl - Implicitly destroying ServiceRegistry on de-registration of all child ServiceRegistries
+2024-10-15 16:23:01 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001008: Cleaning up connection pool [jdbc:postgresql://localhost:5432/marketPlace]
+2024-10-15 16:23:01 [main] DEBUG o.h.b.r.i.BootstrapServiceRegistryImpl - Implicitly destroying Boot-strap registry on de-registration of all child ServiceRegistries

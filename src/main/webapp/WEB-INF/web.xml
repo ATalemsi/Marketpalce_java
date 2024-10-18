@@ -92,4 +92,37 @@
         <servlet-name>CancelCommand</servlet-name>
         <url-pattern>/commands/cancel</url-pattern>
     </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>UpdateCommandServlet</servlet-name>
+        <servlet-class>com.market.marketplace.servlet.Checkout.ManageCommandServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>UpdateCommandServlet</servlet-name>
+        <url-pattern>/commands/update-status</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>GetAllCommandsServlet</servlet-name>
+        <servlet-class>com.market.marketplace.servlet.Checkout.GetAllCommandsServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>GetAllCommandsServlet</servlet-name>
+        <url-pattern>/commands/all</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>UpdateCommandStatusServlet</servlet-name>
+        <servlet-class>com.market.marketplace.servlet.Checkout.ManageCommandServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>UpdateCommandStatusServlet</servlet-name>
+        <url-pattern>/commands/change-status</url-pattern> <!-- Mapping de l'URL -->
+    </servlet-mapping>
 </web-app>

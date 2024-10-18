@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Customer Orders</title>
+</head>
+
+<body class="bg-gray-100 ">
+
+<div th:replace="fragments/header :: header">Header</div>
+<div layout:fragment="content">
+
+    <div class="container mx-auto  rounded-lg shadow-lg m-12 p-12">
+        <table class="min-w-full border-collapse border border-gray-300">
+            <thead>
+            <tr class="bg-gray-200">
+                <th class="border border-gray-300 px-4 py-2">Order ID</th>
+                <th class="border border-gray-300 px-4 py-2">Date</th>
+                <th class="border border-gray-300 px-4 py-2">Status</th>
+                <th class="border border-gray-300 px-4 py-2">Amount</th>
+                <th class="border border-gray-300 px-4 py-2">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="command : ${commands}"> <!-- Loop through the commands -->
+                <td class="border border-gray-300 px-4 py-2" th:text="${command.id}">#25425</td>
+                <td class="border border-gray-300 px-4 py-2" th:text="${command.orderDateString}"></td>
+                <td class="border border-gray-300 px-4 py-2"
+                    th:text="${command.status != null ? command.status : 'No Status'}"></td>
+                <td class="border border-gray-300 px-4 py-2"
+                    th:text="${command.getTotalAmount() != null ? command.getTotalAmount() : '0.00'}"></td>
+
+                <td class="border border-gray-300 px-4 py-2">
+                    <form th:action="@{/commands/details}" method="post">
+                        <input type="hidden" name="commandId" th:value="${command.id}">
+                        <button type="submit" class="text-blue-500 hover:underline">View Details</button>
+                    </form>
+
+                        <form th:action="@{/commands/change-status}" method="post" class="mt-2">
+                            <input type="hidden" name="commandId" th:value="${command.id}">
+                            <label for="status" class="block text-sm font-medium text-gray-700">Change Status:</label>
+                            <select name="status" id="status" class="mt-1 block w-full bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                <option value="PENDING" th:if="${command.status.name() != 'PENDING'}">PENDING</option>
+                                <option value="PROCESSING" th:if="${command.status.name() != 'PROCESSING'}">PROCESSING</option>
+                                <option value="EXPIRED" th:if="${command.status.name() != 'EXPIRED'}">EXPIRED</option>
+                                <option value="SHIPPED" th:if="${command.status.name() != 'SHIPPED'}">SHIPPED</option>
+                                <option value="CANCELED" th:if="${command.status.name() != 'CANCELED'}">CANCELED</option>
+                            </select>
+                            <button type="submit" class="text-green-500 hover:underline mt-2">Update Status</button>
+                        </form>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>

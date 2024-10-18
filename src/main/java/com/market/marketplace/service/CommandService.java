@@ -10,4 +10,9 @@ public interface CommandService {
     Command findCommandById(int id);
 
     boolean cancelCommand(int commandId);
-}
+
+    void updateCommandStatus(int commandId, String statusParam);
+
+     List<Command> getAllCommandsOrderedByLatest();
+
+    }

@@ -14,4 +14,6 @@ public interface CommandDao {
     Command findById(int id);
 
     void update(Command command) ;
-}
+
+    public List<Command> getAllCommandsOrderedByLatest() ;
+    }

@@ -33,4 +33,19 @@ public class CommandServiceImpl implements CommandService {
         }
         return false;
     }
+
+
+    @Override
+    public void updateCommandStatus(int commandId, String statusParam) {
+        Command command = commandDAO.findById(commandId);
+        if (command != null) {
+            command.setStatus(CommandStatus.valueOf(statusParam));
+            commandDAO.update(command);
+        }
+    }
+
+    @Override
+    public List<Command> getAllCommandsOrderedByLatest() {
+        return commandDAO.getAllCommandsOrderedByLatest();
+    }
 }

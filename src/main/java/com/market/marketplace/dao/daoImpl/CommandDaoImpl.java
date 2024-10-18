@@ -41,4 +41,11 @@ public class CommandDaoImpl implements CommandDao {
         }
     }
 
+    public List<Command> getAllCommandsOrderedByLatest() {
+        entityManager.clear();
+        String jpql = "SELECT c FROM Command c ORDER BY c.orderDate DESC"; // Assurez-vous que orderDate est le bon champ
+        TypedQuery<Command> query = entityManager.createQuery(jpql, Command.class);
+        return query.getResultList();
+    }
+
 }

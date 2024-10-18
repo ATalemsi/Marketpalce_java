@@ -3,12 +3,12 @@
     <div class="container mx-auto px-4 py-6 flex justify-between items-center">
         <h1 class="text-2xl font-bold">MarketWiz</h1>
         <nav>
-            <a href="#" class="mx-2">Home</a>
+            <a th:href="@{/admin(tableType='clients')}"  class="mx-2">CLients</a>
             <a href="#" class="mx-2">Commands</a>
             <a th:href="@{/products}" class="mx-2">Products</a>
-            <a th:href="@{/products/admin(adminId=44)}" class="mx-2">My Products</a>
+            <a th:href="@{/products/admin(adminId=${#session.getAttribute('userId')})}" class="mx-2">My Products</a>
 
-        </nav>
+        </nav>x
         <div class="flex items-center">
             <input type="text" placeholder="What are you looking for?" class="border rounded px-3 py-2 mr-2">
             <button class=" p-2 rounded">
@@ -44,6 +44,11 @@
 
                 </svg>
             </button>
+            <form th:action="@{/logout}" method="post">
+                <button type="submit" class="ml-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition">
+                    Logout
+                </button>
+            </form>
         </div>
     </div>
 </header>

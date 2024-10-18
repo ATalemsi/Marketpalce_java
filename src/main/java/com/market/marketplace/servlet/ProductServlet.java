@@ -14,6 +14,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 import org.slf4j.Logger;
@@ -127,7 +128,9 @@ public class ProductServlet extends HttpServlet {
 
     // Add a new product
     public void addProduct(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int adminId = Integer.parseInt(req.getParameter("adminId"));
+        HttpSession session = req.getSession();
+        Object adminIdObj = session.getAttribute("userId");
+        int adminId = Integer.parseInt(adminIdObj.toString());
         String name = req.getParameter("name");
         String description = req.getParameter("description");
         double price = Double.parseDouble(req.getParameter("price"));
@@ -170,9 +173,7 @@ public class ProductServlet extends HttpServlet {
         productService.updateProduct(product);
         logger.info("Updated product: " + product);
 
-        //resp.sendRedirect(req.getContextPath() + "/my-products?adminId=" + product.getAdmin().getId());
-
-        resp.sendRedirect(req.getContextPath() + "/products");
+        resp.sendRedirect(req.getContextPath() + "/products/admin?adminId=" + product.getAdmin().getId());
     }
 
     // Delete a product
@@ -181,9 +182,8 @@ public class ProductServlet extends HttpServlet {
         Product product = productService.getProductById(id);
         productService.removeProduct(product);
         logger.info("Deleted product: " + product);
-        //resp.sendRedirect(req.getContextPath() + "/my-products?adminId=" + product.getAdmin().getId());
+        resp.sendRedirect(req.getContextPath() + "/products/admin?adminId=" + product.getAdmin().getId());
 
-        resp.sendRedirect(req.getContextPath() + "/products");
     }
 
 

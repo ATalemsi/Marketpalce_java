@@ -15,13 +15,13 @@
 <div  th:replace = "components/header :: header" ></div>
 
 <form th:action="@{/products}" method="get" class="flex justify-center mb-4 mt-4">
-    <input type="hidden" name="adminId" th:value="44" />
+    <input type="hidden" name="adminId" th:value="${#session.getAttribute('userId')}" />
     <input type="text" name="search" placeholder="Search by product name" class="border p-2 rounded" th:value="${searchQuery}" />
     <button type="submit" class="ml-2 px-3 py-1 bg-black text-white rounded">Search</button>
 </form>
 
 <div class="flex justify-center mb-4 mt-4">
-    <a th:href="@{/products(adminId=44)}" class="px-3 py-1 bg-blue-600 text-white rounded">Show My Products</a>
+    <a th:href="@{/products/admin(adminId=${#session.getAttribute('userId')})}" class="px-3 py-1 bg-blue-600 text-white rounded">Show My Products</a>
 </div>
 
 <!-- Breadcrumb -->
@@ -55,7 +55,7 @@
             <form class="p-4 md:p-5" th:action="@{/products/add}" method="post">
                 <div class="grid gap-4 mb-4 grid-cols-2">
                     <input type="hidden" name="action" value="add">
-                    <input type="hidden" name="adminId" value="44">
+                    <input type="hidden" name="adminId" th:value="${#session.getAttribute('userId')}">
                     <div class="col-span-2">
                         <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
                         <input type="text" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Type product name" required="">
@@ -256,6 +256,7 @@
     const productDescription = button.getAttribute('data-description');
     const productPrice = button.getAttribute('data-price');
     const productStock = button.getAttribute('data-stock');
+
 
     // Populate the form fields with the product data
     document.getElementById('editName').value = productName;

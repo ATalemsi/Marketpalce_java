@@ -23,9 +23,6 @@
             <a href="#" class="mx-2">Product</a>
             <a href="#" class="mx-2">Commands</a>
             <a th:href="@{/admin(tableType='admins')}"  class="mx-2">Admin</a>
-            <a th:href="@{/admin(tableType='clients')}" class="mx-2 p-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-200">
-                Clients
-            </a>
         </nav>
         <div class="flex items-center">
             <input type="text" placeholder="What are you looking for?" class="border rounded px-3 py-2 mr-2">
@@ -50,19 +47,26 @@
                     </g>
                 </svg>
             </button>
+            <form th:action="@{/logout}" method="post">
+                <button type="submit" class="ml-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition">
+                    Logout
+                </button>
+            </form>
         </div>
     </div>
 </header>
 
+<div class="flex justify-start mt-4 ml-8">
+    <a th:if="${#session.getAttribute('role') == 'ADMIN' && #session.getAttribute('niveauAcces') == 1}"
+       class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-200"
+       th:href="@{/admin(tableType='clients')}">
+        Go to Clients Table
+    </a>
+</div>
+
 <!-- Table Section -->
 <section class="container mx-auto my-8 flex-grow">
-    <div class="flex justify-end mt-4">
-        <a th:if="${#session.getAttribute('role') == 'ADMIN' && #session.getAttribute('niveauAcces') == 1}"
-           class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-200"
-           th:href="@{/admin(tableType='clients')}">
-            Go to Clients Table
-        </a>
-    </div>
+
     <div class="bg-white shadow-md rounded-md p-6 mx-12">
         <h2 class="text-xl font-semibold mb-4">Admin Management</h2>
 

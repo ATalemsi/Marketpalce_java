@@ -87,10 +87,18 @@ public class LoginServlet extends HttpServlet {
                 int niveauAcces = adminInfo.getAccessLevel();
 
                 if (niveauAcces == 0) {
+                    session.setAttribute("email", email);
+                    session.setAttribute("role", user.getRole().name());
+                    session.setAttribute("niveauAcces", adminInfo.getAccessLevel());
                     redirectUrl = request.getContextPath() + "/admin?tableType=clients";
                 } else if (niveauAcces == 1) {
+                    session.setAttribute("email", email);
+                    session.setAttribute("role", user.getRole().name());
+                    session.setAttribute("niveauAcces", adminInfo.getAccessLevel());
                     redirectUrl = request.getContextPath() + "/admin?tableType=admins";
                 } else {
+                    session.setAttribute("email", email);
+                    session.setAttribute("role", user.getRole().name());
                     redirectUrl = request.getContextPath() + "/admin?tableType=admins";
                 }
             }

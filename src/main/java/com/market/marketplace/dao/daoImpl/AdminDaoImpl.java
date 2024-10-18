@@ -211,7 +211,6 @@ public class AdminDaoImpl implements AdminDao {
         }
     }
 
-    @Override
     public Admin getAdminInfoByEmail(String email) {
         Admin admin = null;
         try {
@@ -220,11 +219,7 @@ public class AdminDaoImpl implements AdminDao {
                     .getSingleResult();
         } catch (NoResultException e) {
             e.printStackTrace();
-        } finally {
-            entityManager.close();
         }
         return admin;
-
-
     }
 }

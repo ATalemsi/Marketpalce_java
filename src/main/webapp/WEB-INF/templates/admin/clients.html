@@ -43,17 +43,23 @@
                     </g>
                 </svg>
             </button>
+            <form th:action="@{/logout}" method="post">
+                <button type="submit" class="ml-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition">
+                    Logout
+                </button>
+            </form>
         </div>
     </div>
 </header>
+<div class="flex justify-start mt-4 ml-8">
+    <a th:if="${#session.getAttribute('role') == 'ADMIN' && #session.getAttribute('niveauAcces') == 1}"
+       class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-200"
+       th:href="@{/admin(tableType='admins')}">
+        Go to Admins Table
+    </a>
+</div>
 <section class="container mx-auto my-8 flex-grow">
-    <div class="flex justify-end mt-4">
-        <a th:if="${#session.getAttribute('role') == 'ADMIN' && #session.getAttribute('niveauAcces') == 1}"
-           class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-200"
-           th:href="@{/admin(tableType='admins')}">
-            Go to Admins Table
-        </a>
-    </div>
+
     <div class="bg-white shadow-md rounded-md p-6 mx-12">
         <h2 class="text-xl font-semibold mb-4">User Management</h2>
         <div id="superadminTable" class="superadmin-table">

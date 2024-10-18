@@ -47,9 +47,9 @@ L'application suit le modèle d'architecture MVC (Model-View-Controller) avec un
    ```bash
    git clone https://github.com/ATalemsi/Marketpalce_java.git
 
-   2. Accédez au répertoire du projet :
-       ```bash
-       cd marketPlace
+2. Accédez au répertoire du projet :
+    ```bash
+    cd marketPlace
 
 3. Configurez les dépendances Maven :
    ```bash

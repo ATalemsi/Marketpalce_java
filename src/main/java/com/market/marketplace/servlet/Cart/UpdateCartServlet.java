@@ -53,15 +53,24 @@ public class UpdateCartServlet extends HttpServlet {
             }
             String jsonString = sb.toString();
 
-            Type type = new TypeToken<Map<String, List<Map<String, Integer>>>>(){}.getType();
-            Map<String, List<Map<String, Integer>>> jsonData = gson.fromJson(jsonString, type);
-            List<Map<String, Integer>> items = jsonData.get("items");
+            Type type = new TypeToken<Map<String, Object>>() {}.getType();
+            Map<String, Object> jsonData = gson.fromJson(jsonString, type);
+
+            List<Map<String, Object>> items = (List<Map<String, Object>>) jsonData.get("items");
+            Integer orderId = null;
+            if (jsonData.get("orderId") != null) {
+                if (jsonData.get("orderId") instanceof Number) {
+                    orderId = ((Number) jsonData.get("orderId")).intValue();
+                } else if (jsonData.get("orderId") instanceof String) {
+                    orderId = Integer.parseInt((String) jsonData.get("orderId"));
+                }
+            }
 
             List<CommandProduct> commandProducts = new ArrayList<>();
 
-            for (Map<String, Integer> item : items) {
-                int productId = item.get("id");
-                int quantity = item.get("quantity");
+            for (Map<String, Object> item : items) {
+                int productId = getIntValue(item.get("id"));
+                int quantity = getIntValue(item.get("quantity"));
 
                 CommandProduct commandProduct = new CommandProduct();
                 commandProduct.setQuantity(quantity);
@@ -71,14 +80,16 @@ public class UpdateCartServlet extends HttpServlet {
                 commandProduct.setProduct(product);
 
                 Command command = new Command();
-                command.setId(1);
+                command.setId(orderId != null ? orderId : 1);
                 commandProduct.setCommand(command);
 
                 commandProducts.add(commandProduct);
             }
 
-            commandProductService.updateCart(1, commandProducts);
+            commandProductService.updateCart(orderId != null ? orderId : 1, commandProducts);
+
             response.setStatus(HttpServletResponse.SC_OK);
+            response.getWriter().write("{\"status\":\"success\",\"message\":\"Cart updated successfully\"}");
         } catch (Exception e) {
             logger.error("Error updating cart", e);
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
@@ -86,5 +97,12 @@ public class UpdateCartServlet extends HttpServlet {
         }
     }
 
-
+    private int getIntValue(Object value) {
+        if (value instanceof Number) {
+            return ((Number) value).intValue();
+        } else if (value instanceof String) {
+            return Integer.parseInt((String) value);
+        }
+        throw new IllegalArgumentException("Cannot convert to int: " + value);
+    }
 }

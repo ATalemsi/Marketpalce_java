@@ -39,17 +39,33 @@ public class ProductServlet extends HttpServlet {
     }
 
     @Override
-
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String action = req.getParameter("action");
         String search = req.getParameter("search");
+        String adminIdParam = req.getParameter("adminId");
 
         if (search != null && !search.isEmpty()) {
             // Reset page when searching
             req.setAttribute("currentPage", 0);
-            searchProducts(req, resp, search);
+
+            if (adminIdParam != null && !adminIdParam.isEmpty()) {
+                try {
+                    int adminId = Integer.parseInt(adminIdParam);
+                    searchProductsByAdmin(req, resp, search, adminId);
+                } catch (NumberFormatException e) {
+                    resp.sendError(HttpServletResponse.SC_BAD_REQUEST, "Invalid admin ID");
+                }
+            } else {
+                searchProducts(req, resp, search);
+            }
+        } else if (adminIdParam != null && !adminIdParam.isEmpty()) {
+            try {
+                int adminId = Integer.parseInt(adminIdParam);
+                listProductsByAdmin(req, resp, adminId);
+            } catch (NumberFormatException e) {
+                resp.sendError(HttpServletResponse.SC_BAD_REQUEST, "Invalid admin ID");
+            }
         } else {
-            // Handle actions like edit or delete
             if ("delete".equals((action != null ? action : ""))) {
                 deleteProduct(req, resp);
             } else {
@@ -76,6 +92,7 @@ public class ProductServlet extends HttpServlet {
         int page = Integer.parseInt(req.getParameter("page") != null ? req.getParameter("page") : "0");
         int size = 8;
         List<Product> products = productService.getAllProducts(page, size);
+
         int totalProducts = productService.getTotalProductsCount();
         int totalPages = (int) Math.ceil((double) totalProducts / size);
 
@@ -130,7 +147,7 @@ public class ProductServlet extends HttpServlet {
         productService.addProduct(product);
         logger.info("Added product: " + product);
 
-        resp.sendRedirect(req.getContextPath() + "/products");
+        resp.sendRedirect(req.getContextPath() + "/products/admin?adminId=" + adminId);
     }
 
 
@@ -154,6 +171,8 @@ public class ProductServlet extends HttpServlet {
         productService.updateProduct(product);
         logger.info("Updated product: " + product);
 
+        //resp.sendRedirect(req.getContextPath() + "/my-products?adminId=" + product.getAdmin().getId());
+
         resp.sendRedirect(req.getContextPath() + "/products");
     }
 
@@ -163,7 +182,53 @@ public class ProductServlet extends HttpServlet {
         Product product = productService.getProductById(id);
         productService.removeProduct(product);
         logger.info("Deleted product: " + product);
+        //resp.sendRedirect(req.getContextPath() + "/my-products?adminId=" + product.getAdmin().getId());
 
         resp.sendRedirect(req.getContextPath() + "/products");
     }
+
+
+    // List products by admin
+    private void listProductsByAdmin(HttpServletRequest req, HttpServletResponse resp, int adminId) throws ServletException, IOException {
+        int page = Integer.parseInt(req.getParameter("page") != null ? req.getParameter("page") : "0");
+        int size = 8;
+
+        List<Product> products = productService.getAllProductsByAdmin(adminId, page, size);
+        int totalProducts = productService.getTotalProductsCountByAdmin(adminId);
+        int totalPages = (int) Math.ceil((double) totalProducts / size);
+
+        WebContext context = new WebContext(req, resp, getServletContext(), req.getLocale());
+        context.setVariable("products", products);
+        context.setVariable("currentPage", page);
+        context.setVariable("totalPages", totalPages);
+        context.setVariable("adminId", adminId);
+
+        templateEngine.process("my-products", context, resp.getWriter());
+        logger.info("Products for admin {} fetched: {}", adminId, products);
+    }
+
+
+    private void searchProductsByAdmin(HttpServletRequest req, HttpServletResponse resp, String search, int adminId) throws ServletException, IOException {
+        int page = 0;
+        int size = 8;
+
+        List<Product> searchResults = productService.searchProductsByNameAndAdmin(search, adminId, page, size);
+
+        resp.reset();
+
+        int totalProducts = searchResults.size();
+        int totalPages = (int) Math.ceil((double) totalProducts / size);
+
+        WebContext context = new WebContext(req, resp, getServletContext(), req.getLocale());
+        context.setVariable("products", searchResults);
+        context.setVariable("currentPage", page);
+        context.setVariable("totalPages", totalPages);
+        context.setVariable("adminId", adminId);
+
+        templateEngine.process("my-products", context, resp.getWriter());
+
+        logger.info("Search results for admin {} with search term '{}': {}", adminId, search, searchResults);
+    }
+
+
 }

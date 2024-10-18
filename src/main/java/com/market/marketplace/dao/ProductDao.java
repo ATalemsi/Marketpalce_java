@@ -13,4 +13,10 @@ public interface ProductDao {
     int countProducts();
 
    List<Product> searchByName(String name, int page, int size);
+
+   List<Product> findAllByAdmin(int adminId, int page, int size);
+
+    int countProductsByAdmin(int adminId);
+
+    List<Product> searchByNameAndAdmin(String name, int adminId, int page, int size);
 }

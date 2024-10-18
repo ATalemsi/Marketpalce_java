@@ -34,7 +34,7 @@ public class Product {
     private int stock;
 
     // Many products can be managed by one admin
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "admin_id", nullable = false)
     private Admin admin;
 

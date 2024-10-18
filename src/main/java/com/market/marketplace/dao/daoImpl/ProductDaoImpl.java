@@ -51,6 +51,7 @@ public class ProductDaoImpl implements ProductDao {
     @Override
     public List<Product> findAll(int page, int size) {
         EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
+        em.clear();
         try {
             return em.createQuery("SELECT p FROM Product p", Product.class)
                     .setFirstResult(page * size)
@@ -124,6 +125,51 @@ public class ProductDaoImpl implements ProductDao {
         List<Product> results = query.getResultList();
         em.close();
         return results;
+    }
+
+
+    @Override
+    public List<Product> findAllByAdmin(int adminId, int page, int size) {
+        EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
+        try {
+            return em.createQuery("SELECT p FROM Product p WHERE p.admin.id = :adminId", Product.class)
+                    .setParameter("adminId", adminId)
+                    .setFirstResult(page * size)
+                    .setMaxResults(size)
+                    .getResultList();
+        } finally {
+            em.close();
+        }
+    }
+
+    @Override
+    public int countProductsByAdmin(int adminId) {
+        EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
+        try {
+            return ((Number) em.createQuery("SELECT COUNT(p) FROM Product p WHERE p.admin.id = :adminId")
+                    .setParameter("adminId", adminId)
+                    .getSingleResult()).intValue();
+        } finally {
+            em.close();
+        }
+    }
+
+    @Override
+    public List<Product> searchByNameAndAdmin(String name, int adminId, int page, int size) {
+        EntityManager em = JpaUtil.getEntityManagerFactory().createEntityManager();
+        try {
+            TypedQuery<Product> query = em.createQuery(
+                    "SELECT p FROM Product p WHERE p.name LIKE :name AND p.admin.id = :adminId", Product.class);
+
+            query.setParameter("name", "%" + name + "%");
+            query.setParameter("adminId", adminId);
+            query.setFirstResult(page * size);
+            query.setMaxResults(size);
+
+            return query.getResultList();
+        } finally {
+            em.close();
+        }
     }
 
 

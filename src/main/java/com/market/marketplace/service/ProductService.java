@@ -23,5 +23,11 @@ public interface ProductService {
     int getTotalProductsCount();
 
     List<Product> searchProductsByName(String name, int page, int size);
+    int getTotalProductsCountByAdmin(int adminId);
+
+    List<Product> getAllProductsByAdmin(int adminId, int page, int size);
+
+    List<Product> searchProductsByNameAndAdmin(String name, int adminId, int page, int size);
+
 
 }

@@ -100,7 +100,7 @@ public class AdminServlet extends HttpServlet {
 
         try {
             if (action == null) {
-                response.sendRedirect(request.getContextPath() + "/admins"); // Redirect to admins page
+                response.sendRedirect(request.getContextPath() + "/"); // Redirect to admins page
                 return;
             }
 
@@ -124,7 +124,7 @@ public class AdminServlet extends HttpServlet {
                     handleDeleteSuperAdmin(request, response);
                     break;
                 default:
-                    response.sendRedirect(request.getContextPath() + "/admins"); // Redirect to admins page
+                    response.sendRedirect(request.getContextPath() + "/"); // Redirect to admins page
                     break;
             }
         } catch (Exception e) {
@@ -174,21 +174,19 @@ public class AdminServlet extends HttpServlet {
         response.sendRedirect(request.getContextPath() + "/admin?tableType=superAdmin"); // Redirect to list admins
     }
     private void handleUpdateSuperAdmin(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        int id = Integer.parseInt(request.getParameter("adminId"));
+        int id = Integer.parseInt(request.getParameter("superadminId"));
         String firstname = request.getParameter("firstname");
         String lastname = request.getParameter("lastname");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
-        // Hash the password using BCrypt
 
         Admin superAdmin = new Admin();
         superAdmin.setId(id);
         superAdmin.setFirstName(firstname);
         superAdmin.setLastName(lastname);
         superAdmin.setEmail(email);
-
-        // Hash the password
+        superAdmin.setAccessLevel(1);
         if (password != null && !password.isEmpty()) {
             String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
             superAdmin.setPassword(hashedPassword);
@@ -196,7 +194,7 @@ public class AdminServlet extends HttpServlet {
 
         adminServiceImpl.updateSuperAdmin(superAdmin);
 
-        response.sendRedirect(request.getContextPath() + "/admins?tableType=superAdmin");
+        response.sendRedirect(request.getContextPath() + "/admin?tableType=superAdmin");
     }
 
     private void handleDeleteAdminNormal(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -208,7 +206,7 @@ public class AdminServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-        response.sendRedirect(request.getContextPath() + "/admins?tableType=admins");
+        response.sendRedirect(request.getContextPath() + "/admin?tableType=admins");
     }
     private void handleDeleteSuperAdmin(HttpServletRequest request, HttpServletResponse response) throws IOException {
         int superAdminId = Integer.parseInt(request.getParameter("superAdminId"));
@@ -220,7 +218,7 @@ public class AdminServlet extends HttpServlet {
 
         }
 
-        response.sendRedirect(request.getContextPath() + "/admins?tableType=superAdmin"); // Redirect to the list of admins
+        response.sendRedirect(request.getContextPath() + "/admin?tableType=superAdmin");
     }
     private void handleUpdateAdminNormal(HttpServletRequest request, HttpServletResponse response) throws IOException {
         int adminId = Integer.parseInt(request.getParameter("adminId"));
@@ -247,7 +245,7 @@ public class AdminServlet extends HttpServlet {
 
         }
 
-        response.sendRedirect(request.getContextPath() + "/admins?tableType=admins");
+        response.sendRedirect(request.getContextPath() + "/admin?tableType=admins");
     }
 
 

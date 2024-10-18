@@ -14,7 +14,6 @@ import java.util.List;
 public class AdminDaoImpl implements AdminDao {
     private EntityManager entityManager;
 
-    // Constructor accepting EntityManager
     public AdminDaoImpl(EntityManager entityManager) {
         this.entityManager = entityManager;
     }

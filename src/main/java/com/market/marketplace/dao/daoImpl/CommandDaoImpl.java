@@ -21,4 +21,9 @@ public class CommandDaoImpl implements CommandDao {
         query.setParameter("clientId", clientId);
         return query.getResultList();
     }
+
+    @Override
+    public Command findById(int id) {
+        return entityManager.find(Command.class, id);
+    }
 }

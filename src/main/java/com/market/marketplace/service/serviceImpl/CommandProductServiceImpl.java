@@ -1,7 +1,6 @@
 package com.market.marketplace.service.serviceImpl;
 
 import com.market.marketplace.dao.CommandProductDAO;
-import com.market.marketplace.dao.daoImpl.CommandProductDAOImpl;
 import com.market.marketplace.entities.Command;
 import com.market.marketplace.entities.CommandProduct;
 import com.market.marketplace.entities.Product;
@@ -33,8 +32,8 @@ public class CommandProductServiceImpl implements CommandProductService {
     }
 
     @Override
-    public List<CommandProduct> getCurrentCartForClient(int clientId) {
-        return commandProductDAO.findCurrentCartForClient(clientId);
+    public List<CommandProduct> getCurrentCartForClient(int clientId, int commandId) {
+        return commandProductDAO.findCurrentCartForClient(clientId , commandId);
     }
 
 

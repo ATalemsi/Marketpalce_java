@@ -7,7 +7,7 @@ import java.util.List;
 public interface CommandProductDAO {
     void addCommandProduct(CommandProduct commandProduct);
 
-    List<CommandProduct> findCurrentCartForClient(int clientId);
+    List<CommandProduct> findCurrentCartForClient(int clientId, int commandId);
 
     public void deleteByCommandId(int commandId);
 

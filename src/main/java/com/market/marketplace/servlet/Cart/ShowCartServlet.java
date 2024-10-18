@@ -43,7 +43,7 @@ public class ShowCartServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
 
-        List<CommandProduct> cartProducts = commandProductService.getCurrentCartForClient(2);
+        List<CommandProduct> cartProducts = commandProductService.getCurrentCartForClient(2 , 1);
 
         TemplateEngine templateEngine = (TemplateEngine) getServletContext().getAttribute(ThymeleafConfig.TEMPLATE_ENGINE_ATTR);
 

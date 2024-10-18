@@ -39,9 +39,11 @@
 
                 <td class="border border-gray-300 px-4 py-2">
 
-                    <a th:href="@{/commands/{id}(id=${command.id})}">
-                        <button class="text-blue-500 hover:underline">View Details</button>
-                    </a>
+                    <form th:action="@{/commands/details}" method="post">
+                        <input type="hidden" name="commandId" th:value="${command.id}">
+                        <button type="submit" class="text-blue-500 hover:underline">View Details</button>
+                    </form>
+
                     <a th:href="@{/commands/cancel/{id}(id=${command.id})}">
                         <button class="text-red-500 hover:underline">Cancel</button>
                     </a>

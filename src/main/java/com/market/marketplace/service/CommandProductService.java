@@ -7,7 +7,7 @@ import java.util.List;
 public interface CommandProductService {
     void addProductToCommand(int productId, int quantity, int commandId);
 
-    List<CommandProduct> getCurrentCartForClient(int i);
+    List<CommandProduct> getCurrentCartForClient(int clientId, int commandId);
 
     void updateCart(int commandId, List<CommandProduct> commandProducts);
 

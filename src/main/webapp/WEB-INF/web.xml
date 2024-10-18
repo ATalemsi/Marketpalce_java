@@ -71,5 +71,14 @@
         <url-pattern>/Commands</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>ViewCommandServlet</servlet-name>
+        <servlet-class>com.market.marketplace.servlet.Checkout.ViewCommandServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ViewCommandServlet</servlet-name>
+        <url-pattern>/commands/details</url-pattern>
+    </servlet-mapping>
 
 </web-app>

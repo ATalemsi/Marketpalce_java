@@ -4,6 +4,7 @@
     <option name="state">
       <map>
         <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/Command/Client_Command.html" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/Command" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/Command/commandDetails.html" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/Command" />
       </map>
     </option>
   </component>

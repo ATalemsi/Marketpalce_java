@@ -2,10 +2,8 @@ package com.market.marketplace.service.serviceImpl;
 
 import com.market.marketplace.dao.CommandDao;
 import com.market.marketplace.entities.Command;
-import com.market.marketplace.entities.CommandProduct;
 import com.market.marketplace.service.CommandService;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 public class CommandServiceImpl implements CommandService {
@@ -20,4 +18,8 @@ public class CommandServiceImpl implements CommandService {
         return commandDAO.getCommandsByClientId(clientId);
     }
 
+    @Override
+    public Command findCommandById(int id) {
+        return commandDAO.findById(id);
+    }
 }

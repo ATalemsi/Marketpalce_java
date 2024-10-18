@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface CommandDao {
     List<Command> getCommandsByClientId(int clientId);
+
+    Command findById(int id);
 }

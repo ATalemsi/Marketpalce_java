@@ -53,23 +53,44 @@ public class AdminServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String tableType = request.getParameter("tableType");
+        String emailQuery = request.getParameter("email");
+
+        int page = Integer.parseInt(request.getParameter("page") != null ? request.getParameter("page") : "1");
+        int size = Integer.parseInt(request.getParameter("size") != null ? request.getParameter("size") : "3");
         if (tableType == null) {
             throw new ServletException("Missing table type parameter.");
         }
+
         List<Admin> admins = new ArrayList<>();
         List<Admin> superAdmins = new ArrayList<>();
         List<Client> clients = new ArrayList<>();
+        long totalSuperAdmins = 0;
+        long totalPages = 0;
 
         try {
             switch (tableType) {
                 case "admins":
-                    admins = adminServiceImpl.findAllAdmins();
+                    if (emailQuery != null && !emailQuery.isEmpty()) {
+                        admins = adminServiceImpl.findAdminsByEmail(emailQuery);
+                    } else {
+                        admins = adminServiceImpl.findAllAdmins();
+                    }
                     break;
                 case "superAdmin":
-                    superAdmins = adminServiceImpl.findSuperAdmins();
+                    if (emailQuery != null && !emailQuery.isEmpty()) {
+                        superAdmins = adminServiceImpl.findSuperAdminsByEmail(emailQuery);
+                    } else {
+                        totalSuperAdmins = adminServiceImpl.countSuperAdmins();
+                        superAdmins = adminServiceImpl.findSuperAdmins(page, size);
+                       totalPages = (long) Math.ceil((double) totalSuperAdmins / size);
+                    }
                     break;
                 case "clients":
-                    clients = adminServiceImpl.findAllClients();
+                    if (emailQuery != null && !emailQuery.isEmpty()) {
+                        clients = adminServiceImpl.findClientsByEmail(emailQuery);
+                    } else {
+                        clients = adminServiceImpl.findAllClients();
+                    }
                     break;
                 default:
                     throw new ServletException("Invalid table type requested.");
@@ -77,7 +98,11 @@ public class AdminServlet extends HttpServlet {
         } catch (Exception e) {
             throw new ServletException("Error retrieving data from the database", e);
         }
+
         WebContext context = new WebContext(request, response, request.getServletContext(), request.getLocale());
+
+
+
 
         switch (tableType) {
             case "admins":
@@ -85,14 +110,20 @@ public class AdminServlet extends HttpServlet {
                 break;
             case "superAdmin":
                 context.setVariable("superAdmins", superAdmins);
+                context.setVariable("totalSuperAdmins", totalSuperAdmins);
+                context.setVariable("totalPages", totalPages);
+                context.setVariable("currentPage", page);
+                context.setVariable("pageSize", size);
                 break;
             case "clients":
                 context.setVariable("clients", clients);
                 break;
         }
+
         response.setContentType("text/html;charset=UTF-8");
         templateEngine.process("admin/" + tableType, context, response.getWriter());
     }
+
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -176,6 +207,7 @@ public class AdminServlet extends HttpServlet {
 
         response.sendRedirect(request.getContextPath() + "/admin?tableType=superAdmin"); // Redirect to list admins
     }
+
     private void handleUpdateSuperAdmin(HttpServletRequest request, HttpServletResponse response) throws IOException {
         int id = Integer.parseInt(request.getParameter("superadminId"));
         String firstname = request.getParameter("firstname");
@@ -211,6 +243,7 @@ public class AdminServlet extends HttpServlet {
 
         response.sendRedirect(request.getContextPath() + "/admin?tableType=admins");
     }
+
     private void handleDeleteSuperAdmin(HttpServletRequest request, HttpServletResponse response) throws IOException {
         int superAdminId = Integer.parseInt(request.getParameter("superAdminId"));
 
@@ -223,6 +256,7 @@ public class AdminServlet extends HttpServlet {
 
         response.sendRedirect(request.getContextPath() + "/admin?tableType=superAdmin");
     }
+
     private void handleUpdateAdminNormal(HttpServletRequest request, HttpServletResponse response) throws IOException {
         int adminId = Integer.parseInt(request.getParameter("adminId"));
         String firstName = request.getParameter("firstname");
@@ -251,6 +285,7 @@ public class AdminServlet extends HttpServlet {
         // Redirect to the admin management page
         response.sendRedirect(request.getContextPath() + "/admin?tableType=admins");
     }
+
     private void handleDeleteClients(HttpServletRequest request, HttpServletResponse response) throws IOException {
         int clientId = Integer.parseInt(request.getParameter("clientId"));
 
@@ -261,7 +296,6 @@ public class AdminServlet extends HttpServlet {
         }
         response.sendRedirect(request.getContextPath() + "/admin?tableType=clients");
     }
-
 
 
     @Override

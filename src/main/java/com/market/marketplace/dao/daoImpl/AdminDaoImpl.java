@@ -22,6 +22,7 @@ public class AdminDaoImpl implements AdminDao {
     public List<Admin> findAllAdmins() {
         try {
             TypedQuery<Admin> query = entityManager.createQuery("SELECT a FROM Admin a  WHERE a.accessLevel = 0", Admin.class);
+
             return query.getResultList();
         } catch (PersistenceException e) {
             e.printStackTrace();
@@ -30,15 +31,26 @@ public class AdminDaoImpl implements AdminDao {
     }
 
     @Override
-    public List<Admin> findSuperAdmins() {
+    public List<Admin> findSuperAdmins(int page, int size) {
 
         try {
             TypedQuery<Admin> query = entityManager.createQuery("SELECT a FROM Admin a WHERE a.accessLevel = 1", Admin.class);
+            query.setFirstResult((page - 1) * size); // Calculate start position
+            query.setMaxResults(size);
             return query.getResultList();
         } catch (PersistenceException e) {
             e.printStackTrace();
             return null;
         }
+    }
+    @Override
+    public long countSuperAdmins() {
+        // JPQL query to count all super admins (access level = 1)
+        String jpql = "SELECT COUNT(a) FROM Admin a WHERE a.accessLevel = 1";
+
+        TypedQuery<Long> countQuery = entityManager.createQuery(jpql, Long.class);
+
+        return countQuery.getSingleResult(); // Return the total count of super admins
     }
 
     @Override
@@ -240,6 +252,45 @@ public class AdminDaoImpl implements AdminDao {
                 transaction.rollback();
             }
             e.printStackTrace();
+        }
+    }
+
+    @Override
+    public List<Admin> findSuperAdminsByEmail(String email) {
+        try {
+            TypedQuery<Admin> query = entityManager.createQuery(
+                    "SELECT a FROM Admin a WHERE a.email = :email AND a.accessLevel = 1", Admin.class);
+            query.setParameter("email", email);
+            return query.getResultList();
+        } catch (NoResultException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    @Override
+    public List<Admin> findAdminsByEmail(String email) {
+        try {
+            TypedQuery<Admin> query = entityManager.createQuery(
+                    "SELECT a FROM Admin a WHERE a.email = :email AND a.accessLevel = 0", Admin.class);
+            query.setParameter("email", email);
+            return query.getResultList();
+        } catch (NoResultException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    @Override
+    public List<Client> findClientsByEmail(String email) {
+        try {
+            TypedQuery<Client> query = entityManager.createQuery(
+                    "SELECT c FROM Client c WHERE c.email = :email", Client.class);
+            query.setParameter("email", email);
+            return query.getResultList();
+        } catch (NoResultException e) {
+            e.printStackTrace();
+            return null;
         }
     }
 }

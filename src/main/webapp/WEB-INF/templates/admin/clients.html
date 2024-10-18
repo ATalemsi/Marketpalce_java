@@ -62,10 +62,15 @@
 
     <div class="bg-white shadow-md rounded-md p-6 mx-12">
         <h2 class="text-xl font-semibold mb-4">Client Table</h2>
-        <div id="superadminTable" class="superadmin-table">
-            <div class="flex justify-between items-center mb-4">
-                <h3 class="text-lg font-semibold mb-2">Clients Details</h3>
-            </div>
+        <div class="mb-6 flex justify-center">
+            <form th:action="@{/admin}" method="GET" class="flex space-x-4">
+                <input type="hidden" name="tableType" value="clients">
+                <input type="email" name="email" placeholder="Search by Client Email"
+                       class="border border-gray-300 rounded w-64 p-2" required>
+                <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-200">Search</button>
+            </form>
+        </div>
+        <div id="clientTable" class="client-table">
             <table class="w-full text-left table-auto">
                 <thead class="bg-gray-100">
                 <tr>

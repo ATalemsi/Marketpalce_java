@@ -24,8 +24,13 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public List<Admin> findSuperAdmins() {
-        return adminDao.findSuperAdmins();
+    public List<Admin> findSuperAdmins(int page, int size) {
+        return adminDao.findSuperAdmins(page, size);
+    }
+
+    @Override
+    public long countSuperAdmins() {
+        return adminDao.countSuperAdmins();
     }
 
     @Override
@@ -76,6 +81,22 @@ public class AdminServiceImpl implements AdminService {
     @Override
     public void deleteClientById(int clientId) {
         adminDao.deleteClientById(clientId);
+    }
+
+    @Override
+    public List<Admin> findSuperAdminsByEmail(String email) {
+        return adminDao.findSuperAdminsByEmail(email);
+    }
+
+    @Override
+    public List<Admin> findAdminsByEmail(String email) {
+        return adminDao.findAdminsByEmail(email);
+
+    }
+
+    @Override
+    public List<Client> findClientsByEmail(String email) {
+        return adminDao.findClientsByEmail(email);
     }
 
 }

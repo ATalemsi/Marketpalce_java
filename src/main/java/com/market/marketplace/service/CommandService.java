@@ -8,4 +8,6 @@ public interface CommandService {
     List<Command> getCommandsForClient(int clientId);
 
     Command findCommandById(int id);
+
+    boolean cancelCommand(int commandId);
 }

@@ -17,12 +17,11 @@
                 </h1>
                 <p class="text-sm text-gray-500">
                     <i class="far fa-calendar-alt"></i>
-                    <span th:text="${command.orderDate}">Feb 16, 2022</span> -
-                    <span th:text="${command.orderDate}">Feb 20, 2022</span>
+                    <span th:text="${command.orderDate}">Feb 16, 2022</span>
                 </p>
             </div>
             <div>
-                <span id="orderStatus" class="bg-yellow-500 text-white text-sm py-1 px-3 rounded-full" th:text="${command.status}">Pending</span>
+                <span id="orderStatus" class="bg-yellow-500 text-white text-sm py-1 px-3 rounded-full" th:text="${command.status.name()}">Pending</span>
             </div>
         </div>
 
@@ -66,9 +65,9 @@
                 <td class="p-4 border-b product-price" th:text="${product.product.price}">$650</td>
                 <td class="p-4 border-b">
                     <div class="flex items-center border rounded w-24">
-                        <button class="px-2 py-1 bg-gray-100 decrease quantity-button bg-red-300">-</button>
+                        <button class="px-2 py-1 bg-gray-100 decrease quantity-button bg-red-300" th:if="${command.status != null and (command.status.name() == 'PENDING' or command.status.name() == 'PROCESSING')}">-</button>
                         <input type="text" th:value="${product.quantity}" class="w-12 border border-gray-300 rounded-lg quantity-input">
-                        <button class="px-2 py-1 bg-gray-100 increase quantity-button bg-red-300">+</button>
+                        <button class="px-2 py-1 bg-gray-100 increase quantity-button bg-red-300" th:if="${command.status != null and (command.status.name() == 'PENDING' or command.status.name() == 'PROCESSING')}">+</button>
                     </div>
                 </td>
                 <td class="p-4 border-b product-subtotal" th:text="${product.product.price * product.quantity }">$650</td>
@@ -95,7 +94,7 @@
         </div>
 
         <div class="mt-6 flex justify-end">
-            <button id="updateOrderButton" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">Update Order</button>
+            <button id="updateOrderButton" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600" th:if="${command.status != null and (command.status.name() == 'PENDING' or command.status.name() == 'PROCESSING')}">Update Order</button>
         </div>
     </div>
 </div>
@@ -136,7 +135,6 @@
             updateOrderTotal();
         }
 
-        if (isEditable) {
             document.querySelectorAll('.quantity-button').forEach(function (button) {
                 button.addEventListener('click', function () {
                     const row = this.closest('tr');
@@ -193,11 +191,7 @@
                         alert('Failed to update order');
                     });
             });
-        } else {
-            document.querySelectorAll('.quantity-input').forEach(input => input.disabled = true);
-            document.querySelectorAll('.quantity-button').forEach(button => button.disabled = true);
-            document.getElementById('updateOrderButton').style.display = 'none';
-        }
+
 
         updateOrderTotal();
     });

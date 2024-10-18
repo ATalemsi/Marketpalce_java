@@ -40,12 +40,11 @@ public class CommandProductDAOImpl implements CommandProductDAO {
 
     @Override
     public List<CommandProduct> findCurrentCartForClient(int clientId, int commandId) {
-
+entityManager.clear();
             String jpql = "SELECT cp FROM CommandProduct cp WHERE cp.command.client.id = :clientId AND cp.command.id = :commandId";
             TypedQuery<CommandProduct> query = entityManager.createQuery(jpql, CommandProduct.class);
             query.setParameter("clientId", clientId);
             query.setParameter("commandId" , commandId);
-        System.out.println("find current cart for client" + commandId);
             return query.getResultList();
 
 

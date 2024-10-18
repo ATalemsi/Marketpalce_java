@@ -2,6 +2,7 @@ package com.market.marketplace.service.serviceImpl;
 
 import com.market.marketplace.dao.CommandDao;
 import com.market.marketplace.entities.Command;
+import com.market.marketplace.entities.enums.CommandStatus;
 import com.market.marketplace.service.CommandService;
 
 import java.util.List;
@@ -21,5 +22,15 @@ public class CommandServiceImpl implements CommandService {
     @Override
     public Command findCommandById(int id) {
         return commandDAO.findById(id);
+    }
+
+    public boolean cancelCommand(int commandId) {
+        Command command = commandDAO.findById(commandId);
+        if (command != null && (command.getStatus() == CommandStatus.PENDING || command.getStatus() == CommandStatus.PROCESSING)) {
+            command.setStatus(CommandStatus.CANCELED);
+            commandDAO.update(command);
+            return true;
+        }
+        return false;
     }
 }

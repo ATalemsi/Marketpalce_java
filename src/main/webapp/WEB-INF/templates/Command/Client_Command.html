@@ -21,8 +21,10 @@
                 <th class="border border-gray-300 px-4 py-2">Date</th>
                 <th class="border border-gray-300 px-4 py-2">Status</th>
                 <th class="border border-gray-300 px-4 py-2">Amount</th>
-                <th class="border border-gray-300 px-4 py-2">Actions</th>
+                    <th class="border border-gray-300 px-4 py-2">Actions</th>
+
             </tr>
+
             </thead>
             <tbody>
 
@@ -32,21 +34,21 @@
                     th:text="${command.orderDateString}">
                 </td>
 
-                <td class="border border-gray-300 px-4 py-2" th:text="${command.status != null ? command.status : 'No Status'}"></td>
-                <td class="border border-gray-300 px-4 py-2" th:text="${command.getTotalAmount() != null ? command.getTotalAmount() : '0.00'}"></td>
-
-
+                <td class="border border-gray-300 px-4 py-2"
+                    th:text="${command.status != null ? command.status : 'No Status'}"></td>
+                <td class="border border-gray-300 px-4 py-2"
+                    th:text="${command.getTotalAmount() != null ? command.getTotalAmount() : '0.00'}"></td>
 
                 <td class="border border-gray-300 px-4 py-2">
-
                     <form th:action="@{/commands/details}" method="post">
                         <input type="hidden" name="commandId" th:value="${command.id}">
                         <button type="submit" class="text-blue-500 hover:underline">View Details</button>
                     </form>
-
-                    <a th:href="@{/commands/cancel/{id}(id=${command.id})}">
-                        <button class="text-red-500 hover:underline">Cancel</button>
-                    </a>
+                    <div th:if="${command.status != null and (command.status.name() == 'PENDING' or command.status.name() == 'PROCESSING')}">
+                        <a th:href="@{/commands/cancel/{id}(id=${command.id})}">
+                            <button class="text-red-500 hover:underline">Cancel</button>
+                        </a>
+                    </div>
                 </td>
             </tr>
 

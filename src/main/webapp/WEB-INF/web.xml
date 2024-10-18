@@ -81,4 +81,15 @@
         <url-pattern>/commands/details</url-pattern>
     </servlet-mapping>
 
+
+
+    <servlet>
+        <servlet-name>CancelCommand</servlet-name>
+        <servlet-class>com.market.marketplace.servlet.Checkout.CancelCommandServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>CancelCommand</servlet-name>
+        <url-pattern>/commands/cancel</url-pattern>
+    </servlet-mapping>
 </web-app>

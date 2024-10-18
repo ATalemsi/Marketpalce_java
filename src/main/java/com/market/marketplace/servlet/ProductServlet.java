@@ -5,6 +5,8 @@ import com.market.marketplace.entities.Admin;
 import com.market.marketplace.entities.Product;
 import com.market.marketplace.service.ProductService;
 import com.market.marketplace.service.serviceImpl.ProductServiceImpl;
+import com.market.marketplace.util.ThymeleafUtil;
+import nz.net.ultraq.thymeleaf.layoutdialect.LayoutDialect;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
@@ -20,20 +22,13 @@ import org.slf4j.LoggerFactory;
 public class ProductServlet extends HttpServlet {
 
     public ProductService productService;
-    public TemplateEngine templateEngine;
+    public ThymeleafUtil templateEngine;
 
     private static final Logger logger = LoggerFactory.getLogger(ProductServlet.class);
 
     @Override
     public void init() throws ServletException {
-        // Initialize Thymeleaf template engine and resolver
-        ServletContextTemplateResolver templateResolver = new ServletContextTemplateResolver(getServletContext());
-        templateResolver.setPrefix("/WEB-INF/templates/");
-        templateResolver.setSuffix(".html");
-        templateResolver.setTemplateMode("HTML");
-
-        templateEngine = new TemplateEngine();
-        templateEngine.setTemplateResolver(templateResolver);
+         templateEngine = new ThymeleafUtil(getServletContext());
 
         productService = new ProductServiceImpl(new ProductDaoImpl());
     }
@@ -101,8 +96,12 @@ public class ProductServlet extends HttpServlet {
         context.setVariable("currentPage", page);
         context.setVariable("totalPages", totalPages);
 
-        // Process the template
-        templateEngine.process("products", context, resp.getWriter());
+        // Check if products are correctly passed to the view
+        System.out.println("Products test: " + products);  // This shows products in the console
+
+        // Pass the context directly to the view
+        ThymeleafUtil templateEngine = new ThymeleafUtil(getServletContext());
+        templateEngine.returnView(context, resp, "products");
         logger.info("Products fetched: " + products);
     }
 
@@ -121,7 +120,7 @@ public class ProductServlet extends HttpServlet {
         context.setVariable("currentPage", page);
         context.setVariable("totalPages", totalPages);
 
-        templateEngine.process("products", context, resp.getWriter());
+        templateEngine.returnView(context, resp, "products");
 
         logger.info("Search results for '" + search + "': " + searchResults);
     }
@@ -203,7 +202,8 @@ public class ProductServlet extends HttpServlet {
         context.setVariable("totalPages", totalPages);
         context.setVariable("adminId", adminId);
 
-        templateEngine.process("my-products", context, resp.getWriter());
+        templateEngine.returnView(context, resp, "my-products");
+
         logger.info("Products for admin {} fetched: {}", adminId, products);
     }
 
@@ -225,7 +225,7 @@ public class ProductServlet extends HttpServlet {
         context.setVariable("totalPages", totalPages);
         context.setVariable("adminId", adminId);
 
-        templateEngine.process("my-products", context, resp.getWriter());
+        templateEngine.returnView(context, resp, "my-products");
 
         logger.info("Search results for admin {} with search term '{}': {}", adminId, search, searchResults);
     }

@@ -13,7 +13,7 @@ public class Admin extends User {
     @OneToMany(mappedBy = "admin", cascade = CascadeType.ALL)
     private List<Product> products = new ArrayList<>();
 
-    @Column(nullable = false)
+    @Column()
     private int accessLevel;
 
     // Constructors

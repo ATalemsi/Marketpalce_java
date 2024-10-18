@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MarketWiz - Log In</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+<div class="min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="bg-white py-4 shadow-md">
+        <div class="container mx-auto px-6">
+            <h1 class="text-lg font-bold">MarketWiz </h1>
+        </div>
+    </header>
+
+    <!-- Main Section -->
+    <main class="flex-1 container mx-auto px-6 mt-8 flex justify-center items-center">
+        <div class="flex justify-center items-center w-full space-x-12"> <!-- Increased space between image and form -->
+            <!-- Image Section -->
+            <div class="flex justify-center">
+                <img src="https://res.cloudinary.com/dz4pww2qv/image/upload/v1729102095/pee0drkvyfdlo0bllndz.png" alt="Shopping with Mobile" class="w-3/5 h-auto max-w-full object-contain"> <!-- Increased width to w-128 -->
+            </div>
+
+            <!-- Login Form Section -->
+            <div class="bg-white p-8 rounded-lg shadow-lg w-96"> <!-- Keep form width as is -->
+                <h2 class="text-2xl font-semibold mb-6">Log in to your account </h2>
+                <p class="text-sm text-gray-600 mb-4">Enter your credentials below</p>
+                <div th:if="${param.error}" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
+                    <strong class="font-bold">Error!</strong>
+                    <span class="block sm:inline" th:text="${param.error}">Error message goes here.</span>
+                </div>
+
+                <form th:action="@{/login}" method="post" class="space-y-6">
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700">Email or Phone Number</label>
+                        <input type="text" name="email" id="email" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm p-2">
+                    </div>
+
+                    <div>
+                        <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                        <input type="password" name="password" id="password" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm p-2">
+                    </div>
+
+                    <button type="submit" class="w-full bg-red-500 text-white py-2 rounded-md hover:bg-red-600 transition duration-200">Log In</button>
+                </form>
+
+                <p class="mt-4 text-sm text-gray-600">Don't have an account?<a th:href="@{/register}" class="text-red-500 hover:underline">Sign Up</a></p>
+            </div>
+        </div>
+    </main>
+    <!-- Footer Section -->
+    <footer class="bg-gray-900 text-white py-6 mt-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mx-12">
+            <!-- Support Section -->
+            <div>
+                <h3 class="font-bold mb-2 text-lg">Support</h3>
+                <p class="mb-1">111 Bijoy Sarani, Dhaka, BD</p>
+                <p class="mb-1">exclusive@gmail.com</p>
+                <p>+88015-88888-9999</p>
+            </div>
+            <!-- Quick Links Section -->
+            <div>
+                <h3 class="font-bold mb-2 text-lg">Quick Links</h3>
+                <ul>
+                    <li><a href="#" class="hover:underline hover:text-red-500 transition">Privacy Policy</a></li>
+                    <li><a href="#" class="hover:underline hover:text-red-500 transition">Terms of Use</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="text-center mt-6">
+            <p class="text-sm">&copy; 2024 MarketWiz. All rights reserved.</p>
+        </div>
+    </footer>
+</div>
+</body>
+</html>

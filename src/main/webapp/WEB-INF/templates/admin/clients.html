@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MarketWiz Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 flex flex-col min-h-screen">
+
+<!-- Navbar -->
+<header class="bg-white shadow">
+    <div class="container mx-auto px-4 py-6 flex justify-between items-center">
+        <h1 class="text-2xl font-bold">MarketWiz</h1>
+        <nav>
+            <a href="#" class="mx-2">Product</a>
+            <a href="#" class="mx-2">Commands</a>
+            <a th:href="@{/admin(tableType='clients')}"  class="mx-2">CLients</a>
+
+        </nav>
+        <div class="flex items-center">
+            <input type="text" placeholder="What are you looking for?" class="border rounded px-3 py-2 mr-2">
+            <button class=" p-2 rounded">
+                <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+                    <g id="SVGRepo_iconCarrier">
+                        <path d="M11 6C13.7614 6 16 8.23858 16 11M16.6588 16.6549L21 21M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z"
+                              stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </g>
+                </svg>
+            </button>
+            <button class="ml-2  p-2 rounded">
+                <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+                    <g id="SVGRepo_iconCarrier">
+                        <circle cx="12" cy="6" r="4" stroke="#1C274C" stroke-width="1.5"/>
+                        <path d="M19.9975 18C20 17.8358 20 17.669 20 17.5C20 15.0147 16.4183 13 12 13C7.58172 13 4 15.0147 4 17.5C4 19.9853 4 22 12 22C14.231 22 15.8398 21.8433 17 21.5634"
+                              stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
+                    </g>
+                </svg>
+            </button>
+            <form th:action="@{/logout}" method="post">
+                <button type="submit" class="ml-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition">
+                    Logout
+                </button>
+            </form>
+        </div>
+    </div>
+</header>
+<div class="flex justify-start mt-4 ml-8">
+    <a th:if="${#session.getAttribute('role') == 'ADMIN' && #session.getAttribute('niveauAcces') == 1}"
+       class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-200"
+       th:href="@{/admin(tableType='admins')}">
+        Go to Admins Table
+    </a>
+</div>
+<section class="container mx-auto my-8 flex-grow">
+
+    <div class="bg-white shadow-md rounded-md p-6 mx-12">
+        <h2 class="text-xl font-semibold mb-4">Client Table</h2>
+        <div id="superadminTable" class="superadmin-table">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg font-semibold mb-2">Clients Details</h3>
+            </div>
+            <table class="w-full text-left table-auto">
+                <thead class="bg-gray-100">
+                <tr>
+                    <th class="p-4"><input type="checkbox"></th>
+                    <th class="p-4">Client First Name</th>
+                    <th class="p-4">Client Last Name</th>
+                    <th class="p-4">Client Email</th>
+                    <th class="p-4">Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="border-b hover:bg-gray-50" th:each="client : ${clients}">
+                    <td class="p-4"><input type="checkbox"></td>
+                    <td class="p-4" th:text="${client.firstName}"></td>
+                    <td class="p-4" th:text="${client.lastName}"></td>
+                    <td class="p-4" th:text="${client.email}"></td>
+                    <td class="p-4 flex space-x-2">
+                        <button class="p-1 bg-red-500 text-white rounded hover:bg-red-600 transition duration-200">
+                            Delete
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+<footer class="bg-gray-900 text-white py-6 mt-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mx-12">
+        <!-- Support Section -->
+        <div>
+            <h3 class="font-bold mb-2 text-lg">Support</h3>
+            <p class="mb-1">111 Bijoy Sarani, Dhaka, BD</p>
+            <p class="mb-1">exclusive@gmail.com</p>
+            <p>+88015-88888-9999</p>
+        </div>
+        <!-- Quick Links Section -->
+        <div>
+            <h3 class="font-bold mb-2 text-lg">Quick Links</h3>
+            <ul>
+                <li><a href="#" class="hover:underline hover:text-red-500 transition">Privacy Policy</a></li>
+                <li><a href="#" class="hover:underline hover:text-red-500 transition">Terms of Use</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="text-center mt-6">
+        <p class="text-sm">&copy; 2024 MarketWiz. All rights reserved.</p>
+    </div>
+</footer>
+
+<script>
+    function showModal(modalId) {
+        document.getElementById(modalId).classList.remove('hidden');
+    }
+
+    function closeModal(modalId) {
+        document.getElementById(modalId).classList.add('hidden');
+    }
+</script>
+</body>
+</html>

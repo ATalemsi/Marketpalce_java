@@ -2,11 +2,12 @@ package com.market.marketplace.dao.daoImpl;
 
 import com.market.marketplace.dao.CommandDao;
 import com.market.marketplace.entities.Command;
-import org.hibernate.Session;
+import com.market.marketplace.entities.enums.CommandStatus;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import javax.transaction.*;
+import java.time.LocalDate;
 import java.util.List;
 
 public class CommandDaoImpl implements CommandDao {
@@ -40,6 +41,7 @@ public class CommandDaoImpl implements CommandDao {
             entityManager.getTransaction().commit(); // Valider la transaction
         }
     }
+    @Override
 
     public List<Command> getAllCommandsOrderedByLatest() {
         entityManager.clear();
@@ -48,4 +50,13 @@ public class CommandDaoImpl implements CommandDao {
         return query.getResultList();
     }
 
+
+    @Override
+    public List<Command> findByIdOrStatus(Integer id, String status) {
+        String jpql = "SELECT c FROM Command c WHERE c.id = :id OR c.status = :status";
+        TypedQuery<Command> query = entityManager.createQuery(jpql, Command.class);
+        query.setParameter("id", id);
+        query.setParameter("status", status);
+        return query.getResultList();
+    }
 }

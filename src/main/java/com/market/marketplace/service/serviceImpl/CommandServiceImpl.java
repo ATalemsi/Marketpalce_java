@@ -5,6 +5,7 @@ import com.market.marketplace.entities.Command;
 import com.market.marketplace.entities.enums.CommandStatus;
 import com.market.marketplace.service.CommandService;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public class CommandServiceImpl implements CommandService {
@@ -48,4 +49,10 @@ public class CommandServiceImpl implements CommandService {
     public List<Command> getAllCommandsOrderedByLatest() {
         return commandDAO.getAllCommandsOrderedByLatest();
     }
+
+    @Override
+    public List<Command> findCommandBySearch(Integer id, String status){
+        return commandDAO.findByIdOrStatus(id , status);
+    }
+
 }

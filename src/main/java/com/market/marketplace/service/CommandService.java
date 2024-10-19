@@ -13,6 +13,7 @@ public interface CommandService {
 
     void updateCommandStatus(int commandId, String statusParam);
 
-     List<Command> getAllCommandsOrderedByLatest();
+    List<Command> getAllCommandsOrderedByLatest();
+    List<Command> findCommandBySearch(Integer id, String status);
 
-    }
+}

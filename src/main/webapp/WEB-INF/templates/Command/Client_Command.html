@@ -13,6 +13,8 @@
 <div th:replace="fragments/header :: header">Header</div>
 <div layout:fragment="content">
 
+    <div class="mt-12" th:replace="fragments/searchCommand :: searchCommand">searchCommand</div>
+
     <div class="container mx-auto  rounded-lg shadow-lg m-12 p-12">
         <table class="min-w-full border-collapse border border-gray-300">
             <thead>

@@ -1,4 +1,4 @@
-package com.market.marketplace.servlet.Checkout;
+package com.market.marketplace.servlet.Command;
 
 import com.market.marketplace.Utils.DateUtil;
 import com.market.marketplace.config.ThymeleafConfig;

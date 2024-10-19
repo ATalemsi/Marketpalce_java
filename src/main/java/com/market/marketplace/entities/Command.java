@@ -101,7 +101,6 @@ public class Command {
     @Transient // Pour indiquer que cet attribut ne doit pas être persistant dans la base de données
     private String orderDateString;
 
-    // Getters et Setters...
 
     public String getOrderDateString() {
         return orderDateString;

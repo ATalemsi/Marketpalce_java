@@ -1,4 +1,4 @@
-package com.market.marketplace.servlet.Checkout;
+package com.market.marketplace.servlet.Command;
 
 import com.market.marketplace.config.ThymeleafConfig;
 import com.market.marketplace.dao.CommandDao;

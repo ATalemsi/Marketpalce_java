@@ -1,4 +1,5 @@
-package com.market.marketplace.servlet.Checkout;
+package com.market.marketplace.servlet.Command;
+
 
 import com.market.marketplace.dao.CommandDao;
 import com.market.marketplace.dao.daoImpl.CommandDaoImpl;
@@ -9,12 +10,14 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class ManageCommandServlet extends HttpServlet {
+@WebServlet("/commands/cancel/*")
+public class CancelCommandServlet extends HttpServlet {
 
     private EntityManagerFactory emf;
     private CommandService commandService;
@@ -30,26 +33,27 @@ public class ManageCommandServlet extends HttpServlet {
         this.commandService = new CommandServiceImpl(commandDAO);
     }
 
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException, IOException {
 
-        String commandIdParam = req.getParameter("commandId");
-        String statusParam = req.getParameter("status");
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        if (commandIdParam != null && statusParam != null) {
+        String pathInfo = req.getPathInfo(); // /cancel/{id}
+        if (pathInfo != null && pathInfo.length() > 1) {
+            String commandIdStr = pathInfo.substring(1);
             try {
-                int commandId = Integer.parseInt(commandIdParam);
+                int commandId = Integer.parseInt(commandIdStr);
 
-                commandService.updateCommandStatus(commandId, statusParam);
+                boolean success = commandService.cancelCommand(commandId);
 
-                resp.sendRedirect(req.getContextPath() + "/commands");
-
-            } catch (Exception e) {
-                e.printStackTrace();
-                resp.sendRedirect(req.getContextPath() + "/error");
+                if (success) {
+                    resp.sendRedirect(req.getContextPath() + "/Commands?success=true");
+                } else {
+                    resp.sendRedirect(req.getContextPath() + "/Commands?error=Could not cancel command");
+                }
+            } catch (NumberFormatException e) {
+                resp.sendRedirect(req.getContextPath() + "/Commands?error=Invalid command ID");
             }
         } else {
-            resp.sendRedirect(req.getContextPath() + "/error");
+            resp.sendRedirect(req.getContextPath() + "/Commands?error=Invalid request");
         }
     }
 }

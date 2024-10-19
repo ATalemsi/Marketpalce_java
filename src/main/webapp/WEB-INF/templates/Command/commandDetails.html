@@ -80,7 +80,7 @@
             <div class="bg-gray-100 p-6 rounded-lg shadow-md w-64">
                 <p class="flex justify-between">
                     <span>Subtotal:</span>
-                    <span id="cart-subtotal" th:text="${command.id}">$1750</span>
+                    <span id="cart-subtotal" th:text="${command.getTotalAmount() != null ? command.getTotalAmount() : '0.00'}">$1750</span>
                 </p>
                 <p class="flex justify-between">
                     <span>Shipping:</span>
@@ -88,7 +88,7 @@
                 </p>
                 <p class="flex justify-between font-bold">
                     <span>Total:</span>
-                    <span id="cart-total" th:text="${command.id}">$1750</span>
+                    <span id="cart-total" th:text="${command.getTotalAmount() != null ? command.getTotalAmount() : '0.00'}">$1750</span>
                 </p>
             </div>
         </div>

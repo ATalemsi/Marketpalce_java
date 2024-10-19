@@ -1,18 +1,12 @@
-package com.market.marketplace.servlet.Checkout;
+package com.market.marketplace.servlet.Command;
 
 import com.market.marketplace.Utils.DateUtil;
 import com.market.marketplace.config.ThymeleafConfig;
 import com.market.marketplace.dao.CommandDao;
-import com.market.marketplace.dao.CommandProductDAO;
 import com.market.marketplace.dao.daoImpl.CommandDaoImpl;
-import com.market.marketplace.dao.daoImpl.CommandProductDAOImpl;
 import com.market.marketplace.entities.Command;
-import com.market.marketplace.service.CommandProductService;
 import com.market.marketplace.service.CommandService;
-import com.market.marketplace.service.serviceImpl.CommandProductServiceImpl;
 import com.market.marketplace.service.serviceImpl.CommandServiceImpl;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 

@@ -1,4 +1,4 @@
-package com.market.marketplace.servlet.Checkout;
+package com.market.marketplace.servlet.Command;
 
 import com.market.marketplace.dao.CommandProductDAO;
 import com.market.marketplace.dao.daoImpl.CommandProductDAOImpl;

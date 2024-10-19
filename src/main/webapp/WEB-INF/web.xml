@@ -53,7 +53,7 @@
 
     <servlet>
         <servlet-name>CheckoutServlet</servlet-name>
-        <servlet-class>com.market.marketplace.servlet.Checkout.CheckoutServlet</servlet-class>
+        <servlet-class>com.market.marketplace.servlet.Command.CheckoutServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -63,7 +63,7 @@
 
     <servlet>
             <servlet-name>CommandServlet</servlet-name>
-        <servlet-class>com.market.marketplace.servlet.Checkout.GetComandsServlet</servlet-class>
+        <servlet-class>com.market.marketplace.servlet.Command.GetComandsServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -73,7 +73,7 @@
 
     <servlet>
         <servlet-name>ViewCommandServlet</servlet-name>
-        <servlet-class>com.market.marketplace.servlet.Checkout.ViewCommandServlet</servlet-class>
+        <servlet-class>com.market.marketplace.servlet.Command.ViewCommandServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -85,7 +85,7 @@
 
     <servlet>
         <servlet-name>CancelCommand</servlet-name>
-        <servlet-class>com.market.marketplace.servlet.Checkout.CancelCommandServlet</servlet-class>
+        <servlet-class>com.market.marketplace.servlet.Command.CancelCommandServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -96,7 +96,7 @@
 
     <servlet>
         <servlet-name>UpdateCommandServlet</servlet-name>
-        <servlet-class>com.market.marketplace.servlet.Checkout.ManageCommandServlet</servlet-class>
+        <servlet-class>com.market.marketplace.servlet.Command.ManageCommandServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -107,7 +107,7 @@
 
     <servlet>
         <servlet-name>GetAllCommandsServlet</servlet-name>
-        <servlet-class>com.market.marketplace.servlet.Checkout.GetAllCommandsServlet</servlet-class>
+        <servlet-class>com.market.marketplace.servlet.Command.GetAllCommandsServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -118,11 +118,22 @@
 
     <servlet>
         <servlet-name>UpdateCommandStatusServlet</servlet-name>
-        <servlet-class>com.market.marketplace.servlet.Checkout.ManageCommandServlet</servlet-class>
+        <servlet-class>com.market.marketplace.servlet.Command.ManageCommandServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
         <servlet-name>UpdateCommandStatusServlet</servlet-name>
         <url-pattern>/commands/change-status</url-pattern> <!-- Mapping de l'URL -->
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CommandSearchServlet</servlet-name>
+        <servlet-class>com.market.marketplace.servlet.Command.SearchCommandServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>CommandSearchServlet</servlet-name>
+        <url-pattern>/search/commands</url-pattern>
+    </servlet-mapping>
+
 </web-app>

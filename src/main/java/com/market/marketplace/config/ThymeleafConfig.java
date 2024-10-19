@@ -1,40 +1,26 @@
 package com.market.marketplace.config;
 
 import org.thymeleaf.TemplateEngine;
-import org.thymeleaf.templatemode.TemplateMode;
-import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
+import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
 
-import javax.servlet.ServletContext;
-import javax.servlet.ServletContextEvent;
-import javax.servlet.ServletContextListener;
-import javax.servlet.annotation.WebListener;
+public class ThymeleafConfig {
 
-/**
- * Thymeleaf configuration.
- */
+    private static TemplateEngine templateEngine;
 
-@WebListener
-public class ThymeleafConfig implements ServletContextListener {
+    static {
+        // Create a template resolver
+        ClassLoaderTemplateResolver templateResolver = new ClassLoaderTemplateResolver();
+        templateResolver.setPrefix("/WEB-INF/templates/"); // Specify the template directory
+        templateResolver.setSuffix(".html"); // Specify the template file suffix
+        templateResolver.setTemplateMode("HTML5"); // Set the template mode
+        templateResolver.setCharacterEncoding("UTF-8"); // Set character encoding
 
-    public static final String TEMPLATE_ENGINE_ATTR = "com.thymeleafexamples.thymeleaf3.TemplateEngineInstance";
-
-    @Override
-    public void contextInitialized(ServletContextEvent sce) {
-        ServletContext servletContext = sce.getServletContext();
-
-        ServletContextTemplateResolver templateResolver = new ServletContextTemplateResolver(servletContext);
-        templateResolver.setTemplateMode(TemplateMode.HTML);
-        templateResolver.setPrefix("/WEB-INF/templates/");
-        templateResolver.setSuffix(".html");
-        templateResolver.setCacheTTLMs(3600000L);
-
-        TemplateEngine templateEngine = new TemplateEngine();
+        templateEngine = new TemplateEngine();
         templateEngine.setTemplateResolver(templateResolver);
-        servletContext.setAttribute(TEMPLATE_ENGINE_ATTR, templateEngine);
     }
 
-    @Override
-    public void contextDestroyed(ServletContextEvent sce) {
-        // Nettoyage si nécessaire
+    public static TemplateEngine getTemplateEngine() {
+        return templateEngine;
     }
+
 }

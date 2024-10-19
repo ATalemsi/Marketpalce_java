@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" lang="en">
 <head>
     <meta charset="UTF-8">
-    <title layout:title-pattern=" MarketWiz">MarketWiz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MarketWiz - Product Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
@@ -15,6 +18,8 @@
     <div layout:fragment="content">
     </div>
 </main>
+
+<div th:replace="fragments/footer :: footer">footer</div>
 
 </body>
 </html>

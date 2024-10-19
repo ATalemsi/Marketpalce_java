@@ -2,7 +2,6 @@ package com.market.marketplace.entities;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
-import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -35,7 +34,7 @@ public class Product {
     private int stock;
 
     // Many products can be managed by one admin
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "admin_id", nullable = false)
     private Admin admin;
 
@@ -123,3 +122,4 @@ public class Product {
                 '}';
     }
 }
+

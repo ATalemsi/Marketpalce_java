@@ -14,14 +14,14 @@ public class Client extends User {
     @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
     private List<Command> commands = new ArrayList<>();
 
-    @NotNull(message = "Shipping address cannot be null")
+
     @Size(min = 10, max = 255, message = "Shipping address must be between 10 and 255 characters")
-    @Column(nullable = false)
+    @Column()
     private String shippingAddress;
 
-    @NotNull(message = "Payment method cannot be null")
+
     @Size(min = 5, max = 50, message = "Payment method must be between 5 and 50 characters")
-    @Column(nullable = false)
+    @Column()
     private String paymentMethod;
 
     // Constructors

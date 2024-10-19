@@ -3,12 +3,8 @@ package com.market.marketplace.dao.daoImpl;
 import com.market.marketplace.dao.AdminDao;
 import com.market.marketplace.entities.Admin;
 import com.market.marketplace.entities.Client;
-import com.market.marketplace.entities.User;
-import com.market.marketplace.entities.enums.Role;
-import org.mindrot.jbcrypt.BCrypt;
 
 import javax.persistence.*;
-import java.util.Collections;
 import java.util.List;
 
 public class AdminDaoImpl implements AdminDao {
@@ -19,10 +15,11 @@ public class AdminDaoImpl implements AdminDao {
     }
 
     @Override
-    public List<Admin> findAllAdmins() {
+    public List<Admin> findAllAdmins(int page, int size) {
         try {
             TypedQuery<Admin> query = entityManager.createQuery("SELECT a FROM Admin a  WHERE a.accessLevel = 0", Admin.class);
-
+            query.setFirstResult((page - 1) * size);
+            query.setMaxResults(size);
             return query.getResultList();
         } catch (PersistenceException e) {
             e.printStackTrace();
@@ -31,11 +28,20 @@ public class AdminDaoImpl implements AdminDao {
     }
 
     @Override
+    public long countAdmins() {
+        String jpql = "SELECT COUNT(a) FROM Admin a WHERE a.accessLevel = 0";
+
+        TypedQuery<Long> countQuery = entityManager.createQuery(jpql, Long.class);
+
+        return countQuery.getSingleResult();
+    }
+
+    @Override
     public List<Admin> findSuperAdmins(int page, int size) {
 
         try {
             TypedQuery<Admin> query = entityManager.createQuery("SELECT a FROM Admin a WHERE a.accessLevel = 1", Admin.class);
-            query.setFirstResult((page - 1) * size); // Calculate start position
+            query.setFirstResult((page - 1) * size);
             query.setMaxResults(size);
             return query.getResultList();
         } catch (PersistenceException e) {
@@ -45,24 +51,33 @@ public class AdminDaoImpl implements AdminDao {
     }
     @Override
     public long countSuperAdmins() {
-        // JPQL query to count all super admins (access level = 1)
+
         String jpql = "SELECT COUNT(a) FROM Admin a WHERE a.accessLevel = 1";
 
         TypedQuery<Long> countQuery = entityManager.createQuery(jpql, Long.class);
 
-        return countQuery.getSingleResult(); // Return the total count of super admins
+        return countQuery.getSingleResult();
     }
 
     @Override
-    public List<Client> findAllClients() {
+    public List<Client> findAllClients(int page, int size) {
 
         try {
             TypedQuery<Client> query = entityManager.createQuery("SELECT c FROM Client c", Client.class);
+            query.setFirstResult((page - 1) * size);
+            query.setMaxResults(size);
             return query.getResultList();
         } catch (PersistenceException e) {
             e.printStackTrace();
             return null;
         }
+    }
+
+    @Override
+    public long countClients() {
+        String jpql = "SELECT COUNT(c) FROM Client c";
+        TypedQuery<Long> countQuery = entityManager.createQuery(jpql, Long.class);
+        return countQuery.getSingleResult();
     }
 
     @Override

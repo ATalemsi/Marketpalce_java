@@ -1,14 +1,10 @@
 package com.market.marketplace.service.serviceImpl;
 
 import com.market.marketplace.dao.AdminDao;
-import com.market.marketplace.dao.daoImpl.AdminDaoImpl;
 import com.market.marketplace.entities.Admin;
 import com.market.marketplace.entities.Client;
 import com.market.marketplace.service.AdminService;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import java.util.Collections;
 import java.util.List;
 
 public class AdminServiceImpl implements AdminService {
@@ -19,8 +15,13 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public List<Admin> findAllAdmins() {
-        return adminDao.findAllAdmins();
+    public List<Admin> findAllAdmins(int page, int size) {
+        return adminDao.findAllAdmins(page, size);
+    }
+
+    @Override
+    public long countAdmins() {
+        return adminDao.countAdmins();
     }
 
     @Override
@@ -34,8 +35,13 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public List<Client> findAllClients() {
-        return adminDao.findAllClients();
+    public List<Client> findAllClients(int page, int size) {
+        return adminDao.findAllClients(page, size);
+    }
+
+    @Override
+    public long countClients() {
+        return adminDao.countClients();
     }
 
     @Override

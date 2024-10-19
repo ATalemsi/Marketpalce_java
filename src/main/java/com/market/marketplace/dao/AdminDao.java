@@ -6,10 +6,12 @@ import com.market.marketplace.entities.Client;
 import java.util.List;
 
 public interface AdminDao {
-     List<Admin> findAllAdmins();
+     List<Admin> findAllAdmins(int page, int size);
+     long countAdmins();
      List<Admin> findSuperAdmins(int page, int size);
      long countSuperAdmins();
-     List<Client> findAllClients();
+     List<Client> findAllClients(int page, int size);
+     long countClients();
      void assignRole(int userId, int niveauAcces);
      void addAdminNormal(Admin admin);
      void updateAdminNormal(Admin admin);

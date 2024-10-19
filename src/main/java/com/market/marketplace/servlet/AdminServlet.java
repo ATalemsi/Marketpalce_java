@@ -1,6 +1,5 @@
 package com.market.marketplace.servlet;
 
-import com.market.marketplace.config.ThymeleafConfig;
 import com.market.marketplace.dao.daoImpl.AdminDaoImpl;
 import com.market.marketplace.entities.Admin;
 import com.market.marketplace.entities.Client;
@@ -13,13 +12,10 @@ import javax.persistence.Persistence;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.mindrot.jbcrypt.BCrypt;
-import org.thymeleaf.context.Context;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 import org.thymeleaf.templatemode.TemplateMode;
@@ -65,7 +61,11 @@ public class AdminServlet extends HttpServlet {
         List<Admin> superAdmins = new ArrayList<>();
         List<Client> clients = new ArrayList<>();
         long totalSuperAdmins = 0;
-        long totalPages = 0;
+        long totalClients = 0;
+        long totalAdmins = 0;
+        long totalPagesSuperAdmin = 0;
+        long totalPagesClients = 0;
+        long totalPagesAdmins = 0;
 
         try {
             switch (tableType) {
@@ -73,7 +73,9 @@ public class AdminServlet extends HttpServlet {
                     if (emailQuery != null && !emailQuery.isEmpty()) {
                         admins = adminServiceImpl.findAdminsByEmail(emailQuery);
                     } else {
-                        admins = adminServiceImpl.findAllAdmins();
+                        totalAdmins = adminServiceImpl.countAdmins();
+                        admins = adminServiceImpl.findAllAdmins(page, size);
+                        totalPagesAdmins =(long) Math.ceil((double) totalAdmins / size);
                     }
                     break;
                 case "superAdmin":
@@ -82,14 +84,16 @@ public class AdminServlet extends HttpServlet {
                     } else {
                         totalSuperAdmins = adminServiceImpl.countSuperAdmins();
                         superAdmins = adminServiceImpl.findSuperAdmins(page, size);
-                       totalPages = (long) Math.ceil((double) totalSuperAdmins / size);
+                       totalPagesSuperAdmin = (long) Math.ceil((double) totalSuperAdmins / size);
                     }
                     break;
                 case "clients":
                     if (emailQuery != null && !emailQuery.isEmpty()) {
                         clients = adminServiceImpl.findClientsByEmail(emailQuery);
                     } else {
-                        clients = adminServiceImpl.findAllClients();
+                        totalClients = adminServiceImpl.countClients();
+                        clients = adminServiceImpl.findAllClients(page, size);
+                        totalPagesClients = (long) Math.ceil((double) totalClients / size);
                     }
                     break;
                 default:
@@ -107,16 +111,24 @@ public class AdminServlet extends HttpServlet {
         switch (tableType) {
             case "admins":
                 context.setVariable("admins", admins);
+                context.setVariable("totalAdmins", totalAdmins);
+                context.setVariable("totalPages", totalPagesAdmins);
+                context.setVariable("currentPage", page);
+                context.setVariable("pageSize", size);
                 break;
             case "superAdmin":
                 context.setVariable("superAdmins", superAdmins);
                 context.setVariable("totalSuperAdmins", totalSuperAdmins);
-                context.setVariable("totalPages", totalPages);
+                context.setVariable("totalPages", totalPagesSuperAdmin);
                 context.setVariable("currentPage", page);
                 context.setVariable("pageSize", size);
                 break;
             case "clients":
                 context.setVariable("clients", clients);
+                context.setVariable("totalClients", totalClients);
+                context.setVariable("totalPages", totalPagesClients);
+                context.setVariable("currentPage", page);
+                context.setVariable("pageSize", size);
                 break;
         }
 
@@ -126,7 +138,7 @@ public class AdminServlet extends HttpServlet {
 
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
 
         try {
@@ -167,7 +179,7 @@ public class AdminServlet extends HttpServlet {
 
     }
 
-    private void handleAddAdminNormal(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void handleAddAdminNormal(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String firstname = request.getParameter("firstname");
         String lastname = request.getParameter("lastname");
         String email = request.getParameter("email");
@@ -232,7 +244,7 @@ public class AdminServlet extends HttpServlet {
         response.sendRedirect(request.getContextPath() + "/admin?tableType=superAdmin");
     }
 
-    private void handleDeleteAdminNormal(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void handleDeleteAdminNormal(HttpServletRequest request, HttpServletResponse response) throws IOException {
         int adminId = Integer.parseInt(request.getParameter("adminId"));
 
         try {
@@ -244,7 +256,7 @@ public class AdminServlet extends HttpServlet {
         response.sendRedirect(request.getContextPath() + "/admin?tableType=admins");
     }
 
-    private void handleDeleteSuperAdmin(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void handleDeleteSuperAdmin(HttpServletRequest request, HttpServletResponse response) throws IOException {
         int superAdminId = Integer.parseInt(request.getParameter("superAdminId"));
 
         try {
@@ -257,7 +269,7 @@ public class AdminServlet extends HttpServlet {
         response.sendRedirect(request.getContextPath() + "/admin?tableType=superAdmin");
     }
 
-    private void handleUpdateAdminNormal(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void handleUpdateAdminNormal(HttpServletRequest request, HttpServletResponse response) throws IOException {
         int adminId = Integer.parseInt(request.getParameter("adminId"));
         String firstName = request.getParameter("firstname");
         String lastName = request.getParameter("lastname");

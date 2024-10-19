@@ -179,6 +179,28 @@
                 </form>
             </div>
         </div>
+        <div th:if="${totalPages > 0}" class="flex justify-center my-4">
+            <div class="pagination flex items-center space-x-2">
+                <span th:if="${currentPage > 1}">
+                                <a th:href="@{/admin(tableType='admins', page=${currentPage - 1}, size=${pageSize})}"
+                                   class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-200">Previous</a>
+                </span>
+
+                <span th:each="page : ${#numbers.sequence(1, totalPages)}">
+                        <a th:href="@{/admin(tableType='admins', page=${page}, size=${pageSize})}"
+                           th:block
+                           th:class="${page == currentPage} ? 'px-4 py-2 rounded hover:bg-blue-300 transition duration-200 bg-blue-500 text-white'
+                                       : 'px-4 py-2 rounded hover:bg-gray-100 transition duration-200 bg-gray-200'">
+                                        <span th:text="${page}"></span>
+                        </a>
+                </span>
+
+                <span th:if="${currentPage < totalPages}">
+                    <a th:href="@{/admin(tableType='admins', page=${currentPage + 1}, size=${pageSize})}"
+                       class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-200">Next</a>
+                 </span>
+            </div>
+        </div>
     </div>
 </section>
 <!-- Footer -->

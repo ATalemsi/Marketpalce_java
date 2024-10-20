@@ -57,7 +57,6 @@ public class CommandServiceImpl implements CommandService {
 
     @Override
     public Command findLastCommandByClientId(int clientId) {
-        System.out.println("****************************************************\n" + clientId);
         return commandDAO.findLastCommandByClientId(clientId);
     }
 

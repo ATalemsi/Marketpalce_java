@@ -81,17 +81,26 @@ xml
 ## Captures d'écran
 
 ### Page d'Authentification
-![Authentification](screenshots/authentification.png)
+![Authentification](screenshots/register.png)
+![Authentification](screenshots/login.png)
 
 ### Page de gestion des utilisateurs
+![Gestion des utilisateurs](screenshots/superAdminList.png)
+![Gestion des utilisateurs](screenshots/CreerSuperAdmin.png)
+![Gestion des utilisateurs](screenshots/adminsList.png)
+![Gestion des utilisateurs](screenshots/usersList.png)
 
 ### Page de gestion des produits
 
 ![Gestion des produits](screenshots/allProducts.png)
 ![Gestion des produits](screenshots/MyProducts.png)
 ![Gestion des produits](screenshots/addProduct.png)
+![Gestion des produits](screenshots/detailsProduct.png)
 
 ### Page de gestion des commandes
+![Gestion des commandes](screenshots/commands.png)
+![Gestion des commandes](screenshots/detailscommand.png)
+![Gestion des commandes](screenshots/detailscommandAdmin.png)
 
 ## Améliorations futures possibles
 Amélioration de l'interface utilisateur : Ajouter plus de fonctionnalités AJAX pour éviter les rechargements de page complets lors des actions CRUD.

@@ -99,8 +99,8 @@ xml
 
 ### Page de gestion des commandes
 ![Gestion des commandes](screenshots/commands.png)
-![Gestion des commandes](screenshots/detailscommand.png)
-![Gestion des commandes](screenshots/detailscommandAdmin.png)
+![Gestion des commandes](screenshots/detailsCommand.png)
+![Gestion des commandes](screenshots/detailsCommandAdmin.png)
 
 ## Améliorations futures possibles
 Amélioration de l'interface utilisateur : Ajouter plus de fonctionnalités AJAX pour éviter les rechargements de page complets lors des actions CRUD.

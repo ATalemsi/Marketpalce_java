@@ -1,14 +1,10 @@
 package com.market.marketplace.service.serviceImpl;
 
 import com.market.marketplace.dao.AdminDao;
-import com.market.marketplace.dao.daoImpl.AdminDaoImpl;
 import com.market.marketplace.entities.Admin;
 import com.market.marketplace.entities.Client;
 import com.market.marketplace.service.AdminService;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import java.util.Collections;
 import java.util.List;
 
 public class AdminServiceImpl implements AdminService {
@@ -19,18 +15,33 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public List<Admin> findAllAdmins() {
-        return adminDao.findAllAdmins();
+    public List<Admin> findAllAdmins(int page, int size) {
+        return adminDao.findAllAdmins(page, size);
     }
 
     @Override
-    public List<Admin> findSuperAdmins() {
-        return adminDao.findSuperAdmins();
+    public long countAdmins() {
+        return adminDao.countAdmins();
     }
 
     @Override
-    public List<Client> findAllClients() {
-        return adminDao.findAllClients();
+    public List<Admin> findSuperAdmins(int page, int size) {
+        return adminDao.findSuperAdmins(page, size);
+    }
+
+    @Override
+    public long countSuperAdmins() {
+        return adminDao.countSuperAdmins();
+    }
+
+    @Override
+    public List<Client> findAllClients(int page, int size) {
+        return adminDao.findAllClients(page, size);
+    }
+
+    @Override
+    public long countClients() {
+        return adminDao.countClients();
     }
 
     @Override
@@ -71,6 +82,27 @@ public class AdminServiceImpl implements AdminService {
     @Override
     public void deleteSuperAdmin(int adminId) {
         adminDao.deleteSuperAdmin(adminId);
+    }
+
+    @Override
+    public void deleteClientById(int clientId) {
+        adminDao.deleteClientById(clientId);
+    }
+
+    @Override
+    public List<Admin> findSuperAdminsByEmail(String email) {
+        return adminDao.findSuperAdminsByEmail(email);
+    }
+
+    @Override
+    public List<Admin> findAdminsByEmail(String email) {
+        return adminDao.findAdminsByEmail(email);
+
+    }
+
+    @Override
+    public List<Client> findClientsByEmail(String email) {
+        return adminDao.findClientsByEmail(email);
     }
 
 }

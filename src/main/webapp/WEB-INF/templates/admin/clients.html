@@ -19,10 +19,15 @@
 
     <div class="bg-white shadow-md rounded-md p-6 mx-12">
         <h2 class="text-xl font-semibold mb-4">Client Table</h2>
-        <div id="superadminTable" class="superadmin-table">
-            <div class="flex justify-between items-center mb-4">
-                <h3 class="text-lg font-semibold mb-2">Clients Details</h3>
-            </div>
+        <div class="mb-6 flex justify-center">
+            <form th:action="@{/admin}" method="GET" class="flex space-x-4">
+                <input type="hidden" name="tableType" value="clients">
+                <input type="email" name="email" placeholder="Search by Client Email"
+                       class="border border-gray-300 rounded w-64 p-2" required>
+                <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-200">Search</button>
+            </form>
+        </div>
+        <div id="clientTable" class="client-table">
             <table class="w-full text-left table-auto">
                 <thead class="bg-gray-100">
                 <tr>
@@ -40,13 +45,37 @@
                     <td class="p-4" th:text="${client.lastName}"></td>
                     <td class="p-4" th:text="${client.email}"></td>
                     <td class="p-4 flex space-x-2">
-                        <button class="p-1 bg-red-500 text-white rounded hover:bg-red-600 transition duration-200">
-                            Delete
-                        </button>
+                        <form th:action="@{/admin}" method="POST" class="inline">
+                            <input type="hidden" name="action" value="deleteClients">
+                            <input type="hidden" name="clientId" th:value="${client.id}">
+                            <button type="submit" class="p-1 bg-red-500 text-white rounded hover:bg-red-600 transition duration-200">Delete</button>
+                        </form>
                     </td>
                 </tr>
                 </tbody>
             </table>
+        </div>
+        <div th:if="${totalPages > 0}" class="flex justify-center my-4">
+            <div class="pagination flex items-center space-x-2">
+                <span th:if="${currentPage > 1}">
+                                <a th:href="@{/admin(tableType='clients', page=${currentPage - 1}, size=${pageSize})}"
+                                   class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-200">Previous</a>
+                </span>
+
+                <span th:each="page : ${#numbers.sequence(1, totalPages)}">
+                        <a th:href="@{/admin(tableType='clients', page=${page}, size=${pageSize})}"
+                           th:block
+                           th:class="${page == currentPage} ? 'px-4 py-2 rounded hover:bg-blue-300 transition duration-200 bg-blue-500 text-white'
+                                       : 'px-4 py-2 rounded hover:bg-gray-100 transition duration-200 bg-gray-200'">
+                                        <span th:text="${page}"></span>
+                        </a>
+                </span>
+
+                <span th:if="${currentPage < totalPages}">
+                    <a th:href="@{/admin(tableType='clients', page=${currentPage + 1}, size=${pageSize})}"
+                       class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-200">Next</a>
+                 </span>
+            </div>
         </div>
     </div>
 </section>

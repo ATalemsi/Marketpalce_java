@@ -24,11 +24,17 @@
 
     <div class="bg-white shadow-md rounded-md p-6 mx-12">
         <h2 class="text-xl font-semibold mb-4">Admin Tablet</h2>
-
+        <div class="mb-6 flex justify-center">
+            <form th:action="@{/admin}" method="GET" class="flex space-x-4">
+                <input type="hidden" name="tableType" value="admins">
+                <input type="email" name="email" placeholder="Search by Admin Email"
+                       class="border border-gray-300 rounded w-64 p-2" required>
+                <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-200">Search</button>
+            </form>
+        </div>
         <!-- Admin Table -->
         <div id="adminTable" class="admin-table">
             <div class="flex justify-between items-center mb-4">
-                <h3 class="text-lg font-semibold">Admin Details</h3>
                 <button class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition duration-200"
                         onclick="showModal('createAdminModal')">Create Admin
                 </button>
@@ -50,12 +56,17 @@
                     <td class="p-4" th:text="${admin.lastName}"></td>
                     <td class="p-4" th:text="${admin.email}"></td>
                     <td class="p-4 flex space-x-2">
-                        <button class="p-1 bg-yellow-500 text-white rounded hover:bg-yellow-600 transition duration-200">
-                            Edit
-                        </button>
-                        <button class="p-1 bg-red-500 text-white rounded hover:bg-red-600 transition duration-200">
-                            Delete
-                        </button>
+                        <button class="p-1 bg-yellow-500 text-white rounded hover:bg-yellow-600 transition duration-200"
+                                th:data-id="${admin.id}"
+                                th:data-firstname="${admin.firstName}"
+                                th:data-lastname="${admin.lastName}"
+                                th:data-email="${admin.email}"
+                                onclick="showEditModal(this)">Edit</button>
+                        <form th:action="@{/admin}" method="POST" class="inline">
+                            <input type="hidden" name="action" value="deleteAdminNormal">
+                            <input type="hidden" name="adminId" th:value="${admin.id}">
+                            <button type="submit" class="p-1 bg-red-500 text-white rounded hover:bg-red-600 transition duration-200">Delete</button>
+                        </form>
                     </td>
                 </tr>
                 </tbody>
@@ -98,6 +109,53 @@
                 </form>
             </div>
         </div>
+        <div id="editAdminModal" class="modal hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center" onclick="closeModal('editAdminModal')">
+            <div class="bg-white p-6 rounded-md shadow-md w-96" onclick="event.stopPropagation()">
+                <h3 class="text-lg font-semibold mb-4">Edit Super Admin</h3>
+                <form id="editForm" th:action="@{/admin}" method="post">
+                    <input type="hidden" name="action" value="updateAdminNormal">
+                    <input type="hidden" name="adminId" id="editAdminId">
+                    <div class="mb-4">
+                        <label class="block mb-1">First Name</label>
+                        <input type="text" name="firstname" id="editAdminFirstName" class="border border-gray-300 rounded w-full p-2" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block mb-1">Last Name</label>
+                        <input type="text" name="lastname" id="editAdminLastName" class="border border-gray-300 rounded w-full p-2" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block mb-1">Email</label>
+                        <input type="email" name="email" id="editAdminEmail" class="border border-gray-300 rounded w-full p-2" required>
+                    </div>
+                    <div class="flex justify-end">
+                        <button type="button" class="px-4 py-2 bg-gray-300 text-black rounded hover:bg-gray-400 transition duration-200" onclick="closeModal('editAdminModal')">Cancel</button>
+                        <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-200 mx-4">Update</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div th:if="${totalPages > 0}" class="flex justify-center my-4">
+            <div class="pagination flex items-center space-x-2">
+                <span th:if="${currentPage > 1}">
+                                <a th:href="@{/admin(tableType='admins', page=${currentPage - 1}, size=${pageSize})}"
+                                   class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-200">Previous</a>
+                </span>
+
+                <span th:each="page : ${#numbers.sequence(1, totalPages)}">
+                        <a th:href="@{/admin(tableType='admins', page=${page}, size=${pageSize})}"
+                           th:block
+                           th:class="${page == currentPage} ? 'px-4 py-2 rounded hover:bg-blue-300 transition duration-200 bg-blue-500 text-white'
+                                       : 'px-4 py-2 rounded hover:bg-gray-100 transition duration-200 bg-gray-200'">
+                                        <span th:text="${page}"></span>
+                        </a>
+                </span>
+
+                <span th:if="${currentPage < totalPages}">
+                    <a th:href="@{/admin(tableType='admins', page=${currentPage + 1}, size=${pageSize})}"
+                       class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-200">Next</a>
+                 </span>
+            </div>
+        </div>
     </div>
 </section>
 <script>
@@ -107,6 +165,20 @@
 
     function closeModal(modalId) {
         document.getElementById(modalId).classList.add('hidden');
+    }
+
+    function showEditModal(button) {
+        const adminId = button.getAttribute('data-id');
+        const firstName = button.getAttribute('data-firstname');
+        const lastName = button.getAttribute('data-lastname');
+        const email = button.getAttribute('data-email');
+
+        document.getElementById('editAdminId').value = adminId;
+        document.getElementById('editAdminFirstName').value = firstName;
+        document.getElementById('editAdminLastName').value = lastName;
+        document.getElementById('editAdminEmail').value = email;
+
+        showModal('editAdminModal');
     }
 </script>
 </body>

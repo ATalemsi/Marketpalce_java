@@ -17,8 +17,12 @@ public interface CommandDao {
 
     void update(Command command) ;
 
-    public List<Command> getAllCommandsOrderedByLatest() ;
+     List<Command> getAllCommandsOrderedByLatest() ;
 
 
     List<Command> findByIdOrStatus(Integer id, String status);
+
+    Command findLastCommandByClientId(int clientId);
+
+    void saveCommand(Command command);
 }

@@ -17,6 +17,7 @@ public class CommandDaoImpl implements CommandDao {
         this.entityManager = entityManager;
     }
 
+
     @Override
     public List<Command> getCommandsByClientId(int clientId) {
         entityManager.clear();
@@ -49,7 +50,13 @@ public class CommandDaoImpl implements CommandDao {
         TypedQuery<Command> query = entityManager.createQuery(jpql, Command.class);
         return query.getResultList();
     }
-
+    public Command findLastCommandByClientId(int clientId) {
+        TypedQuery<Command> query = entityManager.createQuery(
+                "SELECT c FROM Command c WHERE c.client.id = :clientId ORDER BY c.id DESC", Command.class);
+        query.setParameter("clientId", clientId);
+        query.setMaxResults(1);
+        return query.getResultStream().findFirst().orElse(null);
+    }
 
     @Override
     public List<Command> findByIdOrStatus(Integer id, String status) {
@@ -59,4 +66,19 @@ public class CommandDaoImpl implements CommandDao {
         query.setParameter("status", status);
         return query.getResultList();
     }
+    @Override
+    @Transactional
+    public void saveCommand(Command command) {
+        try {
+            entityManager.getTransaction().begin();
+            entityManager.persist(command);
+            entityManager.getTransaction().commit();
+        } catch (Exception e) {
+            if (entityManager.getTransaction().isActive()) {
+                entityManager.getTransaction().rollback();
+            }
+            e.printStackTrace();
+        }
+    }
+
 }

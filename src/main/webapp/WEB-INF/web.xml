@@ -21,7 +21,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
-        <url-pattern>/login</url-pattern>
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -176,5 +176,7 @@
         <servlet-name>CommandSearchServlet</servlet-name>
         <url-pattern>/search/commands</url-pattern>
     </servlet-mapping>
+
+
 
 </web-app>

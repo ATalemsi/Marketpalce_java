@@ -8,6 +8,7 @@ import com.market.marketplace.dao.daoImpl.CommandDaoImpl;
 import com.market.marketplace.entities.Command;
 import com.market.marketplace.service.CommandService;
 import com.market.marketplace.service.serviceImpl.CommandServiceImpl;
+import com.market.marketplace.util.ThymeleafUtil;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 
@@ -18,6 +19,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
@@ -25,12 +27,14 @@ public class GetComandsServlet extends HttpServlet {
 
     private EntityManagerFactory emf;
     private CommandService commandService;
+    public ThymeleafUtil templateEngine;
 
     @Override
     public void init() throws ServletException {
         // Initialize the EntityManagerFactory
         emf = Persistence.createEntityManagerFactory("marketPlace");
         EntityManager em = emf.createEntityManager();
+        templateEngine = new ThymeleafUtil(getServletContext());
 
         // Initialize CommandDAO and CommandService
         CommandDao commandDAO = new CommandDaoImpl(em) ;
@@ -42,14 +46,12 @@ public class GetComandsServlet extends HttpServlet {
         // Set the content type to HTML
         response.setContentType("text/html;charset=UTF-8");
 
-        // Retrieve the Thymeleaf TemplateEngine instance from the servlet context
-        TemplateEngine templateEngine = (TemplateEngine) getServletContext().getAttribute(ThymeleafConfig.TEMPLATE_ENGINE_ATTR);
+    WebContext context = new WebContext(request, response, getServletContext());
+        HttpSession session = request.getSession(false);
 
-        // Create a WebContext for the current request
-        WebContext context = new WebContext(request, response, getServletContext());
+        Integer clientId = (Integer) session.getAttribute("userId");
 
-
-        List<Command> commands = commandService.getCommandsForClient(2);
+        List<Command> commands = commandService.getCommandsForClient(clientId);
 
         for (Command command : commands) {
             command.setOrderDateString(DateUtil.localDateToString(command.getOrderDate())); // Ajoutez un attribut temporaire si nécessaire
@@ -57,7 +59,7 @@ public class GetComandsServlet extends HttpServlet {
 
         context.setVariable("commands", commands);
 
-        templateEngine.process("Command/Client_Command", context, response.getWriter());
+        templateEngine.returnView( context, response,"Command/Client_Command");
     }
 
     @Override

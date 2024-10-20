@@ -15,5 +15,6 @@ public interface CommandService {
 
     List<Command> getAllCommandsOrderedByLatest();
     List<Command> findCommandBySearch(Integer id, String status);
-
+    Command findLastCommandByClientId(int clientId);
+    void saveCommand(Command command);
 }

@@ -1,11 +1,19 @@
 package com.market.marketplace.servlet.auth;
 
+import com.market.marketplace.dao.CommandDao;
+import com.market.marketplace.dao.CommandProductDAO;
 import com.market.marketplace.dao.daoImpl.AdminDaoImpl;
 import com.market.marketplace.dao.daoImpl.ClientDaoImpl;
+import com.market.marketplace.dao.daoImpl.CommandDaoImpl;
+import com.market.marketplace.dao.daoImpl.CommandProductDAOImpl;
 import com.market.marketplace.entities.Admin;
 import com.market.marketplace.entities.User;
+import com.market.marketplace.service.CommandProductService;
+import com.market.marketplace.service.CommandService;
 import com.market.marketplace.service.serviceImpl.AuthServiceImpl;
 import com.market.marketplace.service.serviceImpl.ClientServiceImpl;
+import com.market.marketplace.service.serviceImpl.CommandProductServiceImpl;
+import com.market.marketplace.service.serviceImpl.CommandServiceImpl;
 import org.mindrot.jbcrypt.BCrypt;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
@@ -73,6 +81,8 @@ public class LoginServlet extends HttpServlet {
             User user = authServiceImpl.getUserByEmail(email);
 
             HttpSession session = request.getSession(true);
+            session.setAttribute("user", user);
+
             session.setAttribute("email", email);
             session.setAttribute("role", user.getRole().name());
             session.setAttribute("userId", user.getId());
@@ -101,6 +111,12 @@ public class LoginServlet extends HttpServlet {
                     session.setAttribute("role", user.getRole().name());
                     redirectUrl = request.getContextPath() + "/admin?tableType=admins";
                 }
+            }else if ("CLIENT".equals(user.getRole().name())) {
+                EntityManager em = this.entityManagerFactory.createEntityManager();
+                CommandDao commandProductDAO = new CommandDaoImpl(em);
+                CommandService commandService = new CommandServiceImpl(commandProductDAO);
+                session.setAttribute("currentCommandId" , commandService.findLastCommandByClientId(user.getId()).getId());
+                redirectUrl = request.getContextPath() + "/products";
             }
             response.sendRedirect(redirectUrl);
         } else {

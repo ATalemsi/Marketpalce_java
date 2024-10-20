@@ -38,19 +38,22 @@
                         <input type="hidden" name="commandId" th:value="${command.id}">
                         <button type="submit" class="text-blue-500 hover:underline">View Details</button>
                     </form>
-
+                    <div th:if="${command.status.name() != 'CANCELED'}">
                         <form th:action="@{/commands/change-status}" method="post" class="mt-2">
                             <input type="hidden" name="commandId" th:value="${command.id}">
                             <label for="status" class="block text-sm font-medium text-gray-700">Change Status:</label>
-                            <select name="status" id="status" class="mt-1 block w-full bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                            <select name="status" id="status"
+                                    class="mt-1 block w-full bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                 <option value="PENDING" th:if="${command.status.name() != 'PENDING'}">PENDING</option>
-                                <option value="PROCESSING" th:if="${command.status.name() != 'PROCESSING'}">PROCESSING</option>
+                                <option value="PROCESSING" th:if="${command.status.name() != 'PROCESSING'}">PROCESSING
+                                </option>
                                 <option value="EXPIRED" th:if="${command.status.name() != 'EXPIRED'}">EXPIRED</option>
                                 <option value="SHIPPED" th:if="${command.status.name() != 'SHIPPED'}">SHIPPED</option>
-                                <option value="CANCELED" th:if="${command.status.name() != 'CANCELED'}">CANCELED</option>
                             </select>
                             <button type="submit" class="text-green-500 hover:underline mt-2">Update Status</button>
                         </form>
+                    </div>
+
                 </td>
             </tr>
             </tbody>

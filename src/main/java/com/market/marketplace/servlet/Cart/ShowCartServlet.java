@@ -6,6 +6,7 @@ import com.market.marketplace.dao.daoImpl.CommandProductDAOImpl;
 import com.market.marketplace.entities.CommandProduct;
 import com.market.marketplace.service.CommandProductService;
 import com.market.marketplace.service.serviceImpl.CommandProductServiceImpl;
+import com.market.marketplace.util.ThymeleafUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.thymeleaf.TemplateEngine;
@@ -18,6 +19,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
@@ -27,6 +29,7 @@ public class ShowCartServlet extends HttpServlet {
 
     private CommandProductService commandProductService;
     private EntityManagerFactory emf;
+    public ThymeleafUtil templateEngine;
 
     public ShowCartServlet() {
         super();
@@ -38,20 +41,31 @@ public class ShowCartServlet extends HttpServlet {
         EntityManager em = emf.createEntityManager();
         CommandProductDAO commandProductDAO = new CommandProductDAOImpl(em);
         this.commandProductService = new CommandProductServiceImpl(commandProductDAO);
+        templateEngine = new ThymeleafUtil(getServletContext());
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         response.setContentType("text/html;charset=UTF-8");
 
-        List<CommandProduct> cartProducts = commandProductService.getCurrentCartForClient(2 , 1);
+        HttpSession session = request.getSession(false);
+        if (session != null) {
+            Integer clientId = (Integer) session.getAttribute("userId");
+            Integer commandId = (Integer) session.getAttribute("currentCommandId");
 
-        TemplateEngine templateEngine = (TemplateEngine) getServletContext().getAttribute(ThymeleafConfig.TEMPLATE_ENGINE_ATTR);
+            if (clientId != null && commandId != null) {
+                List<CommandProduct> cartProducts = commandProductService.getCurrentCartForClient(clientId, commandId);
 
-        WebContext context = new WebContext(request, response, getServletContext());
+                WebContext context = new WebContext(request, response, request.getServletContext(), request.getLocale());
+                context.setVariable("cartProducts", cartProducts);
 
-        context.setVariable("cartProducts", cartProducts);
-
-        templateEngine.process("Cart/Show", context, response.getWriter());
+                templateEngine.returnView(context, response, "Cart/Show");
+            } else {
+                response.sendRedirect(request.getContextPath() + "/login");
+            }
+        } else {
+            response.sendRedirect(request.getContextPath() + "/login");
+        }
     }
 
 }

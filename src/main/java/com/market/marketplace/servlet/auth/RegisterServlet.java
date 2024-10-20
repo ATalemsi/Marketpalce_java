@@ -1,16 +1,23 @@
 package com.market.marketplace.servlet.auth;
 
+import com.market.marketplace.dao.CommandDao;
 import com.market.marketplace.dao.daoImpl.ClientDaoImpl;
+import com.market.marketplace.dao.daoImpl.CommandDaoImpl;
 import com.market.marketplace.entities.Client;
+import com.market.marketplace.entities.Command;
 import com.market.marketplace.entities.User;
+import com.market.marketplace.entities.enums.CommandStatus;
 import com.market.marketplace.entities.enums.Role;
+import com.market.marketplace.service.CommandService;
 import com.market.marketplace.service.serviceImpl.AuthServiceImpl;
+import com.market.marketplace.service.serviceImpl.CommandServiceImpl;
 import org.mindrot.jbcrypt.BCrypt;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 import org.thymeleaf.templatemode.TemplateMode;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 
+import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.servlet.ServletConfig;
@@ -19,6 +26,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.time.LocalDate;
 
 public class RegisterServlet extends HttpServlet {
 
@@ -78,6 +86,18 @@ public class RegisterServlet extends HttpServlet {
             boolean isRegistered = authServiceImpl.registerUser(newUser);
 
             if (isRegistered) {
+                Command defaultCommand = new Command();
+                defaultCommand.setClient(newUser);
+                defaultCommand.setStatus(CommandStatus.PENDING);
+                defaultCommand.setOrderDate(LocalDate.now());
+
+                newUser.addCommand(defaultCommand);
+
+                EntityManager em = this.entityManagerFactory.createEntityManager();
+                CommandDao commandProductDAO = new CommandDaoImpl(em);
+                CommandService commandService = new CommandServiceImpl(commandProductDAO);
+                commandService.saveCommand(defaultCommand);
+
                 response.sendRedirect(request.getContextPath() + "/login");
             } else {
                 response.sendRedirect(request.getContextPath() + "/register?error=Registration failed");

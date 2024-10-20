@@ -15,7 +15,7 @@ public class Client extends User {
     private List<Command> commands = new ArrayList<>();
 
 
-    @Size(min = 10, max = 255, message = "Shipping address must be between 10 and 255 characters")
+    @Size( min = 10, max = 255, message = "Shipping address must be between 10 and 255 characters")
     @Column()
     private String shippingAddress;
 

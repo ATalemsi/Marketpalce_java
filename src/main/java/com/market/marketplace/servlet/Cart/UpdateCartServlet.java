@@ -9,6 +9,7 @@ import com.market.marketplace.entities.CommandProduct;
 import com.market.marketplace.entities.Product;
 import com.market.marketplace.service.CommandProductService;
 import com.market.marketplace.service.serviceImpl.CommandProductServiceImpl;
+import com.market.marketplace.util.ThymeleafUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -34,12 +35,16 @@ public class UpdateCartServlet extends HttpServlet {
     private EntityManagerFactory emf;
     private final Gson gson = new Gson();
 
+    public ThymeleafUtil templateEngine;
+
     @Override
     public void init() throws ServletException {
         emf = Persistence.createEntityManagerFactory("marketPlace");
         EntityManager em = emf.createEntityManager();
         CommandProductDAO commandProductDAO = new CommandProductDAOImpl(em);
         this.commandProductService = new CommandProductServiceImpl(commandProductDAO);
+        templateEngine = new ThymeleafUtil(getServletContext());
+
     }
 
     @Override

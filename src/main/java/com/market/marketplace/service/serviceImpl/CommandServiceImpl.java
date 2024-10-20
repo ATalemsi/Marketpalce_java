@@ -55,4 +55,14 @@ public class CommandServiceImpl implements CommandService {
         return commandDAO.findByIdOrStatus(id , status);
     }
 
+    @Override
+    public Command findLastCommandByClientId(int clientId) {
+        System.out.println("****************************************************\n" + clientId);
+        return commandDAO.findLastCommandByClientId(clientId);
+    }
+
+    @Override
+    public void saveCommand(Command command) {
+        commandDAO.saveCommand(command);
+    }
 }

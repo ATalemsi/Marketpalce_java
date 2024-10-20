@@ -7,6 +7,7 @@ import com.market.marketplace.dao.daoImpl.CommandDaoImpl;
 import com.market.marketplace.entities.Command;
 import com.market.marketplace.service.CommandService;
 import com.market.marketplace.service.serviceImpl.CommandServiceImpl;
+import com.market.marketplace.util.ThymeleafUtil;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 
@@ -24,12 +25,14 @@ public class GetAllCommandsServlet extends HttpServlet {
 
     private EntityManagerFactory emf;
     private CommandService commandService;
+    public ThymeleafUtil templateEngine;
 
     @Override
     public void init() throws ServletException {
         // Initialize the EntityManagerFactory
         emf = Persistence.createEntityManagerFactory("marketPlace");
         EntityManager em = emf.createEntityManager();
+        templateEngine = new ThymeleafUtil(getServletContext());
 
         // Initialize CommandDAO and CommandService
         CommandDao commandDAO = new CommandDaoImpl(em) ;
@@ -41,8 +44,6 @@ public class GetAllCommandsServlet extends HttpServlet {
         // Set the content type to HTML
         response.setContentType("text/html;charset=UTF-8");
 
-        // Retrieve the Thymeleaf TemplateEngine instance from the servlet context
-        TemplateEngine templateEngine = (TemplateEngine) getServletContext().getAttribute(ThymeleafConfig.TEMPLATE_ENGINE_ATTR);
 
         // Create a WebContext for the current request
         WebContext context = new WebContext(request, response, getServletContext());
@@ -56,6 +57,6 @@ public class GetAllCommandsServlet extends HttpServlet {
 
         context.setVariable("commands", commands);
 
-        templateEngine.process("Command/Admin_Command", context, response.getWriter());
+        templateEngine.returnView(context, response , "Command/Admin_Command");
     }
 }

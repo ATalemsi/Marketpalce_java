@@ -17,18 +17,10 @@
             <!-- Left column with images -->
             <div class="w-full md:w-1/2">
                 <div class="flex gap-4">
-                    <!-- Thumbnails column -->
-                    <div class="flex flex-col gap-4">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_v0H8hE4SC9TyB1jn8dj3Tam-B8jOPjX1Ow&s"
-                             alt="Thumbnail 1" class="w-20 h-20 object-cover">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_v0H8hE4SC9TyB1jn8dj3Tam-B8jOPjX1Ow&s"
-                             alt="Thumbnail 2" class="w-20 h-20 object-cover">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_v0H8hE4SC9TyB1jn8dj3Tam-B8jOPjX1Ow&s"
-                             alt="Thumbnail 3" class="w-20 h-20 object-cover">
-                    </div>
-                    <!-- Main image -->
+
                     <div class="flex-grow">
-                        <img src="https://mediacash.ma/thumbnail-400-450/02-e199951.jpg" alt="Havic HV G-92 Gamepad"
+                        <img src="https://res.cloudinary.com/dz4pww2qv/image/upload/v1729264838/vc99eqavstpvn9secvxz.webp"
+                             alt="Havic HV G-92 Gamepad"
                              class="w-full h-auto">
                     </div>
                 </div>
@@ -97,39 +89,6 @@
                 </div>
             </div>
         </div>
-        <div class="mt-12">
-            <h3 class="text-2xl font-bold mb-4">Related Items</h3>
-            <div class="flex flex-wrap -mx-4">
-                <div class="w-full sm:w-1/2 md:w-1/4 px-4 mb-8">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRIyHulFQXYZ2mKDe83ggEAJ3Sujr7GWmHVg&s"
-                         alt="ASUS FHD Gaming Laptop" class="w-full mb-4">
-                    <h4 class="font-bold">ASUS FHD Gaming Laptop</h4>
-                    <p class="text-red-600">$960 <span class="line-through text-gray-500">$1160</span></p>
-                    <button class="bg-black text-white px-4 py-2 rounded mt-2 w-full">Add to Cart</button>
-                </div>
-                <div class="w-full sm:w-1/2 md:w-1/4 px-4 mb-8">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRIyHulFQXYZ2mKDe83ggEAJ3Sujr7GWmHVg&s"
-                         alt="IPS LCD Gaming Monitor" class="w-full mb-4">
-                    <h4 class="font-bold">IPS LCD Gaming Monitor</h4>
-                    <p class="text-red-600">$1160</p>
-                    <button class="bg-black text-white px-4 py-2 rounded mt-2 w-full">Add to Cart</button>
-                </div>
-                <div class="w-full sm:w-1/2 md:w-1/4 px-4 mb-8">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRIyHulFQXYZ2mKDe83ggEAJ3Sujr7GWmHVg&s"
-                         alt="HAVIT HV-G92 Gamepad" class="w-full mb-4">
-                    <h4 class="font-bold">HAVIT HV-G92 Gamepad</h4>
-                    <p class="text-red-600">$560</p>
-                    <button class="bg-black text-white px-4 py-2 rounded mt-2 w-full">Add to Cart</button>
-                </div>
-                <div class="w-full sm:w-1/2 md:w-1/4 px-4 mb-8">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRIyHulFQXYZ2mKDe83ggEAJ3Sujr7GWmHVg&s"
-                         alt="AK-900 Wired Keyboard" class="w-full mb-4">
-                    <h4 class="font-bold">AK-900 Wired Keyboard</h4>
-                    <p class="text-red-600">$200</p>
-                    <button class="bg-black text-white px-4 py-2 rounded mt-2 w-full">Add to Cart</button>
-                </div>
-            </div>
-        </div>
     </main>
 
 </div>
@@ -143,10 +102,11 @@
 
     let quantity = 1;
     const productId = [[${product.id}]]
-    const commandId = 1;
-
+    console.log([[${#session.getAttribute('currentCommandId')}]])
+    const commandId = [[${#session.getAttribute('currentCommandId')}]];
+    console.log(commandId);
     increaseBtn.addEventListener('click', function () {
-        if (quantity < [[${product.stock}]] ) {
+        if (quantity < [[${product.stock}]]) {
             quantity++;
             quantityDisplay.textContent = quantity;
         }
@@ -182,9 +142,9 @@
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    alert('Product added to command successfully!');
+                    alert('Product added to cart successfully!');
                 } else {
-                    alert('Failed to add product to command.');
+                    alert('Failed to add product to cart.');
                 }
             })
             .catch(error => {

@@ -6,6 +6,7 @@ import com.market.marketplace.dao.daoImpl.CommandDaoImpl;
 import com.market.marketplace.entities.Command;
 import com.market.marketplace.service.CommandService;
 import com.market.marketplace.service.serviceImpl.CommandServiceImpl;
+import com.market.marketplace.util.ThymeleafUtil;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 
@@ -21,7 +22,7 @@ import java.io.IOException;
 public class ViewCommandServlet extends HttpServlet {
 
     private CommandService commandService;
-    private TemplateEngine templateEngine;
+    public ThymeleafUtil templateEngine;
 
     @Override
     public void init() throws ServletException {
@@ -31,7 +32,7 @@ public class ViewCommandServlet extends HttpServlet {
         CommandDao commandDAO = new CommandDaoImpl(em);
         this.commandService = new CommandServiceImpl(commandDAO);
 
-       this.templateEngine = (TemplateEngine) getServletContext().getAttribute(ThymeleafConfig.TEMPLATE_ENGINE_ATTR);
+        templateEngine = new ThymeleafUtil(getServletContext());
 
      }
 
@@ -54,22 +55,22 @@ public class ViewCommandServlet extends HttpServlet {
                     context.setVariable("command", command);
                     context.setVariable("products", command.getCommandProducts());
 
-                    templateEngine.process("Command/commandDetails", context, response.getWriter());
+                    templateEngine.returnView(context , response , "Command/commandDetails");
 
                 } else {
                     request.setAttribute("error", "Command not found.");
                     WebContext context = new WebContext(request, response, getServletContext());
-                    templateEngine.process("error", context, response.getWriter());
+                    templateEngine.returnView(context , response ,"error");
                 }
             } catch (NumberFormatException e) {
                 request.setAttribute("error", "Invalid command ID.");
                 WebContext context = new WebContext(request, response, getServletContext());
-                templateEngine.process("error", context, response.getWriter());
+                templateEngine.returnView(context , response ,"error");
             }
         } else {
             request.setAttribute("error", "No command ID provided.");
             WebContext context = new WebContext(request, response, getServletContext());
-            templateEngine.process("error", context, response.getWriter());
+            templateEngine.returnView(context , response ,"error");
         }
     }
 }

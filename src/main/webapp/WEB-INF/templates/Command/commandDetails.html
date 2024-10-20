@@ -58,7 +58,8 @@
             <tr th:each="product : ${command.commandProducts}" th:attr="data-product-id=${product.product.id}, data-stock=${product.product.stock}">
                 <td class="p-4 border-b">
                     <div class="flex items-center">
-                        <img src="" alt="Product" class="w-16 h-16 rounded mr-4">
+                        <img src="https://res.cloudinary.com/dz4pww2qv/image/upload/v1729264838/vc99eqavstpvn9secvxz.webp"
+                             alt="Product" class="w-16 h-16 rounded mr-4">
                         <span th:text="${product.product.name}">LCD Monitor</span>
                     </div>
                 </td>
